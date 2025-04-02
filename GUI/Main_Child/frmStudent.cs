@@ -8,12 +8,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using BUS;
+using DTO;
 namespace GUI
 {
-    public partial class Student: Form
+    public partial class frmStudent: Form
     {
-        public Student()
+        public frmStudent()
         {
             InitializeComponent();
         }
@@ -28,13 +29,7 @@ namespace GUI
         int pageNumber = 1;
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            // Setup
-            printDocument.PrintPage += new PrintPageEventHandler(printDocument_PrintPage);
-
-            // Optional Preview
-            PrintPreviewDialog ppd = new PrintPreviewDialog();
-            ppd.Document = printDocument;
-            ppd.ShowDialog();
+            
 
         }
         private void printDocument_PrintPage(object sender, PrintPageEventArgs e)
@@ -118,12 +113,35 @@ namespace GUI
         {
 
         }
-
+         
+        
         private void Student_Load(object sender, EventArgs e)
         {
-            dgvStudent.Rows.Add("1", "Bro A", "90");
-            dgvStudent.Rows.Add("2", "Bro B", "85");
-            dgvStudent.Rows.Add("3", "Bro C", "100");
+            dgvStudent.Rows.Clear();
+
+            // Lấy danh sách học viên từ Business Layer
+            List<DTO_Student> list = BUS_Employee.Instance.GetStudentList();
+
+            // Duyệt qua danh sách học viên và thêm vào DataGridView
+            foreach (DTO_Student item in list)
+            {
+                // Tạo mảng các giá trị để thêm vào dòng của DataGridView
+                object[] rowValues = new object[]
+                {
+            item.StudentID,            // ID học viên
+            item.FullName,             // Tên học viên
+            item.Gender,               // Giới tính
+            item.DateOfBirth.ToString("dd/MM/yyyy"), // Ngày sinh (định dạng ngày tháng)
+            item.PhoneNumber,          // Số điện thoại
+            item.Email,                 // Email
+            item.Address,              // Địa chỉ
+            item.IdentityNumber       // Số chứng minh nhân dân / CCCD
+            
+                };
+
+                // Thêm dòng vào DataGridView
+                dgvStudent.Rows.Add(rowValues);
+            }
         }
 
         private void dgvStudent_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -132,8 +150,29 @@ namespace GUI
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
-        {
+        {   
 
+        }
+
+        private void btnIn(object sender, EventArgs e)
+        {
+            // Setup
+            printDocument.PrintPage += new PrintPageEventHandler(printDocument_PrintPage);
+
+            // Optional Preview
+            PrintPreviewDialog ppd = new PrintPreviewDialog();
+            ppd.Document = printDocument;
+            ppd.ShowDialog();
+        }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+           Student_Load(sender, e);
+        }
+
+        private void frmStudent_Load(object sender, EventArgs e)
+        {
+            Student_Load(sender, e);
         }
     }
 }

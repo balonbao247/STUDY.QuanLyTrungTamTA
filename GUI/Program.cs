@@ -22,7 +22,7 @@ namespace GUI
             //Application.Run(new Demo());
             //Application.Run(new frmStudentList());
             //Application.Run(new Login());
-            Application.Run(new Main());
+            Application.Run(new Login());
         }
     }
 }

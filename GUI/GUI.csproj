@@ -78,23 +78,11 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main_Child\frmStudentEdit.cs">
+    <Compile Include="Main_Child\frmStudent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main_Child\frmStudentEdit.Designer.cs">
-      <DependentUpon>frmStudentEdit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Main_Child\frmStudentList.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Main_Child\frmStudentList.Designer.cs">
-      <DependentUpon>frmStudentList.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Main_Child\Student.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Main_Child\Student.Designer.cs">
-      <DependentUpon>Student.cs</DependentUpon>
+    <Compile Include="Main_Child\frmStudent.Designer.cs">
+      <DependentUpon>frmStudent.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -125,8 +113,8 @@
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main_Child\Student.resx">
-      <DependentUpon>Student.cs</DependentUpon>
+    <EmbeddedResource Include="Main_Child\frmStudent.resx">
+      <DependentUpon>frmStudent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

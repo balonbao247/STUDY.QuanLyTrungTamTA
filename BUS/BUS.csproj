@@ -44,7 +44,7 @@
     <Compile Include="BUS_Login.cs" />
     <Compile Include="BUS_Student.cs" />
     <Compile Include="BUS_Teacher.cs" />
-    <Compile Include="Class1.cs" />
+    <Compile Include="BUS_Employee.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,0 +1,38 @@
+﻿using System.Data.SqlClient;
+using System.Data;
+using System;
+
+namespace DAL
+{
+    public class DAL_Employee
+    {
+        private static DAL_Employee instance;
+        public static DAL_Employee Instance
+        {
+            get { if (instance == null) instance = new DAL_Employee(); return instance; }
+            private set { instance = value; }
+        }
+
+        // Helper method to execute query and return DataTable
+        private DataTable ExecuteQuery(string query, params SqlParameter[] parameters)
+        {
+            try
+            {
+                return DAL_DataProvider.Instance.ExecuteQuery(query, parameters);
+            }
+            catch (Exception ex)
+            {
+                // Log the error (can be improved further by logging to a file or database)
+                Console.WriteLine("Error executing query: " + ex.Message);
+                throw; // Re-throw exception for further handling if necessary
+            }
+        }
+
+        // Get List of Students (Updated SQL procedure)
+        public DataTable GetListStudent()
+        {
+            string query = "exec sp_GetAllStudents"; // Thủ tục SQL lấy danh sách học viên
+            return ExecuteQuery(query);
+        }
+    }
+}

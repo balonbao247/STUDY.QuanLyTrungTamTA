@@ -88,6 +88,7 @@
             this.Controls.Add(this.guna2TextBox2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Teacher";
+            this.ShowInTaskbar = false;
             this.Text = "Teacher";
             this.ResumeLayout(false);
             this.PerformLayout();

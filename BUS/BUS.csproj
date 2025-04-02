@@ -42,8 +42,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BUS_Login.cs" />
+    <Compile Include="BUS_Student.cs" />
+    <Compile Include="BUS_Teacher.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{244f424e-4489-48e8-84d8-b933877af9e4}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DTO\DTO.csproj">
+      <Project>{a95984b3-bb1d-4ff9-93d3-73c9437779d0}</Project>
+      <Name>DTO</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

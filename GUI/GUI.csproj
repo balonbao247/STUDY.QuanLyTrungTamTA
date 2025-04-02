@@ -59,23 +59,36 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Demo.cs">
+    <Compile Include="Config.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Demo.Designer.cs">
-      <DependentUpon>Demo.cs</DependentUpon>
+    <Compile Include="Config.Designer.cs">
+      <DependentUpon>Config.cs</DependentUpon>
     </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main.Designer.cs">
+    <Compile Include=".Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main_Child\frmStudentEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main_Child\frmStudentEdit.Designer.cs">
+      <DependentUpon>frmStudentEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main_Child\frmStudentList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main_Child\frmStudentList.Designer.cs">
+      <DependentUpon>frmStudentList.cs</DependentUpon>
     </Compile>
     <Compile Include="Main_Child\Student.cs">
       <SubType>Form</SubType>
@@ -103,8 +116,8 @@
     <Compile Include="ResetPass.Designer.cs">
       <DependentUpon>ResetPass.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Demo.resx">
-      <DependentUpon>Demo.cs</DependentUpon>
+    <EmbeddedResource Include="Config.resx">
+      <DependentUpon>Config.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
@@ -224,6 +237,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ChatGPT Image 15_52_39 30 thg 3, 2025 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ADMIN\" />
+    <Folder Include="StudentACC\" />
+    <Folder Include="TeacherACC\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

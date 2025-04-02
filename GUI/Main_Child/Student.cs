@@ -48,7 +48,7 @@ namespace GUI
             int tableWidth = e.MarginBounds.Width;
             int colCount = dgvStudent.Columns.Count;
 
-            // ✅ AUTO-FIT COLUMN WIDTH
+            // AUTO-FIT COLUMN WIDTH
             int colWidth = tableWidth / colCount;
 
             // --- Header ---
@@ -56,18 +56,18 @@ namespace GUI
             string broText = "BRO ENGLISH";
             string dateText = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
 
-            // ✅ Draw "BRO ENGLISH" top-right
+            //Draw "BRO ENGLISH" top-right
             e.Graphics.DrawString(broText, headerFont, Brushes.Black, e.MarginBounds.Right - e.Graphics.MeasureString(broText, headerFont).Width, y - 70);
 
-            // ✅ Centered Title
+            // Centered Title
             SizeF titleSize = e.Graphics.MeasureString(title, headerFont);
             e.Graphics.DrawString(title, headerFont, Brushes.Black, e.MarginBounds.Left + (tableWidth - titleSize.Width) / 2, y - 50);
 
-            // ✅ Print Date below title
+            // Print Date below title
             SizeF dateSize = e.Graphics.MeasureString(dateText, smallFont);
             e.Graphics.DrawString(dateText, smallFont, Brushes.Black, e.MarginBounds.Left + (tableWidth - dateSize.Width) / 2, y - 25);
 
-            // --- Draw Column Headers ---
+            // Draw Column Headers 
             for (int j = 0; j < colCount; j++)
             {
                 e.Graphics.DrawRectangle(Pens.Black, x, y, colWidth, 40);
@@ -78,7 +78,7 @@ namespace GUI
             y += 40;
             x = e.MarginBounds.Left;
 
-            // --- Draw Rows ---
+            // Draw Rows
             while (rowIndex < dgvStudent.Rows.Count)
             {
                 DataGridViewRow row = dgvStudent.Rows[rowIndex];
@@ -104,7 +104,7 @@ namespace GUI
                 }
             }
 
-            // ✅ Footer --- Page Number bottom right
+            //Footer --- Page Number bottom right
             string pageNumText = $"Page {pageNumber}";
             e.Graphics.DrawString(pageNumText, smallFont, Brushes.Black, e.MarginBounds.Right - e.Graphics.MeasureString(pageNumText, smallFont).Width, e.MarginBounds.Bottom + 20);
 
@@ -127,6 +127,11 @@ namespace GUI
         }
 
         private void dgvStudent_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
         {
 
         }

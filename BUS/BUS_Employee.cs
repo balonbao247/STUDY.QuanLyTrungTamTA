@@ -34,5 +34,9 @@ namespace BUS
             // Trả về danh sách học viên
             return listStudent;
         }
+        public bool DeleteStudent(int studentID)
+        {
+            return DAL_Employee.Instance.DeleteStudent(studentID);
+        }
     }
 }

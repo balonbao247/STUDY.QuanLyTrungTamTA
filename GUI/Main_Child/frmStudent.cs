@@ -146,12 +146,35 @@ namespace GUI
 
         private void dgvStudent_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            if (e.RowIndex >= 0) // Đảm bảo không nhấn vào header
+            {
+                dgvStudent.Rows[e.RowIndex].Selected = true;
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
-        {   
-
+        {
+            if (dgvStudent.SelectedRows.Count > 0)
+            {
+                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa học viên này?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    foreach (DataGridViewRow row in dgvStudent.SelectedRows)
+                    {
+                        if (!row.IsNewRow)
+                        {
+                            int studentID = Convert.ToInt32(row.Cells[0].Value); // Lấy ID học viên
+                            dgvStudent.Rows.Remove(row); // Xóa khỏi GridView
+                            BUS_Employee.Instance.DeleteStudent(studentID); // Xóa khỏi database
+                        }
+                    }
+                    MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một hàng để xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btnIn(object sender, EventArgs e)

@@ -34,5 +34,12 @@ namespace DAL
             string query = "exec sp_GetAllStudents"; // Thủ tục SQL lấy danh sách học viên
             return ExecuteQuery(query);
         }
+        public bool DeleteStudent(int studentID)
+        {
+            string query = "DELETE FROM Students WHERE StudentID = @StudentID";
+            int result = DAL_DataProvider.Instance.ExecuteNonQuery(query, new object[] { studentID });
+            return result > 0; // Trả về true nếu xóa thành công
+        }
+
     }
 }

@@ -104,7 +104,8 @@ namespace GUI
         private void btnTeacher_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color2);
-           
+            OpenChildForm(new GUI.frmTeacher());
+
         }
         private void btnStudent_Click(object sender, EventArgs e)
         {

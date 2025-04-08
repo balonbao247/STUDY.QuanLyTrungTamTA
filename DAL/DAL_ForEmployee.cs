@@ -4,12 +4,12 @@ using System;
 
 namespace DAL
 {
-    public class DAL_Employee
+    public class DAL_ForEmployee
     {
-        private static DAL_Employee instance;
-        public static DAL_Employee Instance
+        private static DAL_ForEmployee instance;
+        public static DAL_ForEmployee Instance
         {
-            get { if (instance == null) instance = new DAL_Employee(); return instance; }
+            get { if (instance == null) instance = new DAL_ForEmployee(); return instance; }
             private set { instance = value; }
         }
 
@@ -39,6 +39,19 @@ namespace DAL
             string query = "DELETE FROM Students WHERE StudentID = @StudentID";
             int result = DAL_DataProvider.Instance.ExecuteNonQuery(query, new object[] { studentID });
             return result > 0; // Trả về true nếu xóa thành công
+        }
+        //get list of teachers
+        public DataTable GetListTeacher()
+        {
+            string query = "exec sp_GetAllTeachers";
+            return ExecuteQuery(query);
+        }
+
+        public bool DeleteTeacher(int teacherID )
+        {
+            string query = "DELETE FROM Teachers WHERE TeacherID = @TeacherID";
+            int result = DAL_DataProvider.Instance.ExecuteNonQuery(query, new object[] { teacherID });
+            return result > 0;
         }
 
     }

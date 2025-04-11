@@ -121,14 +121,17 @@
   <data name="bro_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bro_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="370082_find_search_zoom_magnifier_view_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\370082_find_search_zoom_magnifier_view_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ICON (1) (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ICON (1) (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="broenglish" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\broenglish.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="pngwing.com" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pngwing.com.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ChatGPT Image 15_52_39 30 thg 3, 2025 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ChatGPT Image 15_52_39 30 thg 3, 2025 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="profile_3135768" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\profile_3135768.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -139,8 +142,11 @@
   <data name="163983763316274686813758-128" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\163983763316274686813758-128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="4781836_eye_hide_off_see_view_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\4781836_eye_hide_off_see_view_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="6570722_doctor_education_learning_lecture_man_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\6570722_doctor_education_learning_lecture_man_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ICON (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ICON (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="134224_add_plus_new_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\134224_add_plus_new_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -157,14 +163,11 @@
   <data name="background" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\background.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ICON (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ICON (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="370082_find_search_zoom_magnifier_view_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\370082_find_search_zoom_magnifier_view_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="6570722_doctor_education_learning_lecture_man_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\6570722_doctor_education_learning_lecture_man_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ICON (1) (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ICON (1) (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="4781836_eye_hide_off_see_view_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\4781836_eye_hide_off_see_view_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="9027041_student_thin_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\9027041_student_thin_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -178,7 +181,7 @@
   <data name="8491315_menu_list_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\8491315_menu_list_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ChatGPT Image 15_52_39 30 thg 3, 2025 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ChatGPT Image 15_52_39 30 thg 3, 2025 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="622400_pen_pencil_edit_write_writing_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\622400_pen_pencil_edit_write_writing_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

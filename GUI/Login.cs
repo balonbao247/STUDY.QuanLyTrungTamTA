@@ -92,5 +92,10 @@ namespace GUI
         {
 
         }
+
+        private void txtbUser_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -7,9 +7,12 @@ using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Forms;
 using BUS;
 using DTO;
+using GUI.ADD_Form;
+using Guna.UI2.WinForms;
 namespace GUI
 {
     public partial class frmStudent: Form
@@ -22,14 +25,52 @@ namespace GUI
         
         private void guna2TextBox2_TextChanged(object sender, EventArgs e)
         {
+            string keyword = txtSearch.Text.Trim().ToLower();
 
+            List<DTO_Student> allStudents = BUS_Employee.Instance.GetStudentList();
+
+            // Lọc danh sách theo tên
+            var filtered = allStudents
+                .Where(s => s.FullName.ToLower().Contains(keyword))
+                .ToList();
+
+            // Cập nhật lại DataGridView
+            dgvStudent.Rows.Clear();
+
+            foreach (DTO_Student item in filtered)
+            {
+                object[] rowValues = new object[]
+                {
+            item.StudentID,
+            item.FullName,
+            item.Gender,
+            item.DateOfBirth.ToString("dd/MM/yyyy"),
+            item.PhoneNumber,
+            item.Email,
+            item.Address,
+            item.IdentityNumber
+                };
+
+                dgvStudent.Rows.Add(rowValues);
+            }
+        
         }
         PrintDocument printDocument = new PrintDocument();
         int rowIndex = 0;
         int pageNumber = 1;
+       
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            
+            FormADDStudent formADDStudent = new FormADDStudent();
+            BlurBackground blurBackground = new BlurBackground();
+            blurBackground.Show();
+            formADDStudent.ShowDialog();
+            formADDStudent.FormClosed += (s, args) =>
+            {
+                blurBackground.Close();
+            };
+            // Mở FormAddStudent
+
 
         }
         private void printDocument_PrintPage(object sender, PrintPageEventArgs e)
@@ -196,6 +237,17 @@ namespace GUI
         private void frmStudent_Load(object sender, EventArgs e)
         {
             Student_Load(sender, e);
+        }
+
+        private void dgvStudent_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dgvStudent.Columns[e.ColumnIndex].Name == "Edit")
+            {
+                var btnCell = dgvStudent.Rows[e.RowIndex].Cells[e.ColumnIndex] as DataGridViewButtonCell;
+                btnCell.Style.BackColor = Color.DodgerBlue;
+                btnCell.Style.ForeColor = Color.White;
+                btnCell.FlatStyle = FlatStyle.Flat;
+            }
         }
     }
 }

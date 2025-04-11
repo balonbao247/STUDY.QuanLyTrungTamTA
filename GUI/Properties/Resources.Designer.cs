@@ -143,6 +143,16 @@ namespace GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _622400_pen_pencil_edit_write_writing_icon {
+            get {
+                object obj = ResourceManager.GetObject("622400_pen_pencil_edit_write_writing_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _6570722_doctor_education_learning_lecture_man_icon {
             get {
                 object obj = ResourceManager.GetObject("6570722_doctor_education_learning_lecture_man_icon", resourceCulture);

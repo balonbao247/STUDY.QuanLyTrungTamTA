@@ -95,6 +95,7 @@ namespace GUI
             tieude2.Text = childForm.Text;
         }
 
+
         private void btnDashboard_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);

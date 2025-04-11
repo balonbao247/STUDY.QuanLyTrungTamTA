@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GUI.ADD_Form;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -18,11 +19,13 @@ namespace GUI
         {   
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Login());
+            Application.Run(new Login());
             //Application.Run(new Demo());
             //Application.Run(new frmStudentList());
-            //Application.Run(new Login());
-            Application.Run(new Login());
+            //Application.Run(new Main());
+            //Application.Run(new FormADDStudent());
+            //Application.Run(new Teacher());
+            //Application.Run(new BlurBackground());    
         }
     }
 }

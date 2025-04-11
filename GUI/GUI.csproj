@@ -59,6 +59,24 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ADD_Form\AddTeacher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ADD_Form\AddTeacher.Designer.cs">
+      <DependentUpon>AddTeacher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ADD_Form\BlurBackground.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ADD_Form\BlurBackground.Designer.cs">
+      <DependentUpon>BlurBackground.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ADD_Form\FormADDStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ADD_Form\FormADDStudent.Designer.cs">
+      <DependentUpon>FormADDStudent.cs</DependentUpon>
+    </Compile>
     <Compile Include="Config.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +128,15 @@
     <Compile Include="ResetPass.Designer.cs">
       <DependentUpon>ResetPass.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ADD_Form\AddTeacher.resx">
+      <DependentUpon>AddTeacher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ADD_Form\BlurBackground.resx">
+      <DependentUpon>BlurBackground.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ADD_Form\FormADDStudent.resx">
+      <DependentUpon>FormADDStudent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Config.resx">
       <DependentUpon>Config.cs</DependentUpon>
     </EmbeddedResource>
@@ -236,9 +263,11 @@
     <None Include="Resources\ChatGPT Image 15_52_39 30 thg 3, 2025 %281%29.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ADMIN\" />
     <Folder Include="StudentACC\" />
     <Folder Include="TeacherACC\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\622400_pen_pencil_edit_write_writing_icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

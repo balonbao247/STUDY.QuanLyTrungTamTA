@@ -45,6 +45,7 @@
     <Compile Include="DAL_Student.cs" />
     <Compile Include="DAL_DataProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DAL_Teacher.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DTO\DTO.csproj">

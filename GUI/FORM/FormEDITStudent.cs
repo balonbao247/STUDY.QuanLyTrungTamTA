@@ -1,4 +1,6 @@
-﻿using Guna.UI2.WinForms;
+﻿using BUS;
+using DTO;
+using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,11 +14,23 @@ using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrayNotify;
 namespace GUI.ADD_Form
 {
-    public partial class FormADDStudent: Form
+    public partial class FormEDITStudent: Form
     {
-        public FormADDStudent()
+        private DTO_Student Student;
+        public FormEDITStudent(DTO_Student Student)
         {
             InitializeComponent();
+            this.Student=Student;
+            txtStudentID.Text = Student.StudentID;  // <-- Load ID vào đây
+            txtFullName.Text = Student.FullName;
+            cboGender.SelectedItem = Student.Gender;
+            dtpDOB.Value = Student.DateOfBirth;
+            txtPhone.Text = Student.PhoneNumber;
+            txtEmail.Text = Student.Email;
+            txtAddress.Text = Student.Address;
+            txtCCCD.Text = Student.IdentityNumber;
+
+            txtStudentID.ReadOnly = true;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -116,6 +130,40 @@ namespace GUI.ADD_Form
             // Nếu có lỗi thì return
             if (!isValid)
                 return;
+            DTO_Student updateStudent = new DTO_Student(
+                txtStudentID.Text,        // StudentID
+                txtFullName.Text,         // FullName
+                cboGender.SelectedItem.ToString(), // Gender
+                dtpDOB.Value,             // DateOfBirth
+                txtPhone.Text,            // PhoneNumber
+                txtEmail.Text,            // Email
+                txtAddress.Text,          // Address
+                txtCCCD.Text              // IdentityNumber
+            );
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form is BlurBackground)
+                {
+                    form.Hide();
+
+                }
+            }
+            bool success = BUS_Student.Instance.UpdateStudent(updateStudent);
+            if (success)
+            {
+                MessageBox.Show("Cập nhật học viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Cập nhật thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void lblFullName_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

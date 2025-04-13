@@ -22,16 +22,16 @@ namespace GUI
             InitializeComponent();
         }
        
-        
+        //thanh search
         private void guna2TextBox2_TextChanged(object sender, EventArgs e)
         {
             string keyword = txtSearch.Text.Trim().ToLower();
 
-            List<DTO_Student> allStudents = BUS_Employee.Instance.GetStudentList();
+            List<DTO_Student> allStudents = BUS_Student.Instance.GetAllStudents();
 
-            // Lọc danh sách theo tên
+            // Lọc danh sách theo tên vAo mã học viên
             var filtered = allStudents
-                .Where(s => s.FullName.ToLower().Contains(keyword))
+                .Where(s => s.FullName.ToLower().Contains(keyword) || s.StudentID.ToLower().Contains(keyword))
                 .ToList();
 
             // Cập nhật lại DataGridView
@@ -41,24 +41,24 @@ namespace GUI
             {
                 object[] rowValues = new object[]
                 {
-            item.StudentID,
-            item.FullName,
-            item.Gender,
-            item.DateOfBirth.ToString("dd/MM/yyyy"),
-            item.PhoneNumber,
-            item.Email,
-            item.Address,
-            item.IdentityNumber
+                item.StudentID,
+                item.FullName,
+                item.Gender,
+                item.DateOfBirth.ToString("dd/MM/yyyy"),
+                item.PhoneNumber,
+                item.Email,
+                item.Address,
+                item.IdentityNumber
                 };
 
                 dgvStudent.Rows.Add(rowValues);
             }
-        
         }
         PrintDocument printDocument = new PrintDocument();
         int rowIndex = 0;
         int pageNumber = 1;
-       
+
+        //button ADD
         private void guna2Button2_Click(object sender, EventArgs e)
         {
             FormADDStudent formADDStudent = new FormADDStudent();
@@ -69,8 +69,9 @@ namespace GUI
             {
                 blurBackground.Close();
             };
-            // Mở FormAddStudent
-
+            //Mở FormAddStudent
+            // Khi form đóng lại, load lại danh sách
+            Student_Load(null, null);
 
         }
         private void printDocument_PrintPage(object sender, PrintPageEventArgs e)
@@ -154,14 +155,14 @@ namespace GUI
         {
 
         }
-         
-        
+
+
         private void Student_Load(object sender, EventArgs e)
         {
             dgvStudent.Rows.Clear();
 
             // Lấy danh sách học viên từ Business Layer
-            List<DTO_Student> list = BUS_Employee.Instance.GetStudentList();
+            List<DTO_Student> list = new BUS_Student().GetAllStudents();  // Khởi tạo đối tượng BUS_Student
 
             // Duyệt qua danh sách học viên và thêm vào DataGridView
             foreach (DTO_Student item in list)
@@ -169,21 +170,21 @@ namespace GUI
                 // Tạo mảng các giá trị để thêm vào dòng của DataGridView
                 object[] rowValues = new object[]
                 {
-            item.StudentID,            // ID học viên
-            item.FullName,             // Tên học viên
-            item.Gender,               // Giới tính
-            item.DateOfBirth.ToString("dd/MM/yyyy"), // Ngày sinh (định dạng ngày tháng)
-            item.PhoneNumber,          // Số điện thoại
-            item.Email,                 // Email
-            item.Address,              // Địa chỉ
-            item.IdentityNumber       // Số chứng minh nhân dân / CCCD
-            
+                    item.StudentID,            // ID học viên
+                    item.FullName,             // Tên học viên
+                    item.Gender,               // Giới tính
+                    item.DateOfBirth.ToString("dd/MM/yyyy"), // Ngày sinh (định dạng ngày tháng)
+                    item.PhoneNumber,          // Số điện thoại
+                    item.Email,                // Email
+                    item.Address,              // Địa chỉ
+                    item.IdentityNumber        // Số chứng minh nhân dân / CCCD
                 };
 
                 // Thêm dòng vào DataGridView
                 dgvStudent.Rows.Add(rowValues);
             }
         }
+
 
         private void dgvStudent_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -204,9 +205,13 @@ namespace GUI
                     {
                         if (!row.IsNewRow)
                         {
-                            int studentID = Convert.ToInt32(row.Cells[0].Value); // Lấy ID học viên
-                            dgvStudent.Rows.Remove(row); // Xóa khỏi GridView
-                            BUS_Employee.Instance.DeleteStudent(studentID); // Xóa khỏi database
+                            string studentID = row.Cells[0].Value.ToString();
+                            bool success = BUS_Student.Instance.DeleteStudent(studentID);
+
+                            if (success)
+                            {
+                                dgvStudent.Rows.Remove(row); // Xóa khỏi DataGridView
+                            }
                         }
                     }
                     MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -248,6 +253,52 @@ namespace GUI
                 btnCell.Style.ForeColor = Color.White;
                 btnCell.FlatStyle = FlatStyle.Flat;
             }
+        }
+
+        // Chỉnh sửa thông tin học viên
+        private void dgvStudent_SelectionChanged(object sender, EventArgs e)
+        {
+            // Kiểm tra xem có học viên nào được chọn không
+            if (dgvStudent.SelectedRows.Count > 0)
+            {
+                btnEdit.Enabled = true; // Bật nút Chỉnh sửa khi có học viên được chọn
+                btnDelete.Enabled = true; // Bật nút Xóa khi có học viên được chọn
+            }
+            else
+            {
+                btnEdit.Enabled = false; // Tắt nút Chỉnh sửa nếu không có học viên nào được chọn
+                btnDelete.Enabled = false; // Tắt nút Xóa nếu không có học viên nào được chọn
+            }
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow row = dgvStudent.SelectedRows[0];
+
+            // ✅ Tạo DTO_Student từ dòng được chọn
+            DTO_Student selectedStudent = new DTO_Student
+            {
+                StudentID = row.Cells[0].Value.ToString(),
+                FullName = row.Cells[1].Value.ToString(),
+                Gender = row.Cells[2].Value.ToString(),
+                DateOfBirth = DateTime.ParseExact(row.Cells[3].Value.ToString(), "dd/MM/yyyy", null),
+                PhoneNumber = row.Cells[4].Value.ToString(),
+                Email = row.Cells[5].Value.ToString(),
+                Address = row.Cells[6].Value.ToString(),
+                IdentityNumber = row.Cells[7].Value.ToString()
+            };
+
+            FormEDITStudent formEDITStudent = new FormEDITStudent(selectedStudent);
+            BlurBackground blurBackground = new BlurBackground();
+            blurBackground.Show();
+            formEDITStudent.ShowDialog();
+            formEDITStudent.FormClosed += (s, args) =>
+            {
+                blurBackground.Close();
+            };
+            //Mở FormAddStudent
+            // Khi form đóng lại, load lại danh sách
+            Student_Load(null, null);
         }
     }
 }

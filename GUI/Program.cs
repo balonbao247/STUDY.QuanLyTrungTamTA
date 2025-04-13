@@ -19,12 +19,14 @@ namespace GUI
         {   
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login());
+            //Application.Run(new Login());
             //Application.Run(new Demo());
             //Application.Run(new frmStudentList());
-            //Application.Run(new Main());
+            Application.Run(new Main());
             //Application.Run(new FormADDStudent());
             //Application.Run(new Teacher());
+            //Application.Run(new FormEDITStudent());
+            //Application.Run(new frmStudent());
             //Application.Run(new BlurBackground());    
         }
     }

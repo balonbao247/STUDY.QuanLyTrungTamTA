@@ -79,36 +79,25 @@ namespace DAL
             return result;
         }
         // Trả về số dòng thành công trong cơ sở dữ liệu sừ dụng cho INSERT, UPDATE, DELETE
-        public int ExecuteNonQuery(String query, object[] parameters = null)
+        public int ExecuteNonQuery(String query, SqlParameter[] parameters = null)
         {
 
             int data = 0;
-            // Sử dụng using trong trường hợp SQL Connection có lỗi
+
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                // Mở ra một kết nối
                 connection.Open();
-                // Câu lệnh truy vấn
                 SqlCommand cmd = new SqlCommand(query, connection);
 
-                // Được dùng để gán giá trị cho parameters
                 if (parameters != null)
                 {
-                    string[] listPara = query.Split(' ');
-                    int i = 0;
-                    foreach (string para in listPara)
-                    {
-                        if (para.Contains("@"))
-                        {
-                            cmd.Parameters.AddWithValue(para, parameters[i++]);
-                        }
-                    }
+                    cmd.Parameters.AddRange(parameters); // ✅ Add all SqlParameters correctly
                 }
-                data = cmd.ExecuteNonQuery();
-                // Đóng kết nối
+
+                data = cmd.ExecuteNonQuery(); 
                 connection.Close();
             }
-            // Trả về bảng dữ liệu
+
             return data;
         }
         public static SqlConnection GetConnection()

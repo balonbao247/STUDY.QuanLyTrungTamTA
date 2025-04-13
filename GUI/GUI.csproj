@@ -59,23 +59,35 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ADD_Form\AddTeacher.cs">
+    <Compile Include="FORM\BlurBackground.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ADD_Form\AddTeacher.Designer.cs">
-      <DependentUpon>AddTeacher.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ADD_Form\BlurBackground.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ADD_Form\BlurBackground.Designer.cs">
+    <Compile Include="FORM\BlurBackground.Designer.cs">
       <DependentUpon>BlurBackground.cs</DependentUpon>
     </Compile>
-    <Compile Include="ADD_Form\FormADDStudent.cs">
+    <Compile Include="FORM\FormADDStudent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ADD_Form\FormADDStudent.Designer.cs">
+    <Compile Include="FORM\FormADDStudent.Designer.cs">
       <DependentUpon>FormADDStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FORM\FormADDTeacher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FORM\FormADDTeacher.Designer.cs">
+      <DependentUpon>FormADDTeacher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FORM\FormEDITTeacher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FORM\FormEDITTeacher.Designer.cs">
+      <DependentUpon>FormEDITTeacher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FORM\FormEDITStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FORM\FormEDITStudent.Designer.cs">
+      <DependentUpon>FormEDITStudent.cs</DependentUpon>
     </Compile>
     <Compile Include="Config.cs">
       <SubType>Form</SubType>
@@ -116,26 +128,26 @@
     <Compile Include="Main_Child\Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main_Child\Teacher.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Main_Child\Teacher.Designer.cs">
-      <DependentUpon>Teacher.cs</DependentUpon>
-    </Compile>
     <Compile Include="ResetPass.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ResetPass.Designer.cs">
       <DependentUpon>ResetPass.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ADD_Form\AddTeacher.resx">
-      <DependentUpon>AddTeacher.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ADD_Form\BlurBackground.resx">
+    <EmbeddedResource Include="FORM\BlurBackground.resx">
       <DependentUpon>BlurBackground.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ADD_Form\FormADDStudent.resx">
+    <EmbeddedResource Include="FORM\FormADDStudent.resx">
       <DependentUpon>FormADDStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FORM\FormADDTeacher.resx">
+      <DependentUpon>FormADDTeacher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FORM\FormEDITTeacher.resx">
+      <DependentUpon>FormEDITTeacher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FORM\FormEDITStudent.resx">
+      <DependentUpon>FormEDITStudent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Config.resx">
       <DependentUpon>Config.cs</DependentUpon>
@@ -164,9 +176,6 @@
     </Compile>
     <EmbeddedResource Include="Main_Child\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Main_Child\Teacher.resx">
-      <DependentUpon>Teacher.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ResetPass.resx">
       <DependentUpon>ResetPass.cs</DependentUpon>

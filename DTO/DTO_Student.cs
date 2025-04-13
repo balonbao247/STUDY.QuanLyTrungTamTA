@@ -7,22 +7,33 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    public class DTO_Student
+    public class DTO_Student: DTO_Person
     {
         // Các thuộc tính của Student
-        public int StudentID { get; set; }
-        public string FullName { get; set; }
-        public DateTime DateOfBirth { get; set; }
-        public string Gender { get; set; }
-        public string PhoneNumber { get; set; }
-        public string Email { get; set; }
-        public string Address { get; set; }
-        public string IdentityNumber { get; set; }
+        public string StudentID { get; set; }
+        // Constructor to create new student with 8 parameters
+        public DTO_Student(string studentID, string fullName, string gender, DateTime dateOfBirth,
+                            string phoneNumber, string email, string address, string identityNumber)
+        {
+            StudentID = studentID;
+            FullName = fullName;
+            Gender = gender;
+            DateOfBirth = dateOfBirth;
+            PhoneNumber = phoneNumber;
+            Email = email;
+            Address = address;
+            IdentityNumber = identityNumber;
+        }
+        public DTO_Student()
+        {
+            // Constructor không tham số
+        }
+
 
         // Constructor để khởi tạo từ DataRow
         public DTO_Student(DataRow row)
         {
-            StudentID = Convert.ToInt32(row["StudentID"]);
+            StudentID = row["StudentID"].ToString();
             FullName = row["FullName"].ToString();
             DateOfBirth = Convert.ToDateTime(row["DateOfBirth"]);
             Gender = row["Gender"].ToString();

@@ -84,7 +84,7 @@ namespace DAL
         // Xóa sinh viên
         public bool DeleteStudent(string studentID)
         {
-            string query = "DELETE FROM Students WHERE StudentID = @StudentID";
+            string query = "UPDATE Students SET IsActive = 0 WHERE StudentID = @StudentID";
 
             SqlParameter[] parameters = new SqlParameter[]
             {

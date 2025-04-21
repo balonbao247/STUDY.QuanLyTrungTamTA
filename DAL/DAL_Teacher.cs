@@ -93,7 +93,7 @@ namespace DAL
         //delete
         public bool DeleteTeacher(string teacherID)
         {
-            string query = "DELETE FROM Teachers WHERE TeacherID = @TeacherID";
+            string query = "UPDATE Teachers SET IsActive = 0 WHERE TeacherID = @TeacherID";
 
             SqlParameter[] parameters = new SqlParameter[]
             {

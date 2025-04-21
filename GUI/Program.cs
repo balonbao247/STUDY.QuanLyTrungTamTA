@@ -1,4 +1,5 @@
-﻿using GUI.ADD_Form;
+﻿
+using BUS;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,8 +23,12 @@ namespace GUI
             //Application.Run(new Login());
             //Application.Run(new Demo());
             //Application.Run(new frmStudentList());
+  
             Application.Run(new Main());
-            //Application.Run(new FormADDStudent());
+            //Application.Run(new GUI.FORM.FormADDCourse());
+
+            //Application.Run(new frmRoom());
+            //Application.Run(new GUI.ADD_Form.FormADDStudent());
             //Application.Run(new Teacher());
             //Application.Run(new FormEDITStudent());
             //Application.Run(new frmStudent());

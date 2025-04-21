@@ -65,6 +65,12 @@
     <Compile Include="FORM\BlurBackground.Designer.cs">
       <DependentUpon>BlurBackground.cs</DependentUpon>
     </Compile>
+    <Compile Include="FORM\FormADDCourse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FORM\FormADDCourse.Designer.cs">
+      <DependentUpon>FormADDCourse.cs</DependentUpon>
+    </Compile>
     <Compile Include="FORM\FormADDStudent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +114,24 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Main_Child\frmCourse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main_Child\frmCourse.Designer.cs">
+      <DependentUpon>frmCourse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main_Child\frmCourse_Card.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main_Child\frmCourse_Card.Designer.cs">
+      <DependentUpon>frmCourse_Card.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main_Child\frmRoom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main_Child\frmRoom.Designer.cs">
+      <DependentUpon>frmRoom.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main_Child\frmTeacher.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +143,12 @@
     </Compile>
     <Compile Include="Main_Child\frmStudent.Designer.cs">
       <DependentUpon>frmStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main_Child\RoomControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main_Child\RoomControl.Designer.cs">
+      <DependentUpon>RoomControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -136,6 +166,9 @@
     </Compile>
     <EmbeddedResource Include="FORM\BlurBackground.resx">
       <DependentUpon>BlurBackground.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FORM\FormADDCourse.resx">
+      <DependentUpon>FormADDCourse.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FORM\FormADDStudent.resx">
       <DependentUpon>FormADDStudent.cs</DependentUpon>
@@ -158,11 +191,23 @@
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Main_Child\frmCourse.resx">
+      <DependentUpon>frmCourse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main_Child\frmCourse_Card.resx">
+      <DependentUpon>frmCourse_Card.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main_Child\frmRoom.resx">
+      <DependentUpon>frmRoom.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main_Child\frmTeacher.resx">
       <DependentUpon>frmTeacher.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main_Child\frmStudent.resx">
       <DependentUpon>frmStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main_Child\RoomControl.resx">
+      <DependentUpon>RoomControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -277,6 +322,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\622400_pen_pencil_edit_write_writing_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Free-Professional-Background-PowerPoint-Template.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

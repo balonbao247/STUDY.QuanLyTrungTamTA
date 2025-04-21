@@ -48,7 +48,7 @@ namespace DAL
             }
         }
         // Phương thức thực thi truy vấn SQL
-        public DataTable ExecuteQuery(string query, object[] parameters = null)
+        public DataTable ExecuteQuery(string query, SqlParameter[] parameters = null)
         {
             DataTable result = new DataTable();
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -61,11 +61,7 @@ namespace DAL
                     // Nếu có tham số, thêm chúng vào command
                     if (parameters != null)
                     {
-                        string[] parameterNames = query.Split(' ');
-                        for (int i = 0; i < parameters.Length; i++)
-                        {
-                            cmd.Parameters.AddWithValue(parameterNames[i], parameters[i]);
-                        }
+                        cmd.Parameters.AddRange(parameters); // Thêm tất cả tham số vào command
                     }
 
                     SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);

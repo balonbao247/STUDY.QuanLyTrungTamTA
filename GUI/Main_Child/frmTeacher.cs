@@ -58,22 +58,7 @@ namespace GUI
         int rowIndex = 0;
         int pageNumber = 1;
 
-        //button ADD
-        private void guna2Button2_Click(object sender, EventArgs e)
-        {
-            FormADDTeacher formADDTeacher = new FormADDTeacher();
-            BlurBackground blurBackground = new BlurBackground();
-            blurBackground.Show();
-            formADDTeacher.ShowDialog();
-            formADDTeacher.FormClosed += (s, args) =>
-            {
-                blurBackground.Close();
-            };
-            //Mở FormAddTeacher
-            // Khi form đóng lại, load lại danh sách
-            Teacher_Load(null, null);
-
-        }
+        
         private void printDocument_PrintPage(object sender, PrintPageEventArgs e)
         {
             Font headerFont = new Font("Times New Roman", 20, FontStyle.Bold);
@@ -163,9 +148,11 @@ namespace GUI
 
             // Lấy danh sách học viên từ Business Layer
             List<DTO_Teacher> list = new BUS_Teacher().GetAllTeachers();  // Khởi tạo đối tượng BUS_Teacher
+            // Duyệt qua danh sách học viên và thêm vào DataGridView
+            var activeList = list.Where(item => item.IsActive).ToList();
 
             // Duyệt qua danh sách học viên và thêm vào DataGridView
-            foreach (DTO_Teacher item in list)
+            foreach (DTO_Teacher item in activeList)
             {
                 // Tạo mảng các giá trị để thêm vào dòng của DataGridView
                 object[] rowValues = new object[]
@@ -225,16 +212,7 @@ namespace GUI
             }
         }
 
-        private void btnIn(object sender, EventArgs e)
-        {
-            // Setup
-            printDocument.PrintPage += new PrintPageEventHandler(printDocument_PrintPage);
-
-            // Optional Preview
-            PrintPreviewDialog ppd = new PrintPreviewDialog();
-            ppd.Document = printDocument;
-            ppd.ShowDialog();
-        }
+        
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
@@ -305,9 +283,32 @@ namespace GUI
             Teacher_Load(null, null);
         }
 
-        private void dgvTeacher_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
+        
 
+        private void btnADD_Click(object sender, EventArgs e)
+        {
+            FormADDTeacher formADDTeacher = new FormADDTeacher();
+            BlurBackground blurBackground = new BlurBackground();
+            blurBackground.Show();
+            formADDTeacher.ShowDialog();
+            formADDTeacher.FormClosed += (s, args) =>
+            {
+                blurBackground.Close();
+            };
+            //Mở FormAddTeacher
+            // Khi form đóng lại, load lại danh sách
+            Teacher_Load(null, null);
+
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        { // Setup
+            printDocument.PrintPage += new PrintPageEventHandler(printDocument_PrintPage);
+
+            // Optional Preview
+            PrintPreviewDialog ppd = new PrintPreviewDialog();
+            ppd.Document = printDocument;
+            ppd.ShowDialog();
         }
     }
 }

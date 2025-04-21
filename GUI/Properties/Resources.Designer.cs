@@ -243,6 +243,16 @@ namespace GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Free_Professional_Background_PowerPoint_Template {
+            get {
+                object obj = ResourceManager.GetObject("Free-Professional-Background-PowerPoint-Template", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ICON__1_ {
             get {
                 object obj = ResourceManager.GetObject("ICON (1)", resourceCulture);

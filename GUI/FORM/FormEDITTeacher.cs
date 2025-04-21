@@ -170,5 +170,10 @@ namespace GUI.ADD_Form
         {
 
         }
+
+        private void FormEDITTeacher_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

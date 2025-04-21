@@ -165,7 +165,8 @@ namespace GUI
             List<DTO_Student> list = new BUS_Student().GetAllStudents();  // Khởi tạo đối tượng BUS_Student
 
             // Duyệt qua danh sách học viên và thêm vào DataGridView
-            foreach (DTO_Student item in list)
+            var activeList = list.Where(item => item.IsActive).ToList();
+            foreach (DTO_Student item in activeList)
             {
                 // Tạo mảng các giá trị để thêm vào dòng của DataGridView
                 object[] rowValues = new object[]
@@ -299,6 +300,11 @@ namespace GUI
             //Mở FormAddStudent
             // Khi form đóng lại, load lại danh sách
             Student_Load(null, null);
+        }
+
+        private void guna2CustomGradientPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

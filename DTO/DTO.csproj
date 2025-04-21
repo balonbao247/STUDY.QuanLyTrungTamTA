@@ -42,8 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="DTO_Course.cs" />
     <Compile Include="DTO_Person.cs" />
     <Compile Include="DTO_Student.cs" />
+    <Compile Include="DTO_Subject.cs" />
     <Compile Include="DTO_Teacher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

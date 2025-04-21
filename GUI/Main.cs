@@ -116,6 +116,7 @@ namespace GUI
         private void btnCourse_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color5);
+            OpenChildForm(new GUI.Main_Child.frmCourse());
         }
 
         private void btnMenu_Click(object sender, EventArgs e)
@@ -202,5 +203,13 @@ namespace GUI
                 this.Close();  // Đóng form hiện tại
             }
         }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color4);
+            OpenChildForm(new frmRoom());
+        }
+
+
     }
 }

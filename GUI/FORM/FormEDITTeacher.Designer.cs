@@ -404,6 +404,7 @@
             this.Name = "FormEDITTeacher";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Teacher";
+            this.Load += new System.EventHandler(this.FormEDITTeacher_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();

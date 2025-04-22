@@ -10,10 +10,10 @@ namespace DTO
     public class DTO_Teacher:DTO_Person
     {
         public string TeacherID { get; set; }
-        public string Specialty { get; set; } // <-- sửa chính tả
-        public int Salary { get; set; }       // <-- mới thêm
+        public string Specialty { get; set; } 
+        public int Salary { get; set; }       
 
-        public bool IsActive { get; set; } = true;  // Mặc định là đang hoạt động
+        public bool IsActive { get; set; } = true;  
 
         public DTO_Teacher(string teacherID, string fullName, string gender, DateTime dateOfBirth,
                            string phoneNumber, string email, string address, string identityNumber, string specialty, int salary, bool isActive = true)

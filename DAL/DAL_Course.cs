@@ -1,35 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.SqlClient;
 using DTO;
+
 namespace DAL
 {
     public class DAL_Course
     {
-        // CREATE
-        public bool AddCourse(DTO_Course course)
+        private static DAL_Course instance;
+
+        public static DAL_Course Instance
         {
-            string query = @"INSERT INTO Courses (CourseName, Description, StartDate, EndDate, Price, IsActive, SubjectID, TimeSlotID)
-                     VALUES (@CourseName, @Description, @StartDate, @EndDate, @Price, @IsActive, @SubjectID, @TimeSlotID)";
-
-            SqlParameter[] parameters = new SqlParameter[]
-            {
-                new SqlParameter("@CourseName", course.CourseName),
-                new SqlParameter("@StartDate", course.StartDate),
-                new SqlParameter("@EndDate", course.EndDate),
-                new SqlParameter("@Price", course.Price),
-                new SqlParameter("@IsActive", course.IsActive),
-                new SqlParameter("@SubjectID", course.SubjectID ?? (object)DBNull.Value),  // Thêm SubjectID
-                new SqlParameter("@TimeSlotID", course.TimeSlotID ?? (object)DBNull.Value) // Thêm TimeSlotID
-            };
-
-            return DAL_DataProvider.Instance.ExecuteNonQuery(query, parameters) > 0;
+            get { if (instance == null) instance = new DAL_Course(); return instance; }
+            private set { instance = value; }
         }
-
         public string GetNextCourseID()
         {
             string query = "SELECT TOP 1 CourseID FROM Courses ORDER BY CourseID DESC";
@@ -37,10 +22,10 @@ namespace DAL
 
             if (dt.Rows.Count > 0)
             {
-                string lastID = dt.Rows[0]["CourseID"].ToString(); // VD: C0045
-                int number = int.Parse(lastID.Substring(1));       // Lấy "0045" → 45
+                string lastID = dt.Rows[0]["CourseID"].ToString(); 
+                int number = int.Parse(lastID.Substring(1));        
                 number++;
-                return "C" + number.ToString("D4");                // → C0046
+                return "C" + number.ToString("D4");                 
             }
             else
             {
@@ -48,130 +33,130 @@ namespace DAL
             }
         }
 
-        // READ - Get all active courses
+        // Lấy tất cả Course
         public List<DTO_Course> GetAllCourses()
         {
-            List<DTO_Course> courses = new List<DTO_Course>();
-            string query = "SELECT * FROM Courses WHERE IsActive = 1";
-
+            string query = "SELECT * FROM Courses";
             DataTable dt = DAL_DataProvider.Instance.ExecuteQuery(query);
 
+            List<DTO_Course> courses = new List<DTO_Course>();
             foreach (DataRow row in dt.Rows)
             {
-                DTO_Course course = new DTO_Course
-                {
-                    CourseID = row["CourseID"].ToString(),
-                    CourseName = row["CourseName"].ToString(),
-                    StartDate = Convert.ToDateTime(row["StartDate"]),
-                    EndDate = Convert.ToDateTime(row["EndDate"]),
-                    Price = Convert.ToDecimal(row["Price"]),
-                    IsActive = Convert.ToBoolean(row["IsActive"]),
-                    SubjectID = row["SubjectID"]?.ToString(),   // Lấy SubjectID
-                    TimeSlotID = row["TimeSlotID"]?.ToString()  // Lấy TimeSlotID
-                };
-
-                courses.Add(course);
+                courses.Add(new DTO_Course(row));
             }
-
             return courses;
         }
 
-
-        // UPDATE
-        public bool UpdateCourse(DTO_Course course)
+        // Lấy tất cả Course còn hoạt động
+        public List<DTO_Course> GetActiveCourses()
         {
-            string query = @"UPDATE Courses 
-                     SET CourseName = @CourseName, Description = @Description,
-                         StartDate = @StartDate, EndDate = @EndDate, Price = @Price, 
-                         SubjectID = @SubjectID, TimeSlotID = @TimeSlotID
-                     WHERE CourseID = @CourseID";
+            string query = "SELECT * FROM Courses WHERE IsActive = 1";
+            DataTable dt = DAL_DataProvider.Instance.ExecuteQuery(query);
 
-            SqlParameter[] parameters = new SqlParameter[]
+            List<DTO_Course> courses = new List<DTO_Course>();
+            foreach (DataRow row in dt.Rows)
             {
+                courses.Add(new DTO_Course(row));
+            }
+            return courses;
+        }
+
+        // Lấy Course theo ID
+        public DTO_Course GetCourseByID(string courseID)
+        {
+            string query = "SELECT * FROM Courses WHERE CourseID = @CourseID";
+            SqlParameter[] parameters = { new SqlParameter("@CourseID", courseID) };
+
+            DataTable dt = DAL_DataProvider.Instance.ExecuteQuery(query, parameters);
+            if (dt.Rows.Count > 0)
+                return new DTO_Course(dt.Rows[0]);
+
+            return null;
+        }
+
+        // Thêm Course
+        public bool InsertCourse(DTO_Course course)
+        {
+            string query = @"INSERT INTO Courses (CourseID, CourseName, SubjectID, TeacherID, StartDate, EndDate, Price, IsActive)
+                             VALUES (@CourseID, @CourseName, @SubjectID, @TeacherID, @StartDate, @EndDate, @Price, @IsActive)";
+            SqlParameter[] parameters = {
+                new SqlParameter("@CourseID", course.CourseID),
                 new SqlParameter("@CourseName", course.CourseName),
+                new SqlParameter("@SubjectID", course.SubjectID),
+                new SqlParameter("@TeacherID", course.TeacherID),
                 new SqlParameter("@StartDate", course.StartDate),
                 new SqlParameter("@EndDate", course.EndDate),
                 new SqlParameter("@Price", course.Price),
-                new SqlParameter("@SubjectID", course.SubjectID ?? (object)DBNull.Value),
-                new SqlParameter("@TimeSlotID", course.TimeSlotID ?? (object)DBNull.Value),
-                new SqlParameter("@CourseID", course.CourseID)
+                new SqlParameter("@IsActive", course.IsActive)
             };
 
             return DAL_DataProvider.Instance.ExecuteNonQuery(query, parameters) > 0;
         }
 
-
-        public bool DeleteCourse(string CourseID)
+        // Cập nhật Course
+        public bool UpdateCourse(DTO_Course course)
         {
-            string query = "UPDATE Courses SET IsActive = 0 WHERE CourseID = @CourseID";
+            string query = @"UPDATE Courses SET
+                                CourseName = @CourseName,
+                                SubjectID = @SubjectID,
+                                TeacherID = @TeacherID,
+                                StartDate = @StartDate,
+                                EndDate = @EndDate,
+                                Price = @Price,
+                                IsActive = @IsActive
+                             WHERE CourseID = @CourseID";
 
-            SqlParameter[] parameters = new SqlParameter[]
-            {
-                new SqlParameter("@CourseID", CourseID)
+            SqlParameter[] parameters = {
+                new SqlParameter("@CourseID", course.CourseID),
+                new SqlParameter("@CourseName", course.CourseName),
+                new SqlParameter("@SubjectID", course.SubjectID),
+                new SqlParameter("@TeacherID", course.TeacherID),
+                new SqlParameter("@StartDate", course.StartDate),
+                new SqlParameter("@EndDate", course.EndDate),
+                new SqlParameter("@Price", course.Price),
+                new SqlParameter("@IsActive", course.IsActive)
             };
 
-            int result = DAL_DataProvider.Instance.ExecuteNonQuery(query, parameters);
-            return result > 0;
+            return DAL_DataProvider.Instance.ExecuteNonQuery(query, parameters) > 0;
         }
 
-        // GET BY ID (nếu cần)
-        public DTO_Course GetCourseById(int courseId)
+        // Xóa Course (mềm = set IsActive = 0)
+        public bool DeleteCourse(string courseID)
         {
-            string query = "SELECT * FROM Courses WHERE CourseID = @CourseID AND IsActive = 1";
+            string query = "UPDATE Courses SET IsActive = 0 WHERE CourseID = @CourseID";
+            SqlParameter[] parameters = { new SqlParameter("@CourseID", courseID) };
 
-            SqlParameter[] parameters = new SqlParameter[]
-            {
-                new SqlParameter("@CourseID", courseId)
-            };
+            return DAL_DataProvider.Instance.ExecuteNonQuery(query, parameters) > 0;
+        }
+
+        public string GetSubjectNameByID(string subjectID)
+        {
+            string query = "SELECT SubjectName FROM Subjects WHERE SubjectID = @SubjectID";
+            SqlParameter[] parameters = { new SqlParameter("@SubjectID", subjectID) };
 
             DataTable dt = DAL_DataProvider.Instance.ExecuteQuery(query, parameters);
 
-            if (dt.Rows.Count == 0) return null;
-
-            DataRow row = dt.Rows[0];
-            return new DTO_Course
+            if (dt.Rows.Count > 0)
             {
-                CourseID = row["CourseID"].ToString(),
-                CourseName = row["CourseName"].ToString(),
-           
-                StartDate = Convert.ToDateTime(row["StartDate"]),
-                EndDate = Convert.ToDateTime(row["EndDate"]),
-                Price = Convert.ToDecimal(row["Price"]),
-                IsActive = Convert.ToBoolean(row["IsActive"])
-            };
-        }
-        public string GetSubjectNameByID(string subjectID)
-        {
-            string query = "SELECT SubjectName FROM Subject WHERE SubjectID = @subjectID";
-            SqlParameter[] parameters = new SqlParameter[]
-            {
-        new SqlParameter("@subjectID", SqlDbType.VarChar) { Value = subjectID }
-            };
-
-            DataTable result = DAL_DataProvider.Instance.ExecuteQuery(query, parameters);
-            if (result.Rows.Count > 0)
-            {
-                return result.Rows[0]["SubjectName"].ToString();
+                return dt.Rows[0]["SubjectName"].ToString();
             }
-            return null;
+
+            return null; // hoặc return string.Empty;
         }
+
         public string GetDescriptionByID(string subjectID)
         {
-            string query = "SELECT Description FROM Subject WHERE SubjectID = @subjectID";
-            SqlParameter[] parameters = new SqlParameter[]
-            {
-        new SqlParameter("@subjectID", SqlDbType.VarChar) { Value = subjectID }
-            };
+            string query = "SELECT Description FROM Subjects WHERE SubjectID = @SubjectID";
+            SqlParameter[] parameters = { new SqlParameter("@SubjectID", subjectID) };
 
-            DataTable result = DAL_DataProvider.Instance.ExecuteQuery(query, parameters);
-            if (result.Rows.Count > 0)
+            DataTable dt = DAL_DataProvider.Instance.ExecuteQuery(query, parameters);
+
+            if (dt.Rows.Count > 0)
             {
-                return result.Rows[0]["Description"].ToString();
+                return dt.Rows[0]["Description"].ToString();
             }
-            return null;
+
+            return null; // hoặc return string.Empty;
         }
-
-
     }
-
 }

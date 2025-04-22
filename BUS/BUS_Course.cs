@@ -1,61 +1,68 @@
-﻿using DTO;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using DAL;
+using DTO;
+
 namespace BUS
 {
     public class BUS_Course
     {
-        private DAL_Course dalCourse = new DAL_Course();
+        private static BUS_Course instance;
 
-        // Lấy tất cả các khóa học đang hoạt động
+        public static BUS_Course Instance
+        {
+            get { if (instance == null) instance = new BUS_Course(); return instance; }
+            private set { instance = value; }
+        }
+
+        // Lấy tất cả khóa học
         public List<DTO_Course> GetAllCourses()
         {
-            return dalCourse.GetAllCourses();
+            return DAL_Course.Instance.GetAllCourses();
+        }
+
+        // Lấy tất cả khóa học còn hoạt động
+        public List<DTO_Course> GetActiveCourses()
+        {
+            return DAL_Course.Instance.GetActiveCourses();
         }
 
         // Lấy khóa học theo ID
-        public DTO_Course GetCourseById(int id)
+        public DTO_Course GetCourseByID(string courseID)
         {
-            return dalCourse.GetCourseById(id);
+            return DAL_Course.Instance.GetCourseByID(courseID);
         }
 
         // Thêm khóa học
         public bool AddCourse(DTO_Course course)
         {
-            // Có thể kiểm tra điều kiện đầu vào tại đây nếu muốn
-            return dalCourse.AddCourse(course);
+            return DAL_Course.Instance.InsertCourse(course);
         }
 
-        // Cập nhật thông tin khóa học
+        // Cập nhật khóa học
         public bool UpdateCourse(DTO_Course course)
         {
-            return dalCourse.UpdateCourse(course);
+            return DAL_Course.Instance.UpdateCourse(course);
         }
 
-        // Xóa mềm khóa học (set IsActive = false)
-        public bool DeleteCourse(string id)
+        // Xóa mềm khóa học (IsActive = false)
+        public bool DeleteCourse(string courseID)
         {
-            return dalCourse.DeleteCourse(id);
-        }
-        // Lấy mã khóa học tiếp theo
-        public string GetNextCourseID()
-        {
-            return dalCourse.GetNextCourseID();
+            return DAL_Course.Instance.DeleteCourse(courseID);
         }
 
-        // Hàm lấy tên môn học theo SubjectID
         public string GetSubjectNameByID(string subjectID)
         {
-            return dalCourse.GetSubjectNameByID(subjectID);
+            return DAL_Course.Instance.GetSubjectNameByID(subjectID);
+        }
+        public string GetDescriptionByID(string subjectID)
+        {
+            return DAL_Course.Instance.GetDescriptionByID(subjectID);
         }
 
-        public string GetDescriptionByID(string courseID)
+        public string GetNextCourseID()
         {
-            return dalCourse.GetDescriptionByID(courseID);
+            return DAL_Course.Instance.GetNextCourseID();
         }
     }
 }

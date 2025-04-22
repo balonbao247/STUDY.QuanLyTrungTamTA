@@ -41,10 +41,21 @@ namespace BUS
             // Gọi phương thức DAL để lấy tất cả giáo viên
             return DAL_Teacher.Instance.GetAllTeachers();
         }
+        // Lấy tất cả giáo viên trong cơ sở dữ liệu có active
+        public List<DTO_Teacher> GetAllActiveTeachers()
+        {
+            // Gọi phương thức DAL để lấy tất cả giáo viên
+            return DAL_Teacher.Instance.GetAllActiveTeachers();
+        }
         //Lấy mã giáo viên tăng dần
         public string GetNextTeacherID()
         {
             return DAL_Teacher.Instance.GetNextTeacherID();
         }
+        public string GetTeacherNameByID(string teacherID)
+        {
+            return DAL_Teacher.Instance.GetTeacherNameByID(teacherID);
+        }
+
     }
 }

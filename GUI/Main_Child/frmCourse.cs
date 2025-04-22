@@ -10,6 +10,8 @@ using System.Windows.Documents;
 using System.Windows.Forms;
 using BUS;
 using DTO;
+using GUI.ADD_Form;
+using GUI.FORM;
 
 namespace GUI.Main_Child
 {
@@ -78,7 +80,12 @@ namespace GUI.Main_Child
 
         private void frmCourse_Load(object sender, EventArgs e)
         {
+           LoadCourse();
+        }
+        private void LoadCourse()
+        {
             BUS_Course busCourse = new BUS_Course();
+            BUS_Teacher busTeacher = new BUS_Teacher();
             List<DTO_Course> courseList = busCourse.GetAllCourses();
             var activeList = courseList.Where(item => item.IsActive).ToList();
             foreach (var item in activeList)
@@ -86,18 +93,23 @@ namespace GUI.Main_Child
                 try
                 {
                     string subjectName = busCourse.GetSubjectNameByID(item.SubjectID); // Add this method in BUS_Course
+
                     string courseDescription = busCourse.GetDescriptionByID(item.SubjectID); // Add this method in BUS_Course
+
+
+                    string teacherName = busTeacher.GetTeacherNameByID(item.TeacherID); // Add this method in BUS_Course
+
                     frmCourse_Card card = new frmCourse_Card();
-                    card.SetCourseInfo(item.CourseID.ToString(), "Unknown", item.Price, subjectName, courseDescription);
+                    card.SetCourseInfo(item.CourseID.ToString(), teacherName, item.Price, subjectName, courseDescription);
                     card.OnDeleteCourse += (s, args) =>
                     {
                         DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa khóa học này?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                         if (result == DialogResult.Yes)
                         {
                             string courseID = (s as frmCourse_Card).CourseID;
-                            DeleteCourse(courseID); 
+                            DeleteCourse(courseID);
                         }
-                    
+
                     };
                     card.Margin = new Padding(10);
                     card.Width = 400;
@@ -112,9 +124,18 @@ namespace GUI.Main_Child
             }
         }
 
-
-
-
+        private void btnADD_Click(object sender, EventArgs e)
+        {
+            FormADDCourse formADDCourse = new FormADDCourse();
+            BlurBackground blurBackground = new BlurBackground();
+            formADDCourse.OnCourseSaved += (s, args) =>
+            {
+                // Khi khóa học được lưu, tải lại các card
+                LoadCourse();
+            };
+            blurBackground.Show();
+            formADDCourse.ShowDialog();
+        }
     }
 
 }

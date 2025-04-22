@@ -27,7 +27,7 @@ namespace GUI
         {
             string keyword = txtSearch.Text.Trim().ToLower();
 
-            List<DTO_Teacher> allTeachers = BUS_Teacher.Instance.GetAllTeachers();
+            List<DTO_Teacher> allTeachers = BUS_Teacher.Instance.GetAllActiveTeachers();
 
             // Lọc danh sách theo tên vAo mã học viên
             var filtered = allTeachers
@@ -147,12 +147,11 @@ namespace GUI
             dgvTeacher.Rows.Clear();
 
             // Lấy danh sách học viên từ Business Layer
-            List<DTO_Teacher> list = new BUS_Teacher().GetAllTeachers();  // Khởi tạo đối tượng BUS_Teacher
-            // Duyệt qua danh sách học viên và thêm vào DataGridView
-            var activeList = list.Where(item => item.IsActive).ToList();
+            List<DTO_Teacher> list = new BUS_Teacher().GetAllActiveTeachers();  // Khởi tạo đối tượng BUS_Teacher
+           
 
             // Duyệt qua danh sách học viên và thêm vào DataGridView
-            foreach (DTO_Teacher item in activeList)
+            foreach (DTO_Teacher item in list)
             {
                 // Tạo mảng các giá trị để thêm vào dòng của DataGridView
                 object[] rowValues = new object[]

@@ -119,6 +119,38 @@ namespace DAL
 
             return teachers; // Trả về danh sách giáo viên
         }
+        //get list of teachers
+        public List<DTO_Teacher> GetAllActiveTeachers()
+        {
+            string query = "SELECT * FROM Teachers Where isActive=1";
+            DataTable dt = DAL_DataProvider.Instance.ExecuteQuery(query); // Gọi phương thức ExecuteQuery để thực hiện truy vấn
+
+            List<DTO_Teacher> teachers = new List<DTO_Teacher>();
+
+            // Duyệt qua từng dòng trong DataTable và chuyển thành đối tượng DTO_Teacher
+            foreach (DataRow row in dt.Rows)
+            {
+                teachers.Add(new DTO_Teacher(row)); // DTO_Teacher cần có constructor nhận DataRow
+            }
+
+            return teachers; // Trả về danh sách giáo viên
+        }
+
+        public string GetTeacherNameByID(string teacherID)
+        {
+            string query = "SELECT FullName FROM Teachers WHERE TeacherID = @TeacherID";
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@TeacherID", teacherID)
+            };
+
+            DataTable dt = DAL_DataProvider.Instance.ExecuteQuery(query, parameters);
+            if (dt.Rows.Count > 0)
+            {
+                return dt.Rows[0]["FullName"].ToString();
+            }
+            return string.Empty;
+        }
 
 
 

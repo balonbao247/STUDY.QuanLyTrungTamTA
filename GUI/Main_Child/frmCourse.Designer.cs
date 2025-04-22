@@ -77,12 +77,12 @@
             this.btnADD.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnADD.ForeColor = System.Drawing.Color.White;
             this.btnADD.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(210)))), ((int)(((byte)(242)))));
-            this.btnADD.Image = global::GUI.Properties.Resources._134224_add_plus_new_icon;
             this.btnADD.Location = new System.Drawing.Point(313, 13);
             this.btnADD.Name = "btnADD";
             this.btnADD.Size = new System.Drawing.Size(109, 40);
             this.btnADD.TabIndex = 5;
             this.btnADD.Text = "Thêm";
+            this.btnADD.Click += new System.EventHandler(this.btnADD_Click);
             // 
             // flowLayoutPanel1
             // 

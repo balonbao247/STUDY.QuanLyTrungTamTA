@@ -111,6 +111,22 @@ namespace DAL
 
             return students;
         }
+        // Lấy tất cả sinh viên
+        public List<DTO_Student> GetAllActiveStudents()
+        {
+            string query = "SELECT * FROM Students WHERE isActive=1";
+            DataTable dt = DAL_DataProvider.Instance.ExecuteQuery(query); // Thực thi truy vấn
+
+            List<DTO_Student> students = new List<DTO_Student>();
+
+            // Duyệt qua từng dòng dữ liệu và chuyển thành đối tượng DTO_Student
+            foreach (DataRow row in dt.Rows)
+            {
+                students.Add(new DTO_Student(row)); // Sử dụng constructor của DTO_Student để chuyển dữ liệu thành đối tượng
+            }
+
+            return students;
+        }
 
         // Lấy thông tin sinh viên theo StudentID
         public DTO_Student GetStudentByID(string studentID)

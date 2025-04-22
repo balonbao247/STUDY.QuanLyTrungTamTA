@@ -45,8 +45,14 @@ namespace BUS
         // Lấy tất cả giáo viên trong cơ sở dữ liệu (nếu cần)
         public List<DTO_Student> GetAllStudents()
         {
-            // Gọi phương thức DAL để lấy tất cả giáo viên
+            
             return DAL_Student.Instance.GetAllStudents();
+        }
+
+        // Lấy tất cả giáo viên trong cơ sở dữ liệu (nếu cần)
+        public List<DTO_Student> GetAllActiveStudents()
+        {
+            return DAL_Student.Instance.GetAllActiveStudents();
         }
 
         //Lấy mã học viên tăng dần

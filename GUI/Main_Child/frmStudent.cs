@@ -27,7 +27,7 @@ namespace GUI
         {
             string keyword = txtSearch.Text.Trim().ToLower();
 
-            List<DTO_Student> allStudents = BUS_Student.Instance.GetAllStudents();
+            List<DTO_Student> allStudents = BUS_Student.Instance.GetAllActiveStudents();
 
             // Lọc danh sách theo tên vAo mã học viên
             var filtered = allStudents
@@ -162,11 +162,10 @@ namespace GUI
             dgvStudent.Rows.Clear();
 
             // Lấy danh sách học viên từ Business Layer
-            List<DTO_Student> list = new BUS_Student().GetAllStudents();  // Khởi tạo đối tượng BUS_Student
+            List<DTO_Student> list = new BUS_Student().GetAllActiveStudents();  // Khởi tạo đối tượng BUS_Student
 
-            // Duyệt qua danh sách học viên và thêm vào DataGridView
-            var activeList = list.Where(item => item.IsActive).ToList();
-            foreach (DTO_Student item in activeList)
+          
+            foreach (DTO_Student item in list)
             {
                 // Tạo mảng các giá trị để thêm vào dòng của DataGridView
                 object[] rowValues = new object[]
@@ -303,6 +302,11 @@ namespace GUI
         }
 
         private void guna2CustomGradientPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void iconSplitButton1_ButtonClick(object sender, EventArgs e)
         {
 
         }

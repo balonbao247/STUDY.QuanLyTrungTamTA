@@ -42,9 +42,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAL_Course.cs" />
-    <Compile Include="DAL_ForEmployee.cs" />
+    <Compile Include="DAL_CourseSchedule.cs" />
+    <Compile Include="DAL_Room.cs" />
     <Compile Include="DAL_Student.cs" />
     <Compile Include="DAL_DataProvider.cs" />
+    <Compile Include="DAL_Subject.cs" />
+    <Compile Include="DAL_TimeSlot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DAL_Teacher.cs" />
   </ItemGroup>

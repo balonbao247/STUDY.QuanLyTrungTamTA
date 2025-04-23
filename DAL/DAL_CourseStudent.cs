@@ -1,0 +1,61 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+
+namespace DAL
+{
+    public class DAL_CourseStudent
+    {
+        private static DAL_CourseStudent instance;
+
+        public static DAL_CourseStudent Instance
+        {
+            get { if (instance == null) instance = new DAL_CourseStudent(); return instance; }
+        }
+
+        private DAL_CourseStudent() { }
+
+        // Thêm học viên vào khóa học
+        public bool AddStudentToCourse(string courseID, string studentID, DateTime enrollDate)
+        {
+            string query = "INSERT INTO CourseStudent (CourseID, StudentID, EnrollDate) VALUES (@CourseID, @StudentID, @EnrollDate)";
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@CourseID", courseID),
+                new SqlParameter("@StudentID", studentID),
+                new SqlParameter("@EnrollDate", enrollDate)
+            };
+
+            return DAL_DataProvider.Instance.ExecuteNonQuery(query, parameters) > 0;
+        }
+
+        // Kiểm tra xung đột lịch học của học viên (nếu học viên đã học 1 khóa khác cùng ca và ngày trong cùng thời gian)
+        public bool IsStudentScheduleConflict(string studentID, int dayOfWeek, string timeSlotID, DateTime startDate, DateTime endDate)
+        {
+            string query = @"
+                SELECT COUNT(*) 
+                FROM CourseStudent cs
+                JOIN Courses c ON cs.CourseID = c.CourseID
+                JOIN CourseSchedule s ON c.CourseID = s.CourseID
+                WHERE cs.StudentID = @StudentID
+                  AND s.DayOfWeek = @DayOfWeek
+                  AND s.TimeSlotID = @TimeSlotID
+                  AND c.IsActive = 1
+                  AND NOT (c.EndDate < @StartDate OR c.StartDate > @EndDate)
+            ";
+
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@StudentID", studentID),
+                new SqlParameter("@DayOfWeek", dayOfWeek),
+                new SqlParameter("@TimeSlotID", timeSlotID),
+                new SqlParameter("@StartDate", startDate),
+                new SqlParameter("@EndDate", endDate)
+            };
+
+            object result = DAL_DataProvider.Instance.ExecuteQuery(query, parameters).Rows[0][0];
+            return Convert.ToInt32(result) > 0;
+        }
+    }
+}

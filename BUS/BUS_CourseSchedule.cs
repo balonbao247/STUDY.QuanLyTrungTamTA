@@ -62,5 +62,11 @@ namespace BUS
 
             return DAL_CourseSchedule.Instance.DeleteCourseSchedule(scheduleID);
         }
+
+        // Kiểm tra trùng lịch giảng viên/phòng trong cùng ca học và ngày
+        public bool IsScheduleConflict(string teacherID, string roomID, string timeSlotID, int dayOfWeek)
+        {
+            return DAL_CourseSchedule.Instance.IsScheduleConflict(teacherID, roomID, timeSlotID, dayOfWeek);
+        }
     }
 }

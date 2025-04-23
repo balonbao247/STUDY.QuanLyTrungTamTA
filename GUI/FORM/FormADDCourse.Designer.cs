@@ -28,22 +28,40 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.toggleSunday = new Guna.UI2.WinForms.Guna2ToggleSwitch();
+            this.toggleSaturday = new Guna.UI2.WinForms.Guna2ToggleSwitch();
+            this.toggleFriday = new Guna.UI2.WinForms.Guna2ToggleSwitch();
+            this.toggleThursday = new Guna.UI2.WinForms.Guna2ToggleSwitch();
+            this.toggleWednesday = new Guna.UI2.WinForms.Guna2ToggleSwitch();
+            this.toggleTuesday = new Guna.UI2.WinForms.Guna2ToggleSwitch();
+            this.toggleMonday = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             this.btnSave = new Guna.UI2.WinForms.Guna2Button();
             this.btnCancel = new Guna.UI2.WinForms.Guna2Button();
             this.dtpStartDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.dtpEndDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.cmbSubject = new Guna.UI2.WinForms.Guna2ComboBox();
             this.cmbTeacherName = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.cmbRoom = new Guna.UI2.WinForms.Guna2ComboBox();
             this.cmbTimeSlot = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.lblTeacherID = new System.Windows.Forms.Label();
@@ -59,24 +77,8 @@
             this.Column3 = new System.Windows.Forms.DataGridViewImageColumn();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
             this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
-            this.cmbSubject = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.toggleMonday = new Guna.UI2.WinForms.Guna2ToggleSwitch();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.toggleTuesday = new Guna.UI2.WinForms.Guna2ToggleSwitch();
-            this.label11 = new System.Windows.Forms.Label();
-            this.toggleWednesday = new Guna.UI2.WinForms.Guna2ToggleSwitch();
-            this.label12 = new System.Windows.Forms.Label();
-            this.toggleThursday = new Guna.UI2.WinForms.Guna2ToggleSwitch();
-            this.label13 = new System.Windows.Forms.Label();
-            this.toggleFriday = new Guna.UI2.WinForms.Guna2ToggleSwitch();
-            this.label14 = new System.Windows.Forms.Label();
-            this.toggleSaturday = new Guna.UI2.WinForms.Guna2ToggleSwitch();
-            this.label15 = new System.Windows.Forms.Label();
-            this.toggleSunday = new Guna.UI2.WinForms.Guna2ToggleSwitch();
-            this.label16 = new System.Windows.Forms.Label();
-            this.cmbRoom = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
             this.guna2Panel5.SuspendLayout();
@@ -86,6 +88,7 @@
             // 
             // guna2Panel1
             // 
+            this.guna2Panel1.Controls.Add(this.lblTitle);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel1.Name = "guna2Panel1";
@@ -134,6 +137,111 @@
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.Size = new System.Drawing.Size(760, 551);
             this.guna2Panel2.TabIndex = 1;
+            // 
+            // toggleSunday
+            // 
+            this.toggleSunday.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.toggleSunday.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.toggleSunday.CheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.toggleSunday.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.toggleSunday.Location = new System.Drawing.Point(232, 348);
+            this.toggleSunday.Name = "toggleSunday";
+            this.toggleSunday.Size = new System.Drawing.Size(40, 20);
+            this.toggleSunday.TabIndex = 22;
+            this.toggleSunday.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.toggleSunday.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.toggleSunday.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.toggleSunday.UncheckedState.InnerColor = System.Drawing.Color.White;
+            // 
+            // toggleSaturday
+            // 
+            this.toggleSaturday.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.toggleSaturday.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.toggleSaturday.CheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.toggleSaturday.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.toggleSaturday.Location = new System.Drawing.Point(139, 399);
+            this.toggleSaturday.Name = "toggleSaturday";
+            this.toggleSaturday.Size = new System.Drawing.Size(40, 20);
+            this.toggleSaturday.TabIndex = 22;
+            this.toggleSaturday.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.toggleSaturday.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.toggleSaturday.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.toggleSaturday.UncheckedState.InnerColor = System.Drawing.Color.White;
+            // 
+            // toggleFriday
+            // 
+            this.toggleFriday.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.toggleFriday.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.toggleFriday.CheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.toggleFriday.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.toggleFriday.Location = new System.Drawing.Point(139, 373);
+            this.toggleFriday.Name = "toggleFriday";
+            this.toggleFriday.Size = new System.Drawing.Size(40, 20);
+            this.toggleFriday.TabIndex = 22;
+            this.toggleFriday.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.toggleFriday.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.toggleFriday.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.toggleFriday.UncheckedState.InnerColor = System.Drawing.Color.White;
+            // 
+            // toggleThursday
+            // 
+            this.toggleThursday.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.toggleThursday.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.toggleThursday.CheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.toggleThursday.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.toggleThursday.Location = new System.Drawing.Point(139, 348);
+            this.toggleThursday.Name = "toggleThursday";
+            this.toggleThursday.Size = new System.Drawing.Size(40, 20);
+            this.toggleThursday.TabIndex = 22;
+            this.toggleThursday.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.toggleThursday.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.toggleThursday.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.toggleThursday.UncheckedState.InnerColor = System.Drawing.Color.White;
+            // 
+            // toggleWednesday
+            // 
+            this.toggleWednesday.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.toggleWednesday.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.toggleWednesday.CheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.toggleWednesday.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.toggleWednesday.Location = new System.Drawing.Point(39, 400);
+            this.toggleWednesday.Name = "toggleWednesday";
+            this.toggleWednesday.Size = new System.Drawing.Size(40, 20);
+            this.toggleWednesday.TabIndex = 22;
+            this.toggleWednesday.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.toggleWednesday.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.toggleWednesday.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.toggleWednesday.UncheckedState.InnerColor = System.Drawing.Color.White;
+            // 
+            // toggleTuesday
+            // 
+            this.toggleTuesday.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.toggleTuesday.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.toggleTuesday.CheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.toggleTuesday.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.toggleTuesday.Location = new System.Drawing.Point(39, 374);
+            this.toggleTuesday.Name = "toggleTuesday";
+            this.toggleTuesday.Size = new System.Drawing.Size(40, 20);
+            this.toggleTuesday.TabIndex = 22;
+            this.toggleTuesday.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.toggleTuesday.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.toggleTuesday.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.toggleTuesday.UncheckedState.InnerColor = System.Drawing.Color.White;
+            // 
+            // toggleMonday
+            // 
+            this.toggleMonday.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.toggleMonday.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.toggleMonday.CheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.toggleMonday.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.toggleMonday.Location = new System.Drawing.Point(39, 348);
+            this.toggleMonday.Name = "toggleMonday";
+            this.toggleMonday.Size = new System.Drawing.Size(40, 20);
+            this.toggleMonday.TabIndex = 22;
+            this.toggleMonday.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.toggleMonday.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.toggleMonday.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.toggleMonday.UncheckedState.InnerColor = System.Drawing.Color.White;
             // 
             // btnSave
             // 
@@ -191,6 +299,23 @@
             this.dtpEndDate.TabIndex = 6;
             this.dtpEndDate.Value = new System.DateTime(2025, 4, 21, 19, 50, 14, 370);
             // 
+            // cmbSubject
+            // 
+            this.cmbSubject.BackColor = System.Drawing.Color.Transparent;
+            this.cmbSubject.BorderRadius = 10;
+            this.cmbSubject.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmbSubject.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSubject.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbSubject.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbSubject.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cmbSubject.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cmbSubject.ItemHeight = 30;
+            this.cmbSubject.Location = new System.Drawing.Point(36, 111);
+            this.cmbSubject.Name = "cmbSubject";
+            this.cmbSubject.Size = new System.Drawing.Size(280, 36);
+            this.cmbSubject.TabIndex = 5;
+            this.cmbSubject.SelectedIndexChanged += new System.EventHandler(this.cmbTeacherName_SelectedIndexChanged);
+            // 
             // cmbTeacherName
             // 
             this.cmbTeacherName.BackColor = System.Drawing.Color.Transparent;
@@ -208,6 +333,33 @@
             this.cmbTeacherName.TabIndex = 5;
             this.cmbTeacherName.SelectedIndexChanged += new System.EventHandler(this.cmbTeacherName_SelectedIndexChanged);
             // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(278, 347);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(33, 21);
+            this.label15.TabIndex = 3;
+            this.label15.Text = "CN";
+            this.label15.Click += new System.EventHandler(this.label9_Click);
+            // 
+            // cmbRoom
+            // 
+            this.cmbRoom.BackColor = System.Drawing.Color.Transparent;
+            this.cmbRoom.BorderRadius = 10;
+            this.cmbRoom.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmbRoom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbRoom.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbRoom.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbRoom.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cmbRoom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cmbRoom.ItemHeight = 30;
+            this.cmbRoom.Location = new System.Drawing.Point(379, 347);
+            this.cmbRoom.Name = "cmbRoom";
+            this.cmbRoom.Size = new System.Drawing.Size(277, 36);
+            this.cmbRoom.TabIndex = 5;
+            // 
             // cmbTimeSlot
             // 
             this.cmbTimeSlot.BackColor = System.Drawing.Color.Transparent;
@@ -224,6 +376,17 @@
             this.cmbTimeSlot.Size = new System.Drawing.Size(277, 36);
             this.cmbTimeSlot.TabIndex = 5;
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(185, 398);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(28, 21);
+            this.label14.TabIndex = 3;
+            this.label14.Text = "T7";
+            this.label14.Click += new System.EventHandler(this.label9_Click);
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -234,6 +397,17 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "Subject";
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(185, 372);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(28, 21);
+            this.label13.TabIndex = 3;
+            this.label13.Text = "T6";
+            this.label13.Click += new System.EventHandler(this.label9_Click);
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -243,6 +417,17 @@
             this.label2.Size = new System.Drawing.Size(90, 21);
             this.label2.TabIndex = 3;
             this.label2.Text = "Teacher ID";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(185, 347);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(28, 21);
+            this.label12.TabIndex = 3;
+            this.label12.Text = "T5";
+            this.label12.Click += new System.EventHandler(this.label9_Click);
             // 
             // label1
             // 
@@ -255,6 +440,17 @@
             this.label1.Text = "Course ID";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(85, 399);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(28, 21);
+            this.label11.TabIndex = 3;
+            this.label11.Text = "T4";
+            this.label11.Click += new System.EventHandler(this.label9_Click);
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -265,6 +461,17 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "Teacher Name";
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(85, 373);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(28, 21);
+            this.label10.TabIndex = 3;
+            this.label10.Text = "T3";
+            this.label10.Click += new System.EventHandler(this.label9_Click);
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -274,6 +481,37 @@
             this.label6.Size = new System.Drawing.Size(48, 21);
             this.label6.TabIndex = 3;
             this.label6.Text = "Price";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(85, 347);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(28, 21);
+            this.label9.TabIndex = 3;
+            this.label9.Text = "T2";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(378, 323);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(55, 21);
+            this.label16.TabIndex = 3;
+            this.label16.Text = "Room";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(35, 323);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(42, 21);
+            this.label8.TabIndex = 3;
+            this.label8.Text = "DAY";
             // 
             // label5
             // 
@@ -386,30 +624,30 @@
             // 
             this.dgvHocVienTam.AllowUserToAddRows = false;
             this.dgvHocVienTam.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.dgvHocVienTam.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvHocVienTam.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvHocVienTam.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvHocVienTam.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvHocVienTam.ColumnHeadersHeight = 15;
             this.dgvHocVienTam.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dgvHocVienTam.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
             this.Column3});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvHocVienTam.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvHocVienTam.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvHocVienTam.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvHocVienTam.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvHocVienTam.Location = new System.Drawing.Point(5, 0);
@@ -490,240 +728,15 @@
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             this.txtSearch.Click += new System.EventHandler(this.txtSearch_Click);
             // 
-            // cmbSubject
+            // lblTitle
             // 
-            this.cmbSubject.BackColor = System.Drawing.Color.Transparent;
-            this.cmbSubject.BorderRadius = 10;
-            this.cmbSubject.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cmbSubject.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbSubject.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cmbSubject.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cmbSubject.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cmbSubject.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.cmbSubject.ItemHeight = 30;
-            this.cmbSubject.Location = new System.Drawing.Point(36, 111);
-            this.cmbSubject.Name = "cmbSubject";
-            this.cmbSubject.Size = new System.Drawing.Size(280, 36);
-            this.cmbSubject.TabIndex = 5;
-            this.cmbSubject.SelectedIndexChanged += new System.EventHandler(this.cmbTeacherName_SelectedIndexChanged);
-            // 
-            // toggleMonday
-            // 
-            this.toggleMonday.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.toggleMonday.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.toggleMonday.CheckedState.InnerBorderColor = System.Drawing.Color.White;
-            this.toggleMonday.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.toggleMonday.Location = new System.Drawing.Point(39, 348);
-            this.toggleMonday.Name = "toggleMonday";
-            this.toggleMonday.Size = new System.Drawing.Size(40, 20);
-            this.toggleMonday.TabIndex = 22;
-            this.toggleMonday.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.toggleMonday.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.toggleMonday.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
-            this.toggleMonday.UncheckedState.InnerColor = System.Drawing.Color.White;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(35, 323);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(42, 21);
-            this.label8.TabIndex = 3;
-            this.label8.Text = "DAY";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(85, 347);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(28, 21);
-            this.label9.TabIndex = 3;
-            this.label9.Text = "T2";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(85, 373);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(28, 21);
-            this.label10.TabIndex = 3;
-            this.label10.Text = "T3";
-            this.label10.Click += new System.EventHandler(this.label9_Click);
-            // 
-            // toggleTuesday
-            // 
-            this.toggleTuesday.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.toggleTuesday.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.toggleTuesday.CheckedState.InnerBorderColor = System.Drawing.Color.White;
-            this.toggleTuesday.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.toggleTuesday.Location = new System.Drawing.Point(39, 374);
-            this.toggleTuesday.Name = "toggleTuesday";
-            this.toggleTuesday.Size = new System.Drawing.Size(40, 20);
-            this.toggleTuesday.TabIndex = 22;
-            this.toggleTuesday.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.toggleTuesday.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.toggleTuesday.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
-            this.toggleTuesday.UncheckedState.InnerColor = System.Drawing.Color.White;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(85, 399);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(28, 21);
-            this.label11.TabIndex = 3;
-            this.label11.Text = "T4";
-            this.label11.Click += new System.EventHandler(this.label9_Click);
-            // 
-            // toggleWednesday
-            // 
-            this.toggleWednesday.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.toggleWednesday.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.toggleWednesday.CheckedState.InnerBorderColor = System.Drawing.Color.White;
-            this.toggleWednesday.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.toggleWednesday.Location = new System.Drawing.Point(39, 400);
-            this.toggleWednesday.Name = "toggleWednesday";
-            this.toggleWednesday.Size = new System.Drawing.Size(40, 20);
-            this.toggleWednesday.TabIndex = 22;
-            this.toggleWednesday.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.toggleWednesday.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.toggleWednesday.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
-            this.toggleWednesday.UncheckedState.InnerColor = System.Drawing.Color.White;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(185, 347);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(28, 21);
-            this.label12.TabIndex = 3;
-            this.label12.Text = "T5";
-            this.label12.Click += new System.EventHandler(this.label9_Click);
-            // 
-            // toggleThursday
-            // 
-            this.toggleThursday.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.toggleThursday.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.toggleThursday.CheckedState.InnerBorderColor = System.Drawing.Color.White;
-            this.toggleThursday.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.toggleThursday.Location = new System.Drawing.Point(139, 348);
-            this.toggleThursday.Name = "toggleThursday";
-            this.toggleThursday.Size = new System.Drawing.Size(40, 20);
-            this.toggleThursday.TabIndex = 22;
-            this.toggleThursday.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.toggleThursday.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.toggleThursday.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
-            this.toggleThursday.UncheckedState.InnerColor = System.Drawing.Color.White;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(185, 372);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(28, 21);
-            this.label13.TabIndex = 3;
-            this.label13.Text = "T6";
-            this.label13.Click += new System.EventHandler(this.label9_Click);
-            // 
-            // toggleFriday
-            // 
-            this.toggleFriday.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.toggleFriday.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.toggleFriday.CheckedState.InnerBorderColor = System.Drawing.Color.White;
-            this.toggleFriday.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.toggleFriday.Location = new System.Drawing.Point(139, 373);
-            this.toggleFriday.Name = "toggleFriday";
-            this.toggleFriday.Size = new System.Drawing.Size(40, 20);
-            this.toggleFriday.TabIndex = 22;
-            this.toggleFriday.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.toggleFriday.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.toggleFriday.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
-            this.toggleFriday.UncheckedState.InnerColor = System.Drawing.Color.White;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(185, 398);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(28, 21);
-            this.label14.TabIndex = 3;
-            this.label14.Text = "T7";
-            this.label14.Click += new System.EventHandler(this.label9_Click);
-            // 
-            // toggleSaturday
-            // 
-            this.toggleSaturday.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.toggleSaturday.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.toggleSaturday.CheckedState.InnerBorderColor = System.Drawing.Color.White;
-            this.toggleSaturday.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.toggleSaturday.Location = new System.Drawing.Point(139, 399);
-            this.toggleSaturday.Name = "toggleSaturday";
-            this.toggleSaturday.Size = new System.Drawing.Size(40, 20);
-            this.toggleSaturday.TabIndex = 22;
-            this.toggleSaturday.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.toggleSaturday.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.toggleSaturday.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
-            this.toggleSaturday.UncheckedState.InnerColor = System.Drawing.Color.White;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(278, 347);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(33, 21);
-            this.label15.TabIndex = 3;
-            this.label15.Text = "CN";
-            this.label15.Click += new System.EventHandler(this.label9_Click);
-            // 
-            // toggleSunday
-            // 
-            this.toggleSunday.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.toggleSunday.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.toggleSunday.CheckedState.InnerBorderColor = System.Drawing.Color.White;
-            this.toggleSunday.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.toggleSunday.Location = new System.Drawing.Point(232, 348);
-            this.toggleSunday.Name = "toggleSunday";
-            this.toggleSunday.Size = new System.Drawing.Size(40, 20);
-            this.toggleSunday.TabIndex = 22;
-            this.toggleSunday.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.toggleSunday.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.toggleSunday.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
-            this.toggleSunday.UncheckedState.InnerColor = System.Drawing.Color.White;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(378, 323);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(55, 21);
-            this.label16.TabIndex = 3;
-            this.label16.Text = "Room";
-            // 
-            // cmbRoom
-            // 
-            this.cmbRoom.BackColor = System.Drawing.Color.Transparent;
-            this.cmbRoom.BorderRadius = 10;
-            this.cmbRoom.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cmbRoom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbRoom.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cmbRoom.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cmbRoom.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cmbRoom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.cmbRoom.ItemHeight = 30;
-            this.cmbRoom.Location = new System.Drawing.Point(379, 347);
-            this.cmbRoom.Name = "cmbRoom";
-            this.cmbRoom.Size = new System.Drawing.Size(277, 36);
-            this.cmbRoom.TabIndex = 5;
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(531, 18);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(229, 32);
+            this.lblTitle.TabIndex = 1;
+            this.lblTitle.Text = "ADD NEW COURSE";
             // 
             // FormADDCourse
             // 
@@ -739,6 +752,8 @@
             this.Text = "FormADDCourse";
             this.Load += new System.EventHandler(this.FormADDCourse_Load);
             this.Click += new System.EventHandler(this.FormADDCourse_Click);
+            this.guna2Panel1.ResumeLayout(false);
+            this.guna2Panel1.PerformLayout();
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();
             this.guna2Panel3.ResumeLayout(false);
@@ -797,5 +812,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label lblTitle;
     }
 }

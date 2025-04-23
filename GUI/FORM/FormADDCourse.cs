@@ -100,19 +100,7 @@ namespace GUI.FORM
                 lstSuggestions.Visible = false;
             }
         }
-        //Nút cancel
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            foreach (Form form in Application.OpenForms)
-            {
-                if (form is BlurBackground)
-                {
-                    form.Hide();
-
-                }
-            }
-            this.Close();
-        }
+       
         //Thanh search tìm học viên để thên vào gridview tạm
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
@@ -176,7 +164,7 @@ namespace GUI.FORM
                 }
             }
         }
-
+        
         private void FormADDCourse_Click(object sender, EventArgs e)
         {
             // Ẩn danh sách khi click bên ngoài
@@ -190,13 +178,11 @@ namespace GUI.FORM
 
             // Lấy tên giảng viên từ ComboBox
             string teacherName = cmbTeacherName.Text;
-
-            // Hiển thị tên giảng viên vào TextBox
             cmbTeacherName.Text = teacherName;
-
-            // Nếu muốn hiển thị cả Teacher ID trong TextBox (có thể tùy chỉnh)
             textBoxTeacherID.Text = selectedTeacherID;
         }
+
+        //Nút save course
         public event EventHandler OnCourseSaved;
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -206,6 +192,7 @@ namespace GUI.FORM
                 MessageBox.Show("Vui lòng chọn môn học.");
                 return;
             }
+
             if (!decimal.TryParse(txtPrice.Text, out decimal price))
             {
                 MessageBox.Show("Giá phải là một số hợp lệ.", "Lỗi dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -219,6 +206,7 @@ namespace GUI.FORM
                 txtPrice.Focus();
                 return;
             }
+
             // Thu thập dữ liệu khóa học
             string courseID = txtCourseId.Text;
             string courseName = selectedSubject.SubjectName;
@@ -227,18 +215,17 @@ namespace GUI.FORM
             DateTime startDate = dtpStartDate.Value;
             DateTime endDate = dtpEndDate.Value;
             price = decimal.Parse(txtPrice.Text);
-            //bool isActive = chkIsActive.Checked;
 
             // Kiểm tra tính hợp lệ của dữ liệu
             if (string.IsNullOrEmpty(courseName))
             {
-                MessageBox.Show("Course name is required.");
+                MessageBox.Show("Tên khóa học không được bỏ trống.");
                 return;
             }
 
             if (startDate >= endDate)
             {
-                MessageBox.Show("End date must be later than start date.");
+                MessageBox.Show("Ngày kết thúc phải sau ngày bắt đầu.");
                 return;
             }
 
@@ -255,19 +242,9 @@ namespace GUI.FORM
                 IsActive = true
             };
 
-            // Lưu khóa học vào cơ sở dữ liệu
-            bool resultCourse = BUS_Course.Instance.AddCourse(newCourse);
-
-            if (!resultCourse)
-            {
-                MessageBox.Show("Failed to save the course.");
-                return;
-            }
-
             // Tạo danh sách các ngày học từ ToggleSwitch
             List<int> selectedDays = new List<int>();
 
-            // Kiểm tra trạng thái của các ToggleSwitch (Tượng trưng cho các ngày trong tuần)
             if (toggleMonday.Checked) selectedDays.Add(1);  // Thứ Hai
             if (toggleTuesday.Checked) selectedDays.Add(2); // Thứ Ba
             if (toggleWednesday.Checked) selectedDays.Add(3); // Thứ Tư
@@ -276,6 +253,62 @@ namespace GUI.FORM
             if (toggleSaturday.Checked) selectedDays.Add(6); // Thứ Bảy
             if (toggleSunday.Checked) selectedDays.Add(7); // Chủ Nhật
 
+            if (selectedDays.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn ít nhất một ngày học trong tuần.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Kiểm tra xung đột lịch trước khi lưu khóa học
+            foreach (int dayOfWeek in selectedDays)
+            {
+                string timeSlotID = cmbTimeSlot.SelectedValue.ToString();
+                string roomID = cmbRoom.SelectedValue.ToString();
+
+                bool isConflict = BUS_CourseSchedule.Instance.IsScheduleConflict(teacherID, roomID, timeSlotID, dayOfWeek);
+
+                if (isConflict)
+                {
+                    var selectedSlot = cmbTimeSlot.SelectedItem as DTO_TimeSlot;
+                    string timeSlotName = selectedSlot != null ? selectedSlot.TimeSlotName : "Không rõ";
+                    string dayText = GetDayName(dayOfWeek);
+
+                    MessageBox.Show(
+                        $"⚠️ Lịch bị trùng vào {dayText} - {timeSlotName}.\n\n" +
+                        $"👉 Vui lòng chọn **giảng viên khác**, **phòng khác** hoặc **ca học khác** để tránh trùng lịch.",
+                        "Xung đột lịch học",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning
+                    );
+                    return; // Dừng lại nếu có xung đột, không lưu khóa học nữa.
+                }
+
+                // Kiểm tra xung đột lịch học của học viên trong danh sách
+                foreach (DataGridViewRow row in dgvHocVienTam.Rows)
+                {
+                    string studentID = row.Cells["Column1"].Value?.ToString();
+                    if (!string.IsNullOrEmpty(studentID))
+                    {
+                        bool isStudentConflict = BUS_CourseStudent.Instance.IsScheduleConflict(studentID, dayOfWeek, timeSlotID, startDate, endDate);
+
+                        if (isStudentConflict)
+                        {
+                            MessageBox.Show($"Học viên {studentID} đã có lịch học trùng vào ngày {GetDayName(dayOfWeek)}.");
+                            return; // Dừng lại nếu có xung đột lịch học của học viên
+                        }
+                    }
+                }
+            }
+
+            // Nếu không có xung đột, lưu khóa học vào cơ sở dữ liệu
+            bool resultCourse = BUS_Course.Instance.AddCourse(newCourse);
+
+            if (!resultCourse)
+            {
+                MessageBox.Show("Lưu khóa học không thành công.");
+                return;
+            }
+
             // Lưu lịch học cho khóa học
             foreach (int dayOfWeek in selectedDays)
             {
@@ -283,21 +316,69 @@ namespace GUI.FORM
                 {
                     CourseID = courseID,
                     DayOfWeek = dayOfWeek,
-                    TimeSlotID = (string)cmbTimeSlot.SelectedValue,  // Lấy giá trị từ ComboBox
-                    RoomID = (string)cmbRoom.SelectedValue        // Lấy giá trị từ ComboBox
+                    TimeSlotID = (string)cmbTimeSlot.SelectedValue,
+                    RoomID = (string)cmbRoom.SelectedValue
                 };
 
-                // Lưu lịch học vào cơ sở dữ liệu
                 bool resultSchedule = BUS_CourseSchedule.Instance.InsertCourseSchedule(schedule);
                 if (!resultSchedule)
                 {
-                    MessageBox.Show($"Failed to save schedule for day {dayOfWeek}");
+                    MessageBox.Show($"Lưu lịch học cho ngày {dayOfWeek} không thành công.");
                     return;
                 }
             }
 
-            MessageBox.Show("Course and schedules saved successfully!");
+            MessageBox.Show("Khóa học và lịch học đã được lưu thành công!");
 
+            // Lưu danh sách học viên tham gia khóa học
+            foreach (DataGridViewRow row in dgvHocVienTam.Rows)
+            {
+                string studentID = row.Cells["Column1"].Value?.ToString();
+                if (!string.IsNullOrEmpty(studentID))
+                {
+                    bool added = BUS_CourseStudent.Instance.AddStudentToCourse(courseID, studentID);
+                    if (!added)
+                    {
+                        MessageBox.Show($"Không thể thêm học viên {studentID} vào khóa học.");
+                        return;
+                    }
+                }
+            }
+
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form is BlurBackground)
+                {
+                    form.Hide();
+                }
+            }
+
+            this.Close();
+            OnCourseSaved?.Invoke(this, EventArgs.Empty);
+        }
+
+        private string GetDayName(int dayOfWeek)
+        {
+            switch (dayOfWeek)
+            {
+                case 1: return "Thứ Hai";
+                case 2: return "Thứ Ba";
+                case 3: return "Thứ Tư";
+                case 4: return "Thứ Năm";
+                case 5: return "Thứ Sáu";
+                case 6: return "Thứ Bảy";
+                case 7: return "Chủ Nhật";
+                default: return "";
+            }
+        }
+
+
+
+      
+
+        //Nút cancel
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
             foreach (Form form in Application.OpenForms)
             {
                 if (form is BlurBackground)
@@ -307,9 +388,7 @@ namespace GUI.FORM
                 }
             }
             this.Close();
-            OnCourseSaved?.Invoke(this, EventArgs.Empty);
         }
-
 
         private void label9_Click(object sender, EventArgs e)
         {

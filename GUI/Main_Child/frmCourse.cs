@@ -84,10 +84,10 @@ namespace GUI.Main_Child
         }
         private void LoadCourse()
         {
+            flowLayoutPanel1.Controls.Clear();
             BUS_Course busCourse = new BUS_Course();
             BUS_Teacher busTeacher = new BUS_Teacher();
-            List<DTO_Course> courseList = busCourse.GetAllCourses();
-            var activeList = courseList.Where(item => item.IsActive).ToList();
+            List<DTO_Course> activeList = busCourse.GetActiveCourses();
             foreach (var item in activeList)
             {
                 try

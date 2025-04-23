@@ -100,5 +100,29 @@ namespace DAL
             int result = DAL_DataProvider.Instance.ExecuteNonQuery(query, parameters);
             return result > 0;
         }
+
+        public bool IsScheduleConflict(string teacherID, string roomID, string timeSlotID, int dayOfWeek)
+        {
+            string query = @"
+                SELECT * FROM CourseSchedule cs
+                JOIN Courses c ON cs.CourseID = c.CourseID
+                WHERE cs.DayOfWeek = @DayOfWeek
+                  AND cs.TimeSlotID = @TimeSlotID
+                  AND c.IsActive = 1
+                  AND (c.TeacherID = @TeacherID OR cs.RoomID = @RoomID)
+            ";
+
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@DayOfWeek", dayOfWeek),
+                new SqlParameter("@TimeSlotID", timeSlotID),
+                new SqlParameter("@TeacherID", teacherID),
+                new SqlParameter("@RoomID", roomID)
+            };
+
+            DataTable result = DAL_DataProvider.Instance.ExecuteQuery(query, parameters);
+            return result.Rows.Count > 0;
+        }
+
     }
 }

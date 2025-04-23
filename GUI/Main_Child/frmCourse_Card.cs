@@ -27,14 +27,17 @@ namespace GUI.Main_Child
         {
 
         }
-        public void SetCourseInfo(string courseID, string teacherName, decimal price, string subject, string description)
+        public void SetCourseInfo(string courseID, string teacherName, decimal price, string subject, string description,string SubjectID)
         {
             this.CourseID =  courseID;
-            lblName.Text = $"Mã khóa: {courseID}";
+            lblName.Text = $"Khóa: {courseID}";
             lblTeacher.Text = teacherName;
             lblPrice.Text = $"{price:N0} VNĐ";
             lblSubject.Text = subject;
             txtDesc.Text = description;
+            // Lấy ảnh theo subjectID (đã add s01, s02, ... vào Resources)
+            guna2PictureBox1.Image = (Image)Properties.Resources.ResourceManager.GetObject(SubjectID);
+           
         }
 
         private void guna2Panel1_Paint(object sender, PaintEventArgs e)
@@ -47,10 +50,10 @@ namespace GUI.Main_Child
             OnDeleteCourse?.Invoke(this, e);
         }
 
-        public event EventHandler OnEditCourse;
+        public event EventHandler<string> OnEditCourse;
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            OnEditCourse?.Invoke(this, e);
+            OnEditCourse?.Invoke(this, CourseID);
         }
 
         private void guna2PictureBox1_Click(object sender, EventArgs e)

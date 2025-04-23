@@ -21,7 +21,7 @@ namespace BUS
         }
 
         // Constructor mặc định
-        private BUS_Subject() { }
+    
 
         // Lấy tất cả môn học
         public List<DTO_Subject> GetAllSubjects()

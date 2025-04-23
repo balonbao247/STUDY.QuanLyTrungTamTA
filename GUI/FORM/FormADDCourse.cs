@@ -89,7 +89,19 @@ namespace GUI.FORM
 
                 DTO_Student selectedStudent = allHocVien.FirstOrDefault(hv => hv.StudentID == maHV);
                 if (selectedStudent != null)
-                {
+                {    // Kiểm tra số lượng học viên trong dgvHocVienTam
+                    int studentCount = dgvHocVienTam.Rows.Count;
+                    var selectedRoom = cmbRoom.SelectedItem as DTO_Room;
+                    if (selectedRoom != null)
+                    {
+                        int roomCapacity = selectedRoom.Capacity; 
+                        // Nếu số lượng học viên đã đạt hoặc vượt sức chứa phòng, không cho phép thêm học viên mới
+                        if (studentCount >= roomCapacity)
+                        {
+                            MessageBox.Show($"Số lượng học viên đã đạt giới hạn của phòng ({roomCapacity} học viên).");
+                            return; 
+                        }
+                    }
                     int index = dgvHocVienTam.Rows.Add();
                     dgvHocVienTam.Rows[index].Cells["Column1"].Value = selectedStudent.StudentID;
                     dgvHocVienTam.Rows[index].Cells["Column2"].Value = selectedStudent.FullName;
@@ -193,7 +205,8 @@ namespace GUI.FORM
                 return;
             }
 
-            if (!decimal.TryParse(txtPrice.Text, out decimal price))
+            decimal price;
+            if (!decimal.TryParse(txtPrice.Text, out price))
             {
                 MessageBox.Show("Giá phải là một số hợp lệ.", "Lỗi dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtPrice.Focus();
@@ -207,11 +220,13 @@ namespace GUI.FORM
                 return;
             }
 
+
             // Thu thập dữ liệu khóa học
             string courseID = txtCourseId.Text;
             string courseName = selectedSubject.SubjectName;
             string subjectID = cmbSubject.SelectedValue.ToString();
             string teacherID = cmbTeacherName.SelectedValue.ToString();
+            int numberOfMeetings = int.Parse(numTotalSessions.SelectedItem.ToString());
             DateTime startDate = dtpStartDate.Value;
             DateTime endDate = dtpEndDate.Value;
             price = decimal.Parse(txtPrice.Text);
@@ -235,6 +250,7 @@ namespace GUI.FORM
                 CourseID = courseID,
                 CourseName = courseName,
                 SubjectID = subjectID,
+                NumberOfMeetings= numberOfMeetings,
                 TeacherID = teacherID,
                 StartDate = startDate,
                 EndDate = endDate,
@@ -245,13 +261,25 @@ namespace GUI.FORM
             // Tạo danh sách các ngày học từ ToggleSwitch
             List<int> selectedDays = new List<int>();
 
-            if (toggleMonday.Checked) selectedDays.Add(1);  // Thứ Hai
-            if (toggleTuesday.Checked) selectedDays.Add(2); // Thứ Ba
-            if (toggleWednesday.Checked) selectedDays.Add(3); // Thứ Tư
-            if (toggleThursday.Checked) selectedDays.Add(4); // Thứ Năm
-            if (toggleFriday.Checked) selectedDays.Add(5); // Thứ Sáu
-            if (toggleSaturday.Checked) selectedDays.Add(6); // Thứ Bảy
-            if (toggleSunday.Checked) selectedDays.Add(7); // Chủ Nhật
+            switch (comboBoxDays.SelectedItem.ToString())
+            {
+                case "T2 - T4 - T6":
+                    selectedDays.AddRange(new[] { 1, 3, 5 });
+           
+                    break;
+
+                case "T3 - T5 - T7":
+                    selectedDays.AddRange(new[] { 2, 4, 6 });
+                    break;
+
+                case "T7 - CN":
+                    selectedDays.AddRange(new[] { 6, 7 });
+                    break;
+
+                default:
+                    // Có thể xử lý lỗi nếu cần
+                    break;
+            }
 
             if (selectedDays.Count == 0)
             {
@@ -299,7 +327,11 @@ namespace GUI.FORM
                     }
                 }
             }
-
+            if (dgvHocVienTam.Rows.Count == 0)
+            {
+                MessageBox.Show("Vui lòng thêm học viên vào khóa học.");
+                return;
+            }
             // Nếu không có xung đột, lưu khóa học vào cơ sở dữ liệu
             bool resultCourse = BUS_Course.Instance.AddCourse(newCourse);
 
@@ -371,10 +403,82 @@ namespace GUI.FORM
                 default: return "";
             }
         }
+        private void UpdateEndDate()
+        {
+            try
+            {
+                DateTime startDate = dtpStartDate.Value;
 
+                // Lấy lịch học từ combobox (ví dụ: "T2 - T4 - T6")
+                string selectedSchedule = comboBoxDays.SelectedItem?.ToString();
+                List<int> selectedDays = GetDaysFromCombo(selectedSchedule);
 
+                // Lấy số buổi học (giả sử là NumericUpDown)
+                int totalSessions = 0;
 
-      
+                if (int.TryParse(numTotalSessions.SelectedItem?.ToString(), out int value))
+                {
+                    totalSessions = value;
+                }
+                else
+                {
+                    // Có thể gán mặc định hoặc báo lỗi
+                    totalSessions = 0;
+                }
+
+                if (selectedDays.Count == 0 || totalSessions <= 0)
+                {
+                    dtpEndDate.Value = startDate;
+                    return;
+                }
+
+                DateTime endDate = CalculateEndDate(startDate, selectedDays, totalSessions);
+                dtpEndDate.Value = endDate;
+            }
+            catch
+            {
+                // Có thể log lỗi hoặc báo người dùng
+            }
+        }
+        public DateTime CalculateEndDate(DateTime startDate, List<int> selectedDays, int totalSessions)
+        {
+            HashSet<DayOfWeek> selectedDayOfWeeks = new HashSet<DayOfWeek>(
+                selectedDays.Select(d => (DayOfWeek)(d % 7)) // 1->Monday, 7->Sunday = 0
+            );
+
+            DateTime currentDate = startDate;
+            int sessionCount = 0;
+
+            while (sessionCount < totalSessions)
+            {
+                if (selectedDayOfWeeks.Contains(currentDate.DayOfWeek))
+                {
+                    sessionCount++;
+                }
+
+                if (sessionCount < totalSessions)
+                {
+                    currentDate = currentDate.AddDays(1);
+                }
+            }
+
+            return currentDate;
+        }
+        private List<int> GetDaysFromCombo(string comboText)
+        {
+            switch (comboText)
+            {
+                case "T2 - T4 - T6": return new List<int> { 1, 3, 5 };
+                case "T3 - T5 - T7": return new List<int> { 2, 4, 6 };
+                case "T7 - CN": return new List<int> { 6, 7 };
+                default: return new List<int>();
+            }
+        }
+        private void dtpStartDate_ValueChanged(object sender, EventArgs e)
+        {
+            UpdateEndDate();
+        }
+
 
         //Nút cancel
         private void btnCancel_Click(object sender, EventArgs e)
@@ -393,6 +497,62 @@ namespace GUI.FORM
         private void label9_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void cmbRoom_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var selectedRoom = cmbRoom.SelectedItem as DTO_Room;
+            if (selectedRoom != null)
+            {
+                int roomCapacity = selectedRoom.Capacity; // Lấy sức chứa phòng
+
+                // Kiểm tra nếu số lượng học viên trong dgvHocVienTam vượt quá sức chứa phòng mới
+                int studentCount = dgvHocVienTam.Rows.Count;
+
+                if (studentCount > roomCapacity)
+                {
+                    MessageBox.Show($"Số lượng học viên đã vượt quá sức chứa của phòng ({roomCapacity} học viên).", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                }
+            }
+            UpdateEndDate();
+
+        }
+       
+
+        private void guna2Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label17_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblTeacherID_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void flowLayoutPanel11_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void comboBoxDays_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateEndDate();
         }
     }
 }

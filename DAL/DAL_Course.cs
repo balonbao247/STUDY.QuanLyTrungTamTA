@@ -77,13 +77,14 @@ namespace DAL
         // Thêm Course
         public bool InsertCourse(DTO_Course course)
         {
-            string query = @"INSERT INTO Courses (CourseID, CourseName, SubjectID, TeacherID, StartDate, EndDate, Price, IsActive)
-                             VALUES (@CourseID, @CourseName, @SubjectID, @TeacherID, @StartDate, @EndDate, @Price, @IsActive)";
+            string query = @"INSERT INTO Courses (CourseID, CourseName, SubjectID, TeacherID,NumberOfMeetings, StartDate, EndDate, Price, IsActive)
+                             VALUES (@CourseID, @CourseName, @SubjectID, @TeacherID,@NumberOfMeetings, @StartDate, @EndDate, @Price, @IsActive)";
             SqlParameter[] parameters = {
                 new SqlParameter("@CourseID", course.CourseID),
                 new SqlParameter("@CourseName", course.CourseName),
                 new SqlParameter("@SubjectID", course.SubjectID),
                 new SqlParameter("@TeacherID", course.TeacherID),
+                new SqlParameter("@NumberOfMeetings", course.NumberOfMeetings),
                 new SqlParameter("@StartDate", course.StartDate),
                 new SqlParameter("@EndDate", course.EndDate),
                 new SqlParameter("@Price", course.Price),
@@ -100,6 +101,7 @@ namespace DAL
                                 CourseName = @CourseName,
                                 SubjectID = @SubjectID,
                                 TeacherID = @TeacherID,
+                                NumberOfmeetings = @NumberOfmeetings,
                                 StartDate = @StartDate,
                                 EndDate = @EndDate,
                                 Price = @Price,
@@ -110,6 +112,7 @@ namespace DAL
                 new SqlParameter("@CourseID", course.CourseID),
                 new SqlParameter("@CourseName", course.CourseName),
                 new SqlParameter("@SubjectID", course.SubjectID),
+                new SqlParameter("@NumberOfmeetings", course.NumberOfMeetings),
                 new SqlParameter("@TeacherID", course.TeacherID),
                 new SqlParameter("@StartDate", course.StartDate),
                 new SqlParameter("@EndDate", course.EndDate),

@@ -31,6 +31,27 @@ namespace DAL
 
             return courseSchedules;
         }
+        // Lấy ds
+        public List<DTO_CourseSchedule> GetCourseSchedulesByCourseID(string courseID)
+        {
+            string query = "SELECT * FROM CourseSchedule WHERE CourseID = @CourseID";
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+        new SqlParameter("@CourseID", courseID)
+            };
+
+            DataTable dt = DAL_DataProvider.Instance.ExecuteQuery(query, parameters);
+
+            List<DTO_CourseSchedule> courseSchedules = new List<DTO_CourseSchedule>();
+
+            foreach (DataRow row in dt.Rows)
+            {
+                courseSchedules.Add(new DTO_CourseSchedule(row)); // Sử dụng constructor của DTO_CourseSchedule để chuyển dữ liệu thành đối tượng
+            }
+
+            return courseSchedules;
+        }
+
 
         // Lấy thông tin CourseSchedule theo ScheduleID
         public DTO_CourseSchedule GetCourseScheduleByID(int scheduleID)

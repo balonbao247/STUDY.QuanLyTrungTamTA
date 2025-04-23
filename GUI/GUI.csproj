@@ -101,6 +101,12 @@
     <Compile Include="Config.Designer.cs">
       <DependentUpon>Config.cs</DependentUpon>
     </Compile>
+    <Compile Include="FORM\FormVIEWCourse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FORM\FormVIEWCourse.Designer.cs">
+      <DependentUpon>FormVIEWCourse.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +138,12 @@
     <Compile Include="Main_Child\frmRoom.Designer.cs">
       <DependentUpon>frmRoom.cs</DependentUpon>
     </Compile>
+    <Compile Include="Main_Child\frmRoom_Card.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main_Child\frmRoom_Card.Designer.cs">
+      <DependentUpon>frmRoom_Card.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main_Child\frmTeacher.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,11 +156,11 @@
     <Compile Include="Main_Child\frmStudent.Designer.cs">
       <DependentUpon>frmStudent.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main_Child\RoomControl.cs">
+    <Compile Include="Main_Child\RoomCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Main_Child\RoomControl.Designer.cs">
-      <DependentUpon>RoomControl.cs</DependentUpon>
+    <Compile Include="Main_Child\RoomCard.Designer.cs">
+      <DependentUpon>RoomCard.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -185,6 +197,9 @@
     <EmbeddedResource Include="Config.resx">
       <DependentUpon>Config.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FORM\FormVIEWCourse.resx">
+      <DependentUpon>FormVIEWCourse.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
@@ -206,8 +221,8 @@
     <EmbeddedResource Include="Main_Child\frmStudent.resx">
       <DependentUpon>frmStudent.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main_Child\RoomControl.resx">
-      <DependentUpon>RoomControl.cs</DependentUpon>
+    <EmbeddedResource Include="Main_Child\RoomCard.resx">
+      <DependentUpon>RoomCard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -325,6 +340,33 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Free-Professional-Background-PowerPoint-Template.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pixlr-image-generator-7a42ca99-6acd-4e46-a7ee-f076d2a99a86.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\B1 Course.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\S01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\S02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\S03.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\S04.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\S05.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\S06.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\S07.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -20,6 +20,11 @@ namespace BUS
         {
             return DAL_CourseSchedule.Instance.GetAllCourseSchedules();
         }
+        public List<DTO_CourseSchedule> GetAllCourseSchedulesByCourseID(string courseID)
+        {
+            return DAL_CourseSchedule.Instance.GetCourseSchedulesByCourseID(courseID);
+        }
+
 
         // Lấy thông tin CourseSchedule theo ScheduleID
         public DTO_CourseSchedule GetCourseScheduleByID(int scheduleID)

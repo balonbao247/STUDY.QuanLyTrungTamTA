@@ -100,7 +100,7 @@ namespace GUI.Main_Child
                     string teacherName = busTeacher.GetTeacherNameByID(item.TeacherID); // Add this method in BUS_Course
 
                     frmCourse_Card card = new frmCourse_Card();
-                    card.SetCourseInfo(item.CourseID.ToString(), teacherName, item.Price, subjectName, courseDescription);
+                    card.SetCourseInfo(item.CourseID.ToString(), teacherName, item.Price, subjectName, courseDescription,item.SubjectID);
                     card.OnDeleteCourse += (s, args) =>
                     {
                         DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa khóa học này?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -111,11 +111,25 @@ namespace GUI.Main_Child
                         }
 
                     };
+
                     card.Margin = new Padding(10);
                     card.Width = 400;
                     card.Height = 250;
 
                     flowLayoutPanel1.Controls.Add(card);
+                    card.OnEditCourse += (s, courseID) =>
+                    {
+                        FormVIEWCourse formEdit = new FormVIEWCourse(courseID); // truyền CourseID để load lên form
+                        BlurBackground blur = new BlurBackground();
+
+                        formEdit.OnCourseSaved += (ss, ee) =>
+                        {
+                            LoadCourse(); // Refresh lại danh sách khi lưu xong
+                        };
+
+                        blur.Show();
+                        formEdit.ShowDialog();
+                    };
                 }
                 catch (Exception ex)
                 {

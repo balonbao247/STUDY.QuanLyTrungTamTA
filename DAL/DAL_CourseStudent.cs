@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DTO;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -29,6 +30,31 @@ namespace DAL
 
             return DAL_DataProvider.Instance.ExecuteNonQuery(query, parameters) > 0;
         }
+        // Lấy học viên theo khóa học
+        public List<DTO_Student> GetStudentsByCourseID(string courseID)
+        {
+            string query = @"
+        SELECT s.* 
+        FROM Students s
+        JOIN CourseStudent cs ON s.StudentID = cs.StudentID
+        WHERE cs.CourseID = @CourseID";
+
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+        new SqlParameter("@CourseID", courseID)
+            };
+
+            DataTable dt = DAL_DataProvider.Instance.ExecuteQuery(query, parameters);
+            List<DTO_Student> students = new List<DTO_Student>();
+
+            foreach (DataRow row in dt.Rows)
+            {
+                students.Add(new DTO_Student(row));
+            }
+
+            return students;
+        }
+
 
         // Kiểm tra xung đột lịch học của học viên (nếu học viên đã học 1 khóa khác cùng ca và ngày trong cùng thời gian)
         public bool IsStudentScheduleConflict(string studentID, int dayOfWeek, string timeSlotID, DateTime startDate, DateTime endDate)

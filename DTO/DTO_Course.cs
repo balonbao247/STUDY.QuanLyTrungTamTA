@@ -9,6 +9,8 @@ namespace DTO
         public string CourseName { get; set; }
         public string SubjectID { get; set; }
         public string TeacherID { get; set; }
+
+        public int NumberOfMeetings { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public decimal Price { get; set; }
@@ -22,6 +24,7 @@ namespace DTO
             CourseName = row["CourseName"].ToString();
             SubjectID = row["SubjectID"].ToString();
             TeacherID = row["TeacherID"].ToString();
+            NumberOfMeetings = Convert.ToInt32(row["NumberOfMeetings"]);
             StartDate = Convert.ToDateTime(row["StartDate"]);
             EndDate = Convert.ToDateTime(row["EndDate"]);
             Price = Convert.ToDecimal(row["Price"]);

@@ -26,6 +26,12 @@ namespace BUS
         {
             return DAL_CourseStudent.Instance.AddStudentToCourse(courseID, studentID, DateTime.Now);
         }
+        // Lấy danh sách học viên theo khóa học
+        public List<DTO_Student> GetStudentsByCourseID(string courseID)
+        {
+            return DAL_CourseStudent.Instance.GetStudentsByCourseID(courseID);
+        }
+
 
     }
 }

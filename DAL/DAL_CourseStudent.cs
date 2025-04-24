@@ -83,5 +83,7 @@ namespace DAL
             object result = DAL_DataProvider.Instance.ExecuteQuery(query, parameters).Rows[0][0];
             return Convert.ToInt32(result) > 0;
         }
+
+        
     }
 }

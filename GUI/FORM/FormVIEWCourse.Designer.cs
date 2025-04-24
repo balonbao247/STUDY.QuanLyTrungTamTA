@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.cmbRoom = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -78,7 +79,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.numTotalSessions = new Guna.UI2.WinForms.Guna2ComboBox();
             this.flowLayoutPanel7 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label9 = new System.Windows.Forms.Label();
             this.guna2Panel1.SuspendLayout();
             this.flowLayoutPanel9.SuspendLayout();
             this.flowLayoutPanel10.SuspendLayout();
@@ -109,6 +109,16 @@
             this.guna2Panel1.Size = new System.Drawing.Size(1184, 94);
             this.guna2Panel1.TabIndex = 0;
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(657, 30);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(174, 32);
+            this.label9.TabIndex = 2;
+            this.label9.Text = "VIEW COURSE";
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -135,6 +145,7 @@
             this.cmbRoom.BorderRadius = 10;
             this.cmbRoom.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cmbRoom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbRoom.Enabled = false;
             this.cmbRoom.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cmbRoom.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cmbRoom.Font = new System.Drawing.Font("Segoe UI", 10F);
@@ -169,6 +180,7 @@
             // 
             this.dtpStartDate.BorderRadius = 5;
             this.dtpStartDate.Checked = true;
+            this.dtpStartDate.Enabled = false;
             this.dtpStartDate.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Long;
             this.dtpStartDate.Location = new System.Drawing.Point(3, 24);
@@ -204,6 +216,7 @@
             this.txtPrice.BorderRadius = 10;
             this.txtPrice.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtPrice.DefaultText = "0";
+            this.txtPrice.Enabled = false;
             this.txtPrice.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtPrice.Location = new System.Drawing.Point(3, 24);
             this.txtPrice.Name = "txtPrice";
@@ -236,6 +249,7 @@
             // 
             this.dtpEndDate.BorderRadius = 5;
             this.dtpEndDate.Checked = true;
+            this.dtpEndDate.Enabled = false;
             this.dtpEndDate.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.dtpEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Long;
             this.dtpEndDate.Location = new System.Drawing.Point(3, 24);
@@ -309,30 +323,30 @@
             // 
             this.dgvHocVienTam.AllowUserToAddRows = false;
             this.dgvHocVienTam.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
-            this.dgvHocVienTam.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvHocVienTam.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvHocVienTam.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvHocVienTam.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvHocVienTam.ColumnHeadersHeight = 15;
             this.dgvHocVienTam.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dgvHocVienTam.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
             this.Column3});
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvHocVienTam.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvHocVienTam.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvHocVienTam.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvHocVienTam.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvHocVienTam.Location = new System.Drawing.Point(5, 0);
@@ -409,6 +423,7 @@
             this.txtSearch.SelectedText = "";
             this.txtSearch.Size = new System.Drawing.Size(266, 37);
             this.txtSearch.TabIndex = 5;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // flowLayoutPanel8
             // 
@@ -426,6 +441,7 @@
             this.comboBoxDays.BorderRadius = 10;
             this.comboBoxDays.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.comboBoxDays.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxDays.Enabled = false;
             this.comboBoxDays.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.comboBoxDays.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.comboBoxDays.Font = new System.Drawing.Font("Segoe UI", 10F);
@@ -576,6 +592,7 @@
             this.cmbSubject.BorderRadius = 10;
             this.cmbSubject.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cmbSubject.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSubject.Enabled = false;
             this.cmbSubject.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cmbSubject.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cmbSubject.Font = new System.Drawing.Font("Segoe UI", 10F);
@@ -612,6 +629,7 @@
             this.cmbTeacherName.BorderRadius = 10;
             this.cmbTeacherName.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cmbTeacherName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTeacherName.Enabled = false;
             this.cmbTeacherName.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cmbTeacherName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cmbTeacherName.Font = new System.Drawing.Font("Segoe UI", 10F);
@@ -648,6 +666,7 @@
             this.cmbTimeSlot.BorderRadius = 10;
             this.cmbTimeSlot.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cmbTimeSlot.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTimeSlot.Enabled = false;
             this.cmbTimeSlot.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cmbTimeSlot.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cmbTimeSlot.Font = new System.Drawing.Font("Segoe UI", 10F);
@@ -684,6 +703,7 @@
             this.numTotalSessions.BorderRadius = 10;
             this.numTotalSessions.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.numTotalSessions.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.numTotalSessions.Enabled = false;
             this.numTotalSessions.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.numTotalSessions.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.numTotalSessions.Font = new System.Drawing.Font("Segoe UI", 10F);
@@ -710,16 +730,6 @@
             this.flowLayoutPanel7.Name = "flowLayoutPanel7";
             this.flowLayoutPanel7.Size = new System.Drawing.Size(364, 70);
             this.flowLayoutPanel7.TabIndex = 9;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(657, 30);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(174, 32);
-            this.label9.TabIndex = 2;
-            this.label9.Text = "VIEW COURSE";
             // 
             // FormVIEWCourse
             // 

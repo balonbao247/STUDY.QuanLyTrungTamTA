@@ -161,5 +161,24 @@ namespace DAL
 
             return null; // hoặc return string.Empty;
         }
+
+        public int GetStudentCountByCourseID(string courseID)
+        {
+            string query = "SELECT COUNT(*) AS StudentCount FROM CourseStudent WHERE CourseID = @CourseID";
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+        new SqlParameter("@CourseID", courseID)
+            };
+
+            DataTable dt = DAL_DataProvider.Instance.ExecuteQuery(query, parameters);
+            if (dt.Rows.Count > 0)
+            {
+                return Convert.ToInt32(dt.Rows[0]["StudentCount"]);
+            }
+
+            return 0;
+        }
+
+
     }
 }

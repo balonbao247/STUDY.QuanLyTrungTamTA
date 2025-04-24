@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using DAL;
 using DTO;
 
@@ -42,6 +43,23 @@ namespace BUS
         public bool DeactivateRoom(string roomID)
         {
             return DAL_Room.Instance.DeactivateRoom(roomID);
+        }
+
+        // Hàm kiểm tra phòng trống theo ca và ngày
+        public List<DTO_Room> GetAvailableRooms(string timeSlotID, DateTime selectedDate)
+        {
+            // Gọi DAL để kiểm tra các phòng có sẵn
+            return DAL_Room.Instance.GetAvailableRooms(timeSlotID, selectedDate);
+        }
+
+        // Hàm kiểm tra phòng có tồn tại không
+        public bool CheckRoomAvailability(string roomID, string timeSlotID, DateTime selectedDate)
+        {
+            return DAL.DAL_Room.Instance.CheckRoomAvailability(roomID, timeSlotID, selectedDate);
+        }
+        public string GetCourseIDFromScheduleInfo(string timeSlotID, int dayOfWeek, string roomID)
+        {
+            return DAL_Room.Instance.GetCourseID(timeSlotID, dayOfWeek, roomID);
         }
     }
 }

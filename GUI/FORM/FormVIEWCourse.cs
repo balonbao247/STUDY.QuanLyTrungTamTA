@@ -40,6 +40,7 @@ namespace GUI.FORM
 
                 textBoxTeacherID.Text= course.TeacherID;
                 dtpStartDate.Value = course.StartDate;
+                dtpEndDate.Value = course.EndDate;
                 numTotalSessions.SelectedItem = course.NumberOfMeetings.ToString();
                 cmbRoom.SelectedValue =courseSchedules.First().RoomID;
                 txtPrice.Text = course.Price.ToString();
@@ -139,6 +140,34 @@ namespace GUI.FORM
             cmbSubject.DisplayMember = "SubjectName";
             cmbSubject.ValueMember = "SubjectID";
             LoadCourseInfo(editingCourseID);
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            string keyword = txtSearch.Text.Trim().ToLower();
+
+            List<DTO_Student> allStudents = BUS_CourseStudent.Instance.GetStudentsByCourseID(txtCourseId.Text);
+
+            // Lọc danh sách theo tên vAo mã học viên
+            var filtered = allStudents
+                .Where(s => s.FullName.ToLower().Contains(keyword) || s.StudentID.ToLower().Contains(keyword))
+                .ToList();
+
+            // Cập nhật lại DataGridView
+            dgvHocVienTam.Rows.Clear();
+
+            foreach (DTO_Student item in filtered)
+            {
+                object[] rowValues = new object[]
+                {
+                item.StudentID,
+                item.FullName,
+         
+                };
+
+                dgvHocVienTam.Rows.Add(rowValues);
+            }
+
         }
     }
 

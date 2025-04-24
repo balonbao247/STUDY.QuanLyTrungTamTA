@@ -94,5 +94,99 @@ namespace DAL
             int result = DAL_DataProvider.Instance.ExecuteNonQuery(query, parameters);
             return result > 0;
         }
+
+        // Hàm lấy danh sách phòng trống theo ca học và ngày
+        public List<DTO_Room> GetAvailableRooms(string timeSlotID, DateTime selectedDate)
+        {
+            string query = @"
+                SELECT r.RoomID, r.RoomName, r.Capacity, r.IsActive
+                FROM Rooms r
+                LEFT JOIN CourseSchedule cs ON r.RoomID = cs.RoomID
+                JOIN Courses c ON cs.CourseID = c.CourseID
+                WHERE cs.TimeSlotID = @TimeSlotID
+                  AND cs.DayOfWeek = @DayOfWeek
+                  AND c.StartDate <= @SelectedDate
+                  AND c.EndDate >= @SelectedDate
+                  AND c.IsActive = 1";
+
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@TimeSlotID", timeSlotID),
+                new SqlParameter("@DayOfWeek", (int)selectedDate.DayOfWeek),
+                new SqlParameter("@SelectedDate", selectedDate)
+            };
+
+            DataTable dt = DAL_DataProvider.Instance.ExecuteQuery(query, parameters);
+
+            List<DTO_Room> availableRooms = new List<DTO_Room>();
+
+            foreach (DataRow row in dt.Rows)
+            {
+                availableRooms.Add(new DTO_Room(row)); // Tạo đối tượng DTO_Room từ DataRow
+            }
+
+            return availableRooms;
+        }
+
+        public bool CheckRoomAvailability(string roomID, string timeSlotID, DateTime selectedDate)
+        {
+            string query = @"
+        SELECT COUNT(*) AS RoomCount
+        FROM CourseSchedule cs
+        JOIN Courses c ON cs.CourseID = c.CourseID
+        WHERE cs.RoomID = @RoomID
+          AND cs.TimeSlotID = @TimeSlotID
+          AND cs.DayOfWeek = @DayOfWeek
+          AND c.StartDate <= @SelectedDate
+          AND c.EndDate >= @SelectedDate
+          AND c.IsActive = 1";
+
+            // Tạo các tham số cho câu truy vấn SQL
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@RoomID", roomID),
+                new SqlParameter("@TimeSlotID", timeSlotID),
+                new SqlParameter("@DayOfWeek", (int)selectedDate.DayOfWeek), // Convert DayOfWeek sang int (0 = Sunday, 1 = Monday,...)
+                new SqlParameter("@SelectedDate", selectedDate)
+            };
+
+            // Thực thi câu truy vấn và nhận kết quả
+            DataTable result = DAL_DataProvider.Instance.ExecuteQuery(query, parameters);
+
+            // Kiểm tra nếu có ít nhất 1 lớp trong phòng vào thời gian đó
+            int count = Convert.ToInt32(result.Rows[0]["RoomCount"]);
+
+            // Nếu count = 0 thì phòng không có lớp, tức là phòng có sẵn
+            return count == 0;
+        }
+
+        public string GetCourseID(string timeSlotID, int dayOfWeek, string roomID)
+        {
+            string query = @"
+    SELECT cs.CourseID
+    FROM CourseSchedule cs
+    JOIN Courses c ON cs.CourseID = c.CourseID
+    WHERE cs.TimeSlotID = @TimeSlotID
+      AND cs.DayOfWeek = @DayOfWeek
+      AND cs.RoomID = @RoomID
+      AND c.IsActive = 1";
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+        new SqlParameter("@TimeSlotID", timeSlotID),
+        new SqlParameter("@DayOfWeek", dayOfWeek),
+        new SqlParameter("@RoomID", roomID)
+            };
+
+            DataTable dt = DAL_DataProvider.Instance.ExecuteQuery(query, parameters);
+            if (dt.Rows.Count > 0)
+            {
+                return dt.Rows[0]["CourseID"].ToString();
+            }
+
+            return null; // không tìm thấy
+        }
+
+
+
     }
 }

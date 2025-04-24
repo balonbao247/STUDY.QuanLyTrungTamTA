@@ -64,5 +64,9 @@ namespace BUS
         {
             return DAL_Course.Instance.GetNextCourseID();
         }
+        public int GetStudentCountByCourseID(string courseID)
+        {
+            return DAL_Course.Instance.GetStudentCountByCourseID(courseID);
+        }
     }
 }

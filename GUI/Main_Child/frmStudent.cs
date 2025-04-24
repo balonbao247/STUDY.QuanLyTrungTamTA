@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Controls;
 using System.Windows.Forms;
 using BUS;
 using DTO;
 using GUI.ADD_Form;
 using Guna.UI2.WinForms;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System.IO;
 namespace GUI
 {
     public partial class frmStudent: Form
@@ -54,7 +54,7 @@ namespace GUI
                 dgvStudent.Rows.Add(rowValues);
             }
         }
-        PrintDocument printDocument = new PrintDocument();
+       
         int rowIndex = 0;
         int pageNumber = 1;
 
@@ -74,82 +74,7 @@ namespace GUI
             Student_Load(null, null);
 
         }
-        private void printDocument_PrintPage(object sender, PrintPageEventArgs e)
-        {
-            Font headerFont = new Font("Times New Roman", 20, FontStyle.Bold);
-            Font cellFont = new Font("Times New Roman", 15);
-            Font smallFont = new Font("Times New Roman", 13);
-
-            int y = 100;
-            int x = e.MarginBounds.Left;
-            int tableWidth = e.MarginBounds.Width;
-            int colCount = dgvStudent.Columns.Count;
-
-            // AUTO-FIT COLUMN WIDTH
-            int colWidth = tableWidth / colCount;
-
-            // --- Header ---
-            string title = "Students List";
-            string broText = "BRO ENGLISH";
-            string dateText = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
-
-            //Draw "BRO ENGLISH" top-right
-            e.Graphics.DrawString(broText, headerFont, Brushes.Black, e.MarginBounds.Right - e.Graphics.MeasureString(broText, headerFont).Width, y - 70);
-
-            // Centered Title
-            SizeF titleSize = e.Graphics.MeasureString(title, headerFont);
-            e.Graphics.DrawString(title, headerFont, Brushes.Black, e.MarginBounds.Left + (tableWidth - titleSize.Width) / 2, y - 50);
-
-            // Print Date below title
-            SizeF dateSize = e.Graphics.MeasureString(dateText, smallFont);
-            e.Graphics.DrawString(dateText, smallFont, Brushes.Black, e.MarginBounds.Left + (tableWidth - dateSize.Width) / 2, y - 25);
-
-            // Draw Column Headers 
-            for (int j = 0; j < colCount; j++)
-            {
-                e.Graphics.DrawRectangle(Pens.Black, x, y, colWidth, 40);
-                e.Graphics.DrawString(dgvStudent.Columns[j].HeaderText, cellFont, Brushes.Black, new RectangleF(x, y, colWidth, 40));
-                x += colWidth;
-            }
-
-            y += 40;
-            x = e.MarginBounds.Left;
-
-            // Draw Rows
-            while (rowIndex < dgvStudent.Rows.Count)
-            {
-                DataGridViewRow row = dgvStudent.Rows[rowIndex];
-                if (!row.IsNewRow)
-                {
-                    x = e.MarginBounds.Left;
-                    for (int j = 0; j < colCount; j++)
-                    {
-                        e.Graphics.DrawRectangle(Pens.Black, x, y, colWidth, 40);
-                        e.Graphics.DrawString(row.Cells[j].FormattedValue?.ToString() ?? "", cellFont, Brushes.Black, new RectangleF(x, y, colWidth, 40));
-                        x += colWidth;
-                    }
-                    y += 40;
-                }
-                rowIndex++;
-
-                // --- Auto Page Break ---
-                if (y > e.MarginBounds.Bottom - 60)
-                {
-                    e.HasMorePages = true;
-                    pageNumber++;
-                    return;
-                }
-            }
-
-            //Footer --- Page Number bottom right
-            string pageNumText = $"Page {pageNumber}";
-            e.Graphics.DrawString(pageNumText, smallFont, Brushes.Black, e.MarginBounds.Right - e.Graphics.MeasureString(pageNumText, smallFont).Width, e.MarginBounds.Bottom + 20);
-
-            // Reset for next
-            rowIndex = 0;
-            pageNumber = 1;
-            e.HasMorePages = false;
-        }
+       
 
         private void guna2dgvStudent_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -225,13 +150,15 @@ namespace GUI
 
         private void btnIn(object sender, EventArgs e)
         {
-            // Setup
-            printDocument.PrintPage += new PrintPageEventHandler(printDocument_PrintPage);
+            List<DTO_Student> students = BUS_Student.Instance.GetAllActiveStudents();
 
-            // Optional Preview
-            PrintPreviewDialog ppd = new PrintPreviewDialog();
-            ppd.Document = printDocument;
-            ppd.ShowDialog();
+            // Gọi hàm xuất PDF
+            string filePath = ExportDanhSachHocVien(students, DateTime.Now);
+
+            // Thông báo và mở file
+            MessageBox.Show("Xuất danh sách học viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+           
         }
 
         private void iconButton1_Click(object sender, EventArgs e)
@@ -244,16 +171,7 @@ namespace GUI
             Student_Load(sender, e);
         }
 
-        private void dgvStudent_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            if (dgvStudent.Columns[e.ColumnIndex].Name == "Edit")
-            {
-                var btnCell = dgvStudent.Rows[e.RowIndex].Cells[e.ColumnIndex] as DataGridViewButtonCell;
-                btnCell.Style.BackColor = Color.DodgerBlue;
-                btnCell.Style.ForeColor = Color.White;
-                btnCell.FlatStyle = FlatStyle.Flat;
-            }
-        }
+     
 
         // Chỉnh sửa thông tin học viên
         private void dgvStudent_SelectionChanged(object sender, EventArgs e)
@@ -310,5 +228,78 @@ namespace GUI
         {
 
         }
+        public static string ExportDanhSachHocVien(List<DTO_Student> data, DateTime reportDate)
+        {
+            string fileName = $"DanhSachHocVien_{reportDate:yyyyMMdd_HHmmss}.pdf";
+
+            string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), fileName);
+
+            Document document = new Document(PageSize.A4.Rotate(), 36, 36, 54, 36);
+            PdfWriter writer = PdfWriter.GetInstance(document, new FileStream(filePath, FileMode.Create));
+            //writer.PageEvent = new PageEventHelper();
+            document.Open();
+
+            BaseFont baseFont = BaseFont.CreateFont("C:\\Windows\\Fonts\\times.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
+
+            // Define the fonts you need
+
+            Font normalFont = new Font(baseFont, 10);
+            Font boldFont = new Font(baseFont, 10);
+            Font headerFont = new Font(baseFont, 14);
+            Font titleFont = new Font(baseFont, 16);
+
+            document.Add(new Paragraph("BRO ENGLISH", titleFont) { Alignment = Element.ALIGN_CENTER });
+            document.Add(new Paragraph("Số 7 ABC, Thủ Đức, TP.HCM", normalFont) { Alignment = Element.ALIGN_CENTER });
+            document.Add(new Paragraph("ĐT: 0123456789 - Email: broenglish@email.com", normalFont) { Alignment = Element.ALIGN_CENTER });
+            document.Add(new Paragraph(" "));
+
+            document.Add(new Paragraph("DANH SÁCH HỌC VIÊN", headerFont) { Alignment = Element.ALIGN_CENTER });
+            document.Add(new Paragraph($"Ngày xuất: {reportDate:dd/MM/yyyy}", normalFont) { Alignment = Element.ALIGN_CENTER });
+            document.Add(new Paragraph(" "));
+
+            PdfPTable table = new PdfPTable(6);
+            table.WidthPercentage = 100;
+            table.SetWidths(new float[] { 5, 20, 25, 25, 15, 10 });
+
+            void AddCell(string text, Font font, int align = Element.ALIGN_CENTER)
+            {
+                PdfPCell cell = new PdfPCell(new Phrase(text, font))
+                {
+                    HorizontalAlignment = align,
+                    Padding = 5,
+                    BackgroundColor = BaseColor.LIGHT_GRAY
+                };
+                table.AddCell(cell);
+            }
+
+            AddCell("STT", boldFont);
+            AddCell("Mã Học Viên", boldFont);
+            AddCell("Họ Tên", boldFont);
+            AddCell("Email", boldFont);
+            AddCell("SĐT", boldFont);
+            AddCell("Giới Tính", boldFont);
+
+            for (int i = 0; i < data.Count; i++)
+            {
+                var hv = data[i];
+                table.AddCell(new PdfPCell(new Phrase((i + 1).ToString(), normalFont)) { HorizontalAlignment = Element.ALIGN_CENTER, Padding = 5 });
+                table.AddCell(new PdfPCell(new Phrase(hv.StudentID, normalFont)) { Padding = 5 });
+                table.AddCell(new PdfPCell(new Phrase(hv.FullName, normalFont)) { Padding = 5 });
+                table.AddCell(new PdfPCell(new Phrase(hv.Email, normalFont)) { Padding = 5 });
+                table.AddCell(new PdfPCell(new Phrase(hv.PhoneNumber, normalFont)) { Padding = 5 });
+                table.AddCell(new PdfPCell(new Phrase(hv.Gender, normalFont)) { HorizontalAlignment = Element.ALIGN_CENTER, Padding = 5 });
+            }
+
+            document.Add(table);
+            document.Add(new Paragraph(" "));
+            document.Add(new Paragraph($"TP.HCM, ngày {reportDate.Day} tháng {reportDate.Month} năm {reportDate.Year}", normalFont) { Alignment = Element.ALIGN_RIGHT, IndentationRight = 100 });
+            document.Add(new Paragraph("NGƯỜI LẬP DANH SÁCH", boldFont) { Alignment = Element.ALIGN_RIGHT, IndentationRight = 100 });
+            document.Close();
+            return filePath;
+        }
+
+    
+
+
     }
 }

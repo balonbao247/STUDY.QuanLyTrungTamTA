@@ -60,6 +60,11 @@ namespace BUS
         {
             return DAL_Student.Instance.GetNextStudentID();
         }
+        //Lấy tổng học viên
+        public int GetTotalStudent()
+        {
+            return DAL_Student.Instance.GetTotalStudents();
+        }
 
     }
 

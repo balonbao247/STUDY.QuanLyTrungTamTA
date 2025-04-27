@@ -145,5 +145,19 @@ namespace DAL
 
             return null; // Nếu không tìm thấy sinh viên
         }
+        // Lấy tổng số sinh viên
+        public int GetTotalStudents()
+        {
+            string query = "SELECT COUNT(*) AS Total FROM Students WHERE IsActive = 1";
+            DataTable dt = DAL_DataProvider.Instance.ExecuteQuery(query);
+
+            if (dt.Rows.Count > 0)
+            {
+                return Convert.ToInt32(dt.Rows[0]["Total"]);
+            }
+
+            return 0;
+        }
+
     }
 }

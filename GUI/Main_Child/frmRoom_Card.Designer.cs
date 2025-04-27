@@ -24,6 +24,7 @@ namespace GUI.Main_Child
 
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblRoomName = new System.Windows.Forms.Label();
             this.lblRoomStatus = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -32,6 +33,7 @@ namespace GUI.Main_Child
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,7 +54,7 @@ namespace GUI.Main_Child
             this.lblRoomStatus.ForeColor = System.Drawing.Color.White;
             this.lblRoomStatus.Location = new System.Drawing.Point(-1, 35);
             this.lblRoomStatus.Name = "lblRoomStatus";
-            this.lblRoomStatus.Size = new System.Drawing.Size(230, 29);
+            this.lblRoomStatus.Size = new System.Drawing.Size(232, 29);
             this.lblRoomStatus.TabIndex = 1;
             this.lblRoomStatus.Text = "lblRoomStatus";
             this.lblRoomStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -133,7 +135,13 @@ namespace GUI.Main_Child
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.Size = new System.Drawing.Size(134, 31);
             this.guna2Button1.TabIndex = 9;
-            this.guna2Button1.Text = "EDIT / VIEW";
+            this.guna2Button1.Text = "VIEW";
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
+            // 
+            // guna2Elipse1
+            // 
+            this.guna2Elipse1.BorderRadius = 10;
+            this.guna2Elipse1.TargetControl = this;
             // 
             // frmRoom_Card
             // 
@@ -143,8 +151,9 @@ namespace GUI.Main_Child
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.lblRoomName);
             this.Controls.Add(this.lblRoomStatus);
+            this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "frmRoom_Card";
-            this.Size = new System.Drawing.Size(228, 241);
+            this.Size = new System.Drawing.Size(230, 240);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
@@ -180,5 +189,6 @@ namespace GUI.Main_Child
         private Label label2;
         private Label label1;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
     }
 }

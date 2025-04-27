@@ -113,7 +113,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(657, 30);
+            this.label9.Location = new System.Drawing.Point(312, 41);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(174, 32);
             this.label9.TabIndex = 2;

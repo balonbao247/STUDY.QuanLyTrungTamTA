@@ -44,6 +44,39 @@ namespace DAL
 
             return list;
         }
+        //
+        public bool IsRoomNameExists(string roomName)
+        {
+            string query = "SELECT * FROM Rooms WHERE RoomName = @RoomName";
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+        new SqlParameter("@RoomName", roomName)
+            };
+
+            DataTable dt = DAL_DataProvider.Instance.ExecuteQuery(query, parameters);
+            return dt.Rows.Count > 0;
+        }
+
+
+        //Get id
+        public string GenerateNewRoomID()
+        {
+            string query = "SELECT TOP 1 RoomID FROM Rooms ORDER BY RoomID DESC";
+            DataTable dt = DAL_DataProvider.Instance.ExecuteQuery(query);
+
+            if (dt.Rows.Count > 0)
+            {
+                string lastID = dt.Rows[0]["RoomID"].ToString(); // VD: "R012"
+                int numberPart = int.Parse(lastID.Substring(1)); // Cắt "012" → 12
+                numberPart++; // Tăng lên 13
+                return $"R{numberPart:000}"; // Kết quả: "R013"
+            }
+            else
+            {
+                return "R001"; // Nếu chưa có phòng nào
+            }
+        }
+
 
         // Thêm phòng
         public bool InsertRoom(DTO_Room room)

@@ -52,6 +52,7 @@
     <Reference Include="System.Design" />
     <Reference Include="System.Management" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -76,6 +77,12 @@
     </Compile>
     <Compile Include="FORM\FormADDCourse.Designer.cs">
       <DependentUpon>FormADDCourse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FORM\FormADDRoom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FORM\FormADDRoom.Designer.cs">
+      <DependentUpon>FormADDRoom.cs</DependentUpon>
     </Compile>
     <Compile Include="FORM\FormADDStudent.cs">
       <SubType>Form</SubType>
@@ -144,6 +151,12 @@
     <Compile Include="Main_Child\frmRoom.Designer.cs">
       <DependentUpon>frmRoom.cs</DependentUpon>
     </Compile>
+    <Compile Include="Main_Child\frmPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main_Child\frmPayment.Designer.cs">
+      <DependentUpon>frmPayment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main_Child\frmTeacher.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -182,6 +195,9 @@
     <EmbeddedResource Include="FORM\FormADDCourse.resx">
       <DependentUpon>FormADDCourse.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FORM\FormADDRoom.resx">
+      <DependentUpon>FormADDRoom.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FORM\FormADDStudent.resx">
       <DependentUpon>FormADDStudent.cs</DependentUpon>
     </EmbeddedResource>
@@ -214,6 +230,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Main_Child\frmRoom.resx">
       <DependentUpon>frmRoom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main_Child\frmPayment.resx">
+      <DependentUpon>frmPayment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main_Child\frmTeacher.resx">
       <DependentUpon>frmTeacher.cs</DependentUpon>
@@ -367,6 +386,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\S07.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\schedule_3652191.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-money.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-money1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-money %281%29.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\elephant-sleep.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\elephent-draw.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

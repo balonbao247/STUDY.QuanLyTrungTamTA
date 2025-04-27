@@ -37,7 +37,8 @@ namespace DAL
         SELECT s.* 
         FROM Students s
         JOIN CourseStudent cs ON s.StudentID = cs.StudentID
-        WHERE cs.CourseID = @CourseID";
+        WHERE cs.CourseID = @CourseID
+        AND s.IsActive = 1"; 
 
             SqlParameter[] parameters = new SqlParameter[]
             {
@@ -83,7 +84,24 @@ namespace DAL
             object result = DAL_DataProvider.Instance.ExecuteQuery(query, parameters).Rows[0][0];
             return Convert.ToInt32(result) > 0;
         }
+        public decimal GetTotalIncome()
+        {
+            string query = @"
+                SELECT ISNULL(SUM(c.Price), 0)
+                FROM Courses c
+                JOIN CourseStudent cs ON c.CourseID = cs.CourseID
+            ";
 
-        
+            DataTable dt = DAL_DataProvider.Instance.ExecuteQuery(query);
+
+            if (dt.Rows.Count > 0)
+            {
+                return Convert.ToDecimal(dt.Rows[0][0]);
+            }
+
+            return 0; // Nếu không có dữ liệu, trả về 0
+        }
+
+
     }
 }

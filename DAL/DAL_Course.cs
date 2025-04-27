@@ -178,6 +178,29 @@ namespace DAL
 
             return 0;
         }
+        public Dictionary<string, int> GetCourseCountBySubject()
+        {
+            string query = @"
+        SELECT s.SubjectName, COUNT(*) AS CourseCount
+        FROM Courses c
+        JOIN Subjects s ON c.SubjectID = s.SubjectID
+        WHERE c.IsActive = 1
+        GROUP BY s.SubjectName
+    ";
+
+            DataTable dt = DAL_DataProvider.Instance.ExecuteQuery(query);
+
+            Dictionary<string, int> data = new Dictionary<string, int>();
+            foreach (DataRow row in dt.Rows)
+            {
+                string subjectName = row["SubjectName"].ToString();
+                int count = Convert.ToInt32(row["CourseCount"]);
+                data.Add(subjectName, count);
+            }
+
+            return data;
+        }
+
 
 
     }

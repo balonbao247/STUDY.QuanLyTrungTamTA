@@ -151,6 +151,90 @@ namespace DAL
             }
             return string.Empty;
         }
+        // Lấy tổng chi (lương giáo viên)
+        public decimal GetTotalExpense()
+        {
+            string query = "SELECT ISNULL(SUM(Salary), 0) FROM Teachers";
+
+            DataTable dt = DAL_DataProvider.Instance.ExecuteQuery(query);
+
+            if (dt.Rows.Count > 0)
+            {
+                return Convert.ToDecimal(dt.Rows[0][0]);
+            }
+
+            return 0; // Nếu không có dữ liệu, trả về 0
+        }
+        // Lấy tổng số giáo viên
+        public int GetTotalTeachers()
+        {
+            string query = "SELECT COUNT(*) FROM Teachers";
+            DataTable dt = DAL_DataProvider.Instance.ExecuteQuery(query);
+            if (dt.Rows.Count > 0)
+            {
+                return Convert.ToInt32(dt.Rows[0][0]);
+            }
+            return 0; // Nếu không có dữ liệu, trả về 0
+        }
+        // Lấy tổng số buổi dạy và lương theo giáo viên
+
+        public DataTable GetSalaryTable()
+        {
+            string query = @"
+    SELECT 
+        t.TeacherID,
+        t.FullName,
+        ISNULL(SUM(c.NumberOfMeetings), 0) AS TotalMeetings,
+        t.Salary,
+        (ISNULL(SUM(c.NumberOfMeetings), 0) * t.Salary) AS TotalSalary
+    FROM Teachers t
+    LEFT JOIN Courses c ON t.TeacherID = c.TeacherID AND c.IsActive = 1
+    WHERE t.IsActive = 1
+    GROUP BY t.TeacherID, t.FullName, t.Salary
+    ORDER BY t.FullName";
+
+            return DAL_DataProvider.Instance.ExecuteQuery(query);
+        }
+
+
+
+        // Phương thức tính lương
+        public List<(DTO_Teacher Teacher, int TotalMeetings)> GetTeacherSalaries()
+        {
+            DataTable dt = GetSalaryTable(); // Lấy bảng lương từ phương thức GetSalaryTable
+
+            List<(DTO_Teacher, int)> teacherSalaries = new List<(DTO_Teacher, int)>();
+
+            foreach (DataRow row in dt.Rows)
+            {
+                // Tạo DTO_Teacher từ DataRow, kiểm tra các cột cần thiết trước khi gán giá trị
+                DTO_Teacher teacher = new DTO_Teacher
+                {
+                    TeacherID = row["TeacherID"].ToString(),
+                    FullName = row["FullName"].ToString(),
+                    // Kiểm tra nếu có cột Gender, DateOfBirth, v.v.
+                    Gender = row.Table.Columns.Contains("Gender") && row["Gender"] != DBNull.Value ? row["Gender"].ToString() : "",
+                    DateOfBirth = row.Table.Columns.Contains("DateOfBirth") && row["DateOfBirth"] != DBNull.Value ? Convert.ToDateTime(row["DateOfBirth"]) : DateTime.MinValue,
+                    PhoneNumber = row.Table.Columns.Contains("PhoneNumber") && row["PhoneNumber"] != DBNull.Value ? row["PhoneNumber"].ToString() : "",
+                    Email = row.Table.Columns.Contains("Email") && row["Email"] != DBNull.Value ? row["Email"].ToString() : "",
+                    Address = row.Table.Columns.Contains("Address") && row["Address"] != DBNull.Value ? row["Address"].ToString() : "",
+                    IdentityNumber = row.Table.Columns.Contains("IdentityNumber") && row["IdentityNumber"] != DBNull.Value ? row["IdentityNumber"].ToString() : "",
+                    Specialty = row.Table.Columns.Contains("Specialty") && row["Specialty"] != DBNull.Value ? row["Specialty"].ToString() : "",
+                    Salary = row.Table.Columns.Contains("Salary") && row["Salary"] != DBNull.Value ? Convert.ToInt32(row["Salary"]) : 0,
+                    IsActive = row.Table.Columns.Contains("IsActive") && row["IsActive"] != DBNull.Value ? Convert.ToBoolean(row["IsActive"]) : true
+                };
+
+                // Lấy số buổi học từ cột "Tổng Số Buổi"
+                int totalMeetings = Convert.ToInt32(row["TotalMeetings"]);
+
+                // Thêm vào danh sách
+                teacherSalaries.Add((teacher, totalMeetings));
+            }
+
+            return teacherSalaries;
+        }
+
+
 
 
 

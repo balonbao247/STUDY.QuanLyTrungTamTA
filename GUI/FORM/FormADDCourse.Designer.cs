@@ -562,6 +562,7 @@
             // 
             this.dtpEndDate.BorderRadius = 5;
             this.dtpEndDate.Checked = true;
+            this.dtpEndDate.Enabled = false;
             this.dtpEndDate.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.dtpEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Long;
             this.dtpEndDate.Location = new System.Drawing.Point(3, 24);

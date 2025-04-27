@@ -1,4 +1,5 @@
 ﻿using BUS;
+using BUS.BUS;
 using DTO;
 using GUI.ADD_Form;
 using System;
@@ -324,6 +325,9 @@ namespace GUI.FORM
                             MessageBox.Show($"Học viên {studentID} đã có lịch học trùng vào ngày {GetDayName(dayOfWeek)}.");
                             return; // Dừng lại nếu có xung đột lịch học của học viên
                         }
+                       
+
+                        
                     }
                 }
             }
@@ -372,6 +376,12 @@ namespace GUI.FORM
                     if (!added)
                     {
                         MessageBox.Show($"Không thể thêm học viên {studentID} vào khóa học.");
+                        return;
+                    }
+                    bool resultPayment = BUS_Payment.Instance.CreatePayment(studentID, courseID, price);
+                    if (!resultPayment)
+                    {
+                        MessageBox.Show($"Không thể tạo thanh toán cho học viên {studentID}.", "Lỗi thanh toán", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                 }

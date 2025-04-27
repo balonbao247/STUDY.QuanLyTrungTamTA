@@ -118,100 +118,118 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="bro_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bro_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ICON (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ICON (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="4781836_eye_hide_off_see_view_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\4781836_eye_hide_off_see_view_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="pixlr-image-generator-7a42ca99-6acd-4e46-a7ee-f076d2a99a86" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pixlr-image-generator-7a42ca99-6acd-4e46-a7ee-f076d2a99a86.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="6599587_course_e-learning_education_learning_online_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\6599587_course_e-learning_education_learning_online_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Free-Professional-Background-PowerPoint-Template" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Free-Professional-Background-PowerPoint-Template.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="broenglish" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\broenglish.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="elephant-sleep" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\elephant-sleep.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="pngwing.com" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pngwing.com.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="S07" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\S07.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ICON (1) (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ICON (1) (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="4781835_eye_on_see_show_view_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\4781835_eye_on_see_show_view_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="163983763316274686813758-128" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\163983763316274686813758-128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="622400_pen_pencil_edit_write_writing_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\622400_pen_pencil_edit_write_writing_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ChatGPT Image 15_52_39 30 thg 3, 2025 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ChatGPT Image 15_52_39 30 thg 3, 2025 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="134224_add_plus_new_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\134224_add_plus_new_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="2849812_menu_multimedia_bars_media_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\2849812_menu_multimedia_bars_media_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="1904661_building_dashboard_default_home_house_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1904661_building_dashboard_default_home_house_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Adobe Express - file" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Adobe Express - file.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="background" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\background.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="370082_find_search_zoom_magnifier_view_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\370082_find_search_zoom_magnifier_view_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8-money (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-money (1).gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="B1 Course" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\B1 Course.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="6570722_doctor_education_learning_lecture_man_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\6570722_doctor_education_learning_lecture_man_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="4781835_eye_on_see_show_view_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\4781835_eye_on_see_show_view_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="370082_find_search_zoom_magnifier_view_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\370082_find_search_zoom_magnifier_view_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ChatGPT Image 15_52_39 30 thg 3, 2025 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ChatGPT Image 15_52_39 30 thg 3, 2025 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="1904661_building_dashboard_default_home_house_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1904661_building_dashboard_default_home_house_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pngwing.com" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pngwing.com.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="profile_3135768" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\profile_3135768.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="9027041_student_thin_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\9027041_student_thin_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="622400_pen_pencil_edit_write_writing_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\622400_pen_pencil_edit_write_writing_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="12140038821640241464-128" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\12140038821640241464-128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="background" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\background.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="6599587_course_e-learning_education_learning_online_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\6599587_course_e-learning_education_learning_online_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="8491315_menu_list_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\8491315_menu_list_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="broenglish" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\broenglish.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="S01" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\S01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="4781836_eye_hide_off_see_view_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\4781836_eye_hide_off_see_view_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="12140038821640241464-128" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\12140038821640241464-128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="S02" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\S02.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="S03" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\S03.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="S04" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\S04.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="S03" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\S03.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="S05" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\S05.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pixlr-image-generator-7a42ca99-6acd-4e46-a7ee-f076d2a99a86" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pixlr-image-generator-7a42ca99-6acd-4e46-a7ee-f076d2a99a86.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="9027041_student_thin_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\9027041_student_thin_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-money1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-money1.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="8491315_menu_list_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\8491315_menu_list_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ICON (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ICON (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bro_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bro_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ICON (1) (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ICON (1) (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="134224_add_plus_new_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\134224_add_plus_new_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="schedule_3652191" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\schedule_3652191.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-money" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-money.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Adobe Express - file" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Adobe Express - file.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="6570722_doctor_education_learning_lecture_man_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\6570722_doctor_education_learning_lecture_man_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="163983763316274686813758-128" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\163983763316274686813758-128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="2849812_menu_multimedia_bars_media_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2849812_menu_multimedia_bars_media_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="S06" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\S06.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="S07" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\S07.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="elephent-draw" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\elephent-draw.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

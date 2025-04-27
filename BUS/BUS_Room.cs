@@ -61,5 +61,15 @@ namespace BUS
         {
             return DAL_Room.Instance.GetCourseID(timeSlotID, dayOfWeek, roomID);
         }
+        public string GenerateRoomID()
+        {
+            return DAL_Room.Instance.GenerateNewRoomID();
+        }
+        public bool IsRoomNameExists(string roomName)
+        {
+            return DAL_Room.Instance.IsRoomNameExists(roomName);
+        }
+
+
     }
 }

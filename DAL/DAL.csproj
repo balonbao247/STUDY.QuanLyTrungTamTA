@@ -44,6 +44,7 @@
     <Compile Include="DAL_Course.cs" />
     <Compile Include="DAL_CourseSchedule.cs" />
     <Compile Include="DAL_CourseStudent.cs" />
+    <Compile Include="DAL_Payment.cs" />
     <Compile Include="DAL_Room.cs" />
     <Compile Include="DAL_Student.cs" />
     <Compile Include="DAL_DataProvider.cs" />

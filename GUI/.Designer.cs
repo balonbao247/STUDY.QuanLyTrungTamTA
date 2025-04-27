@@ -35,16 +35,13 @@
             this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.avatar = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.panelMenu = new Guna.UI2.WinForms.Guna2Panel();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
-            this.panel_tieude = new Guna.UI2.WinForms.Guna2Panel();
-            this.tieude2 = new System.Windows.Forms.Label();
-            this.tieude = new System.Windows.Forms.Label();
-            this.panelContainer = new Guna.UI2.WinForms.Guna2Panel();
+            this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.btnLogout = new FontAwesome.Sharp.IconButton();
             this.btnCourse = new FontAwesome.Sharp.IconButton();
@@ -52,17 +49,21 @@
             this.btnTeacher = new FontAwesome.Sharp.IconButton();
             this.btnDashboard = new FontAwesome.Sharp.IconButton();
             this.btnMenu = new FontAwesome.Sharp.IconButton();
-            this.avatar = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.panel_tieude = new Guna.UI2.WinForms.Guna2Panel();
+            this.tieude2 = new System.Windows.Forms.Label();
+            this.tieude = new System.Windows.Forms.Label();
+            this.panelContainer = new Guna.UI2.WinForms.Guna2Panel();
             this.panelTop.SuspendLayout();
             this.guna2Panel4.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.avatar)).BeginInit();
             this.guna2Panel3.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.panelMenu.SuspendLayout();
             this.panel_tieude.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.avatar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelTop
@@ -119,6 +120,19 @@
             this.guna2ControlBox1.Size = new System.Drawing.Size(49, 29);
             this.guna2ControlBox1.TabIndex = 0;
             // 
+            // avatar
+            // 
+            this.avatar.Dock = System.Windows.Forms.DockStyle.Left;
+            this.avatar.Image = global::GUI.Properties.Resources.profile_3135768;
+            this.avatar.ImageRotate = 0F;
+            this.avatar.Location = new System.Drawing.Point(400, 0);
+            this.avatar.Name = "avatar";
+            this.avatar.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.avatar.Size = new System.Drawing.Size(64, 100);
+            this.avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.avatar.TabIndex = 2;
+            this.avatar.TabStop = false;
+            // 
             // guna2Panel3
             // 
             this.guna2Panel3.Controls.Add(this.label1);
@@ -148,9 +162,21 @@
             this.guna2Panel1.Size = new System.Drawing.Size(200, 100);
             this.guna2Panel1.TabIndex = 0;
             // 
+            // guna2PictureBox1
+            // 
+            this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
+            this.guna2PictureBox1.ImageRotate = 0F;
+            this.guna2PictureBox1.Location = new System.Drawing.Point(3, 0);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.Size = new System.Drawing.Size(197, 100);
+            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox1.TabIndex = 1;
+            this.guna2PictureBox1.TabStop = false;
+            // 
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
+            this.panelMenu.Controls.Add(this.iconButton2);
             this.panelMenu.Controls.Add(this.iconButton1);
             this.panelMenu.Controls.Add(this.btnLogout);
             this.panelMenu.Controls.Add(this.btnCourse);
@@ -163,59 +189,29 @@
             this.panelMenu.MaximumSize = new System.Drawing.Size(200, 0);
             this.panelMenu.MinimumSize = new System.Drawing.Size(70, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(200, 511);
+            this.panelMenu.Size = new System.Drawing.Size(200, 595);
             this.panelMenu.TabIndex = 4;
             // 
-            // timer1
+            // iconButton2
             // 
-            this.timer1.Interval = 1;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // guna2DragControl1
-            // 
-            this.guna2DragControl1.DockIndicatorTransparencyValue = 0.6D;
-            this.guna2DragControl1.TargetControl = this;
-            this.guna2DragControl1.UseTransparentDrag = true;
-            // 
-            // panel_tieude
-            // 
-            this.panel_tieude.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(107)))), ((int)(((byte)(209)))));
-            this.panel_tieude.Controls.Add(this.tieude2);
-            this.panel_tieude.Controls.Add(this.tieude);
-            this.panel_tieude.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel_tieude.Location = new System.Drawing.Point(200, 100);
-            this.panel_tieude.Name = "panel_tieude";
-            this.panel_tieude.Size = new System.Drawing.Size(734, 64);
-            this.panel_tieude.TabIndex = 6;
-            // 
-            // tieude2
-            // 
-            this.tieude2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tieude2.AutoSize = true;
-            this.tieude2.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tieude2.Location = new System.Drawing.Point(581, 22);
-            this.tieude2.Name = "tieude2";
-            this.tieude2.Size = new System.Drawing.Size(131, 21);
-            this.tieude2.TabIndex = 1;
-            this.tieude2.Text = "Home/Dashboard";
-            // 
-            // tieude
-            // 
-            this.tieude.AutoSize = true;
-            this.tieude.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tieude.Location = new System.Drawing.Point(6, 13);
-            this.tieude.Name = "tieude";
-            this.tieude.Size = new System.Drawing.Size(138, 32);
-            this.tieude.TabIndex = 0;
-            this.tieude.Text = "Dashboard";
-            // 
-            // panelContainer
-            // 
-            this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContainer.Location = new System.Drawing.Point(200, 164);
-            this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(734, 447);
-            this.panelContainer.TabIndex = 7;
+            this.iconButton2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton2.FlatAppearance.BorderSize = 0;
+            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton2.ForeColor = System.Drawing.Color.White;
+            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.MoneyBill;
+            this.iconButton2.IconColor = System.Drawing.Color.White;
+            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton2.Location = new System.Drawing.Point(0, 420);
+            this.iconButton2.Name = "iconButton2";
+            this.iconButton2.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.iconButton2.Size = new System.Drawing.Size(200, 70);
+            this.iconButton2.TabIndex = 15;
+            this.iconButton2.Text = "Payment";
+            this.iconButton2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButton2.UseVisualStyleBackColor = true;
+            this.iconButton2.Click += new System.EventHandler(this.iconButton2_Click);
             // 
             // iconButton1
             // 
@@ -248,7 +244,7 @@
             this.btnLogout.IconColor = System.Drawing.Color.White;
             this.btnLogout.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogout.Location = new System.Drawing.Point(0, 441);
+            this.btnLogout.Location = new System.Drawing.Point(0, 525);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnLogout.Size = new System.Drawing.Size(200, 70);
@@ -365,35 +361,62 @@
             this.btnMenu.UseVisualStyleBackColor = false;
             this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
-            // avatar
+            // timer1
             // 
-            this.avatar.Dock = System.Windows.Forms.DockStyle.Left;
-            this.avatar.Image = global::GUI.Properties.Resources.profile_3135768;
-            this.avatar.ImageRotate = 0F;
-            this.avatar.Location = new System.Drawing.Point(400, 0);
-            this.avatar.Name = "avatar";
-            this.avatar.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.avatar.Size = new System.Drawing.Size(64, 100);
-            this.avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.avatar.TabIndex = 2;
-            this.avatar.TabStop = false;
+            this.timer1.Interval = 1;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // guna2PictureBox1
+            // guna2DragControl1
             // 
-            this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
-            this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(3, 0);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(197, 100);
-            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2PictureBox1.TabIndex = 1;
-            this.guna2PictureBox1.TabStop = false;
+            this.guna2DragControl1.DockIndicatorTransparencyValue = 0.6D;
+            this.guna2DragControl1.TargetControl = this;
+            this.guna2DragControl1.UseTransparentDrag = true;
+            // 
+            // panel_tieude
+            // 
+            this.panel_tieude.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(107)))), ((int)(((byte)(209)))));
+            this.panel_tieude.Controls.Add(this.tieude2);
+            this.panel_tieude.Controls.Add(this.tieude);
+            this.panel_tieude.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel_tieude.Location = new System.Drawing.Point(200, 100);
+            this.panel_tieude.Name = "panel_tieude";
+            this.panel_tieude.Size = new System.Drawing.Size(734, 64);
+            this.panel_tieude.TabIndex = 6;
+            // 
+            // tieude2
+            // 
+            this.tieude2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tieude2.AutoSize = true;
+            this.tieude2.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tieude2.Location = new System.Drawing.Point(581, 22);
+            this.tieude2.Name = "tieude2";
+            this.tieude2.Size = new System.Drawing.Size(131, 21);
+            this.tieude2.TabIndex = 1;
+            this.tieude2.Text = "Home/Dashboard";
+            // 
+            // tieude
+            // 
+            this.tieude.AutoSize = true;
+            this.tieude.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tieude.Location = new System.Drawing.Point(6, 13);
+            this.tieude.Name = "tieude";
+            this.tieude.Size = new System.Drawing.Size(138, 32);
+            this.tieude.TabIndex = 0;
+            this.tieude.Text = "Dashboard";
+            // 
+            // panelContainer
+            // 
+            this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContainer.Location = new System.Drawing.Point(200, 164);
+            this.panelContainer.Name = "panelContainer";
+            this.panelContainer.Size = new System.Drawing.Size(734, 531);
+            this.panelContainer.TabIndex = 7;
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(934, 611);
+            this.ClientSize = new System.Drawing.Size(934, 695);
             this.Controls.Add(this.panelContainer);
             this.Controls.Add(this.panel_tieude);
             this.Controls.Add(this.panelMenu);
@@ -406,14 +429,14 @@
             this.panelTop.ResumeLayout(false);
             this.guna2Panel4.ResumeLayout(false);
             this.guna2Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.avatar)).EndInit();
             this.guna2Panel3.ResumeLayout(false);
             this.guna2Panel3.PerformLayout();
             this.guna2Panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.panelMenu.ResumeLayout(false);
             this.panel_tieude.ResumeLayout(false);
             this.panel_tieude.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.avatar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -443,5 +466,6 @@
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox2;
         private FontAwesome.Sharp.IconButton btnLogout;
         private FontAwesome.Sharp.IconButton iconButton1;
+        private FontAwesome.Sharp.IconButton iconButton2;
     }
 }

@@ -16,6 +16,11 @@ namespace GUI.Main_Child
         private DTO_Room roomData;
 
         public string RoomID { get; set; }
+        public string RoomName
+        {
+            get { return lblRoomName.Text; }
+            set { lblRoomName.Text = value; }
+        }
         public frmRoom_Card()
         {
             InitializeComponent();
@@ -32,11 +37,18 @@ namespace GUI.Main_Child
             if (roomStatus == "Phòng có sẵn.")
             {
                 lblRoomStatus.BackColor = Color.Green;  // Đổi màu chữ thành xanh nếu phòng có sẵn
+                
             }
             else
             {
                 lblRoomStatus.BackColor = Color.OrangeRed;  // Đổi màu chữ thành đỏ nếu phòng không có sẵn
             }
+        }
+        public event EventHandler<string> OnEditCourse;
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+      
+            OnEditCourse?.Invoke(this, lblSubject.Text);
         }
     }
 

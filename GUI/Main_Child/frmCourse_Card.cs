@@ -13,6 +13,11 @@ namespace GUI.Main_Child
     public partial class frmCourse_Card: UserControl
     {
         public string CourseID { get; set; }
+        public string CourseName => lblName.Text;
+        public string CourseCode => lblSubject.Text;
+        public string TeacherName => lblTeacher.Text;
+        public string SubjectName => lblSubject.Text;
+
         public frmCourse_Card()
         {
             InitializeComponent();
@@ -57,6 +62,11 @@ namespace GUI.Main_Child
         }
 
         private void guna2PictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblTeacher_Click(object sender, EventArgs e)
         {
 
         }

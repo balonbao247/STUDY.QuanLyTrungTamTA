@@ -100,7 +100,7 @@ namespace GUI.Main_Child
                     string teacherName = busTeacher.GetTeacherNameByID(item.TeacherID); // Add this method in BUS_Course
 
                     frmCourse_Card card = new frmCourse_Card();
-                    card.SetCourseInfo(item.CourseID.ToString(), teacherName, item.Price, subjectName, courseDescription,item.SubjectID);
+                    card.SetCourseInfo(item.CourseID.ToString(), teacherName, item.Price, subjectName, courseDescription, item.SubjectID);
                     card.OnDeleteCourse += (s, args) =>
                     {
                         DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa khóa học này?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -149,6 +149,40 @@ namespace GUI.Main_Child
             };
             blurBackground.Show();
             formADDCourse.ShowDialog();
+        }
+
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            string keyword = txtSearch.Text.Trim().ToLower();
+
+            foreach (Control ctrl in flowLayoutPanel1.Controls)
+            {
+                if (ctrl is frmCourse_Card course)
+                {
+                    // Lấy các thông tin cần tìm
+                    string courseName = course.CourseName.ToLower();     // Tên khoá
+                    string courseCode = course.CourseCode.ToLower();     // Mã khoá
+                    string teacherName = course.TeacherName.ToLower();   // Tên giáo viên
+                  
+
+                    // Nếu từ khoá nằm trong bất kỳ thông tin nào -> Hiện
+                    bool match = courseName.Contains(keyword)
+                                 || courseCode.Contains(keyword)
+                                 || teacherName.Contains(keyword);
+
+                    course.Visible = match;
+                }
+            }
         }
     }
 

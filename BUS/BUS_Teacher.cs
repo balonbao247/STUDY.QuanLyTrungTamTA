@@ -2,6 +2,7 @@
 using System;
 using DAL;
 using System.Collections.Generic;
+using System.Data;
 
 namespace BUS
 {
@@ -55,6 +56,23 @@ namespace BUS
         public string GetTeacherNameByID(string teacherID)
         {
             return DAL_Teacher.Instance.GetTeacherNameByID(teacherID);
+        }
+        public decimal GetTotalExpense()
+        {
+            return DAL_Teacher.Instance.GetTotalExpense();
+        }
+        //Lấy tổng giáo viên
+        public int GetTotalTeachers()
+        {
+            return DAL_Teacher.Instance.GetTotalTeachers();
+        }
+        public List<(DTO_Teacher Teacher, int TotalMeetings)> GetTeacherSalaries()
+        {
+            return DAL_Teacher.Instance.GetTeacherSalaries();
+        }
+        public DataTable GetSalaryTable()
+        {
+            return DAL_Teacher.Instance.GetSalaryTable();
         }
 
     }

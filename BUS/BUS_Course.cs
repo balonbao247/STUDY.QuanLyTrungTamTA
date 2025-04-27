@@ -68,5 +68,9 @@ namespace BUS
         {
             return DAL_Course.Instance.GetStudentCountByCourseID(courseID);
         }
+        public Dictionary<string, int> GetCourseCountBySubject()
+        {
+            return DAL_Course.Instance.GetCourseCountBySubject();
+        }
     }
 }

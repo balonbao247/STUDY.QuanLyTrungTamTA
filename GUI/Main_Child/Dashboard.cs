@@ -103,7 +103,7 @@ namespace GUI.Resources
             lblTeacher.Text = TeacherCount.ToString();
 
             lblIncome.Text = income.ToString("N0") + " VNĐ";
-            lblExpense.Text = expense.ToString("N0") + " VNĐ";
+
 
             var data = DAL_Course.Instance.GetCourseCountBySubject();
 

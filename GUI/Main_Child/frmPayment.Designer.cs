@@ -33,15 +33,15 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
+            this.cboPaymentStatus = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.btnPrint = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
-            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtPaymentSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.dgvPayment = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.btnPrint = new Guna.UI2.WinForms.Guna2Button();
             this.PaymentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StudentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CourseID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,6 +50,7 @@
             this.PaymentStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmbPaymentMethod = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.Select = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
@@ -72,16 +73,81 @@
             // guna2Panel3
             // 
             this.guna2Panel3.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Panel3.Controls.Add(this.cboPaymentStatus);
             this.guna2Panel3.Controls.Add(this.btnPrint);
             this.guna2Panel3.Controls.Add(this.guna2Button1);
             this.guna2Panel3.Controls.Add(this.iconButton2);
-            this.guna2Panel3.Controls.Add(this.guna2TextBox1);
+            this.guna2Panel3.Controls.Add(this.txtPaymentSearch);
             this.guna2Panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2Panel3.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.Size = new System.Drawing.Size(1145, 56);
             this.guna2Panel3.TabIndex = 9;
             this.guna2Panel3.UseTransparentBackground = true;
+            // 
+            // cboPaymentStatus
+            // 
+            this.cboPaymentStatus.BackColor = System.Drawing.Color.Transparent;
+            this.cboPaymentStatus.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.cboPaymentStatus.BorderRadius = 10;
+            this.cboPaymentStatus.BorderThickness = 2;
+            this.cboPaymentStatus.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboPaymentStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboPaymentStatus.FocusedColor = System.Drawing.Color.RoyalBlue;
+            this.cboPaymentStatus.FocusedState.BorderColor = System.Drawing.Color.RoyalBlue;
+            this.cboPaymentStatus.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cboPaymentStatus.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.cboPaymentStatus.ItemHeight = 30;
+            this.cboPaymentStatus.Items.AddRange(new object[] {
+            "ALL",
+            "Pending",
+            "Paid"});
+            this.cboPaymentStatus.ItemsAppearance.SelectedBackColor = System.Drawing.Color.SkyBlue;
+            this.cboPaymentStatus.ItemsAppearance.SelectedForeColor = System.Drawing.Color.White;
+            this.cboPaymentStatus.Location = new System.Drawing.Point(324, 12);
+            this.cboPaymentStatus.Name = "cboPaymentStatus";
+            this.cboPaymentStatus.Size = new System.Drawing.Size(180, 36);
+            this.cboPaymentStatus.TabIndex = 16;
+            this.cboPaymentStatus.SelectedIndexChanged += new System.EventHandler(this.cboPaymentStatus_SelectedIndexChanged);
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.BackColor = System.Drawing.Color.Transparent;
+            this.btnPrint.BorderRadius = 10;
+            this.btnPrint.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnPrint.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnPrint.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnPrint.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnPrint.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(169)))), ((int)(((byte)(77)))));
+            this.btnPrint.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnPrint.ForeColor = System.Drawing.Color.Black;
+            this.btnPrint.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(169)))), ((int)(((byte)(77)))));
+            this.btnPrint.HoverState.ForeColor = System.Drawing.Color.White;
+            this.btnPrint.Location = new System.Drawing.Point(521, 8);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(109, 40);
+            this.btnPrint.TabIndex = 5;
+            this.btnPrint.Text = "IN";
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
+            // guna2Button1
+            // 
+            this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button1.BorderRadius = 10;
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.FillColor = System.Drawing.Color.MediumSeaGreen;
+            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.guna2Button1.ForeColor = System.Drawing.Color.Black;
+            this.guna2Button1.HoverState.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.Location = new System.Drawing.Point(636, 8);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Size = new System.Drawing.Size(109, 40);
+            this.guna2Button1.TabIndex = 5;
+            this.guna2Button1.Text = "SAVE";
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // iconButton2
             // 
@@ -99,26 +165,28 @@
             this.iconButton2.Size = new System.Drawing.Size(63, 44);
             this.iconButton2.TabIndex = 7;
             this.iconButton2.UseVisualStyleBackColor = false;
+            this.iconButton2.Click += new System.EventHandler(this.iconButton2_Click);
             // 
-            // guna2TextBox1
+            // txtPaymentSearch
             // 
-            this.guna2TextBox1.AutoRoundedCorners = true;
-            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox1.DefaultText = "";
-            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.IconLeft = global::GUI.Properties.Resources._370082_find_search_zoom_magnifier_view_icon;
-            this.guna2TextBox1.Location = new System.Drawing.Point(12, 12);
-            this.guna2TextBox1.Name = "guna2TextBox1";
-            this.guna2TextBox1.PlaceholderText = "Tìm kiếm giáo viên";
-            this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.Size = new System.Drawing.Size(279, 40);
-            this.guna2TextBox1.TabIndex = 4;
+            this.txtPaymentSearch.AutoRoundedCorners = true;
+            this.txtPaymentSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtPaymentSearch.DefaultText = "";
+            this.txtPaymentSearch.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtPaymentSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtPaymentSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtPaymentSearch.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtPaymentSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtPaymentSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtPaymentSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtPaymentSearch.IconLeft = global::GUI.Properties.Resources._370082_find_search_zoom_magnifier_view_icon;
+            this.txtPaymentSearch.Location = new System.Drawing.Point(12, 12);
+            this.txtPaymentSearch.Name = "txtPaymentSearch";
+            this.txtPaymentSearch.PlaceholderText = "Tìm kiếm thanh toán";
+            this.txtPaymentSearch.SelectedText = "";
+            this.txtPaymentSearch.Size = new System.Drawing.Size(279, 40);
+            this.txtPaymentSearch.TabIndex = 4;
+            this.txtPaymentSearch.TextChanged += new System.EventHandler(this.txtPaymentSearch_TextChanged);
             // 
             // iconButton1
             // 
@@ -204,6 +272,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvPayment.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvPayment.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dgvPayment.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvPayment.Location = new System.Drawing.Point(12, 0);
             this.dgvPayment.Margin = new System.Windows.Forms.Padding(20);
@@ -236,54 +305,8 @@
             this.dgvPayment.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvPayment.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dgvPayment.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPayment_CellContentClick);
+            this.dgvPayment.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvPayment_CellPainting);
             this.dgvPayment.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPayment_CellValueChanged);
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.HeaderText = "Edit";
-            this.dataGridViewImageColumn1.Image = global::GUI.Properties.Resources._622400_pen_pencil_edit_write_writing_icon;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewImageColumn1.Width = 112;
-            // 
-            // guna2Button1
-            // 
-            this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button1.BorderRadius = 10;
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.MediumSeaGreen;
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.guna2Button1.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button1.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(169)))), ((int)(((byte)(77)))));
-            this.guna2Button1.HoverState.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(454, 13);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(109, 40);
-            this.guna2Button1.TabIndex = 5;
-            this.guna2Button1.Text = "SAVE";
-            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
-            // 
-            // btnPrint
-            // 
-            this.btnPrint.BackColor = System.Drawing.Color.Transparent;
-            this.btnPrint.BorderRadius = 10;
-            this.btnPrint.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnPrint.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnPrint.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnPrint.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnPrint.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(169)))), ((int)(((byte)(77)))));
-            this.btnPrint.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.btnPrint.ForeColor = System.Drawing.Color.Black;
-            this.btnPrint.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(169)))), ((int)(((byte)(77)))));
-            this.btnPrint.HoverState.ForeColor = System.Drawing.Color.White;
-            this.btnPrint.Location = new System.Drawing.Point(317, 13);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(109, 40);
-            this.btnPrint.TabIndex = 5;
-            this.btnPrint.Text = "IN";
             // 
             // PaymentID
             // 
@@ -343,6 +366,14 @@
             this.Select.TrueValue = "True";
             this.Select.Width = 80;
             // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.HeaderText = "Edit";
+            this.dataGridViewImageColumn1.Image = global::GUI.Properties.Resources._622400_pen_pencil_edit_write_writing_icon;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn1.Width = 112;
+            // 
             // frmPayment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -354,7 +385,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmPayment";
             this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
-            this.Text = "Quản lý Giáo viên";
+            this.Text = "Quản lý thanh toán";
             this.Load += new System.EventHandler(this.frmPayment_Load);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel3.ResumeLayout(false);
@@ -373,7 +404,7 @@
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
         private FontAwesome.Sharp.IconButton iconButton2;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
+        private Guna.UI2.WinForms.Guna2TextBox txtPaymentSearch;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Guna.UI2.WinForms.Guna2Button btnPrint;
         private System.Windows.Forms.DataGridViewTextBoxColumn PaymentID;
@@ -384,5 +415,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PaymentStatus;
         private System.Windows.Forms.DataGridViewComboBoxColumn cmbPaymentMethod;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Select;
+        private Guna.UI2.WinForms.Guna2ComboBox cboPaymentStatus;
     }
 }

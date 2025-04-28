@@ -334,7 +334,6 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvHocVienTam.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvHocVienTam.ColumnHeadersHeight = 15;
-            this.dgvHocVienTam.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dgvHocVienTam.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
@@ -366,7 +365,7 @@
             this.dgvHocVienTam.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvHocVienTam.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvHocVienTam.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.dgvHocVienTam.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.dgvHocVienTam.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvHocVienTam.ThemeStyle.HeaderStyle.Height = 15;
             this.dgvHocVienTam.ThemeStyle.ReadOnly = true;
             this.dgvHocVienTam.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;

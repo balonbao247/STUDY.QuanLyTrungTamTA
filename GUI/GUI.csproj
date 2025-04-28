@@ -66,6 +66,10 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include=".Designer - Copy.cs">
+      <DependentUpon>Main_Teacher.cs</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FORM\BlurBackground.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +123,9 @@
     </Compile>
     <Compile Include="FORM\FormVIEWCourse.Designer.cs">
       <DependentUpon>FormVIEWCourse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main_Teacher.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
@@ -215,6 +222,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FORM\FormVIEWCourse.resx">
       <DependentUpon>FormVIEWCourse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main_Teacher.resx">
+      <DependentUpon>Main_Teacher.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>

@@ -24,7 +24,6 @@ namespace GUI.Main_Child
 
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.lblRoomName = new System.Windows.Forms.Label();
             this.lblRoomStatus = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -33,15 +32,17 @@ namespace GUI.Main_Child
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.tableLayoutPanel1.SuspendLayout();
+            this.guna2GradientPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblRoomName
             // 
+            this.lblRoomName.BackColor = System.Drawing.Color.Transparent;
             this.lblRoomName.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRoomName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(60)))), ((int)(((byte)(45)))));
-            this.lblRoomName.Location = new System.Drawing.Point(10, 10);
+            this.lblRoomName.Location = new System.Drawing.Point(7, 10);
             this.lblRoomName.Name = "lblRoomName";
             this.lblRoomName.Size = new System.Drawing.Size(180, 25);
             this.lblRoomName.TabIndex = 0;
@@ -61,6 +62,7 @@ namespace GUI.Main_Child
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.56522F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.43478F));
@@ -68,7 +70,7 @@ namespace GUI.Main_Child
             this.tableLayoutPanel1.Controls.Add(this.lblRoomCapacity, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(-1, 87);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 87);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.tableLayoutPanel1.RowCount = 2;
@@ -119,6 +121,7 @@ namespace GUI.Main_Child
             // 
             // guna2Button1
             // 
+            this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
             this.guna2Button1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(135)))), ((int)(((byte)(84)))));
             this.guna2Button1.BorderRadius = 5;
             this.guna2Button1.BorderThickness = 2;
@@ -131,31 +134,39 @@ namespace GUI.Main_Child
             this.guna2Button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(135)))), ((int)(((byte)(84)))));
             this.guna2Button1.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(135)))), ((int)(((byte)(84)))));
             this.guna2Button1.HoverState.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(82, 193);
+            this.guna2Button1.Location = new System.Drawing.Point(81, 193);
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.Size = new System.Drawing.Size(134, 31);
             this.guna2Button1.TabIndex = 9;
             this.guna2Button1.Text = "VIEW";
             this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
-            // guna2Elipse1
+            // guna2GradientPanel1
             // 
-            this.guna2Elipse1.BorderRadius = 10;
-            this.guna2Elipse1.TargetControl = this;
+            this.guna2GradientPanel1.BorderColor = System.Drawing.Color.Black;
+            this.guna2GradientPanel1.BorderRadius = 8;
+            this.guna2GradientPanel1.BorderThickness = 1;
+            this.guna2GradientPanel1.Controls.Add(this.guna2Button1);
+            this.guna2GradientPanel1.Controls.Add(this.tableLayoutPanel1);
+            this.guna2GradientPanel1.Controls.Add(this.lblRoomName);
+            this.guna2GradientPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2GradientPanel1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.guna2GradientPanel1.Location = new System.Drawing.Point(0, 0);
+            this.guna2GradientPanel1.Name = "guna2GradientPanel1";
+            this.guna2GradientPanel1.Size = new System.Drawing.Size(232, 242);
+            this.guna2GradientPanel1.TabIndex = 10;
             // 
             // frmRoom_Card
             // 
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(245)))), ((int)(((byte)(240)))));
-            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Controls.Add(this.guna2Button1);
-            this.Controls.Add(this.tableLayoutPanel1);
-            this.Controls.Add(this.lblRoomName);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(243)))), ((int)(((byte)(245)))));
             this.Controls.Add(this.lblRoomStatus);
+            this.Controls.Add(this.guna2GradientPanel1);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "frmRoom_Card";
-            this.Size = new System.Drawing.Size(230, 240);
+            this.Size = new System.Drawing.Size(232, 242);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.guna2GradientPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -189,6 +200,6 @@ namespace GUI.Main_Child
         private Label label2;
         private Label label1;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
-        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
+        private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel1;
     }
 }

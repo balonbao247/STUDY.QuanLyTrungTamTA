@@ -41,15 +41,16 @@
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.panelMenu = new Guna.UI2.WinForms.Guna2Panel();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.btnLogout = new FontAwesome.Sharp.IconButton();
             this.btnCourse = new FontAwesome.Sharp.IconButton();
             this.btnMenu = new FontAwesome.Sharp.IconButton();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.panelContainer = new Guna.UI2.WinForms.Guna2Panel();
             this.panel_tieude = new Guna.UI2.WinForms.Guna2Panel();
             this.tieude2 = new System.Windows.Forms.Label();
             this.tieude = new System.Windows.Forms.Label();
-            this.panelContainer = new Guna.UI2.WinForms.Guna2Panel();
             this.panelTop.SuspendLayout();
             this.guna2Panel4.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
@@ -58,6 +59,7 @@
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.panelMenu.SuspendLayout();
+            this.panelContainer.SuspendLayout();
             this.panel_tieude.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -127,6 +129,7 @@
             this.avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.avatar.TabIndex = 2;
             this.avatar.TabStop = false;
+            this.avatar.Click += new System.EventHandler(this.avatar_Click);
             // 
             // guna2Panel3
             // 
@@ -144,9 +147,9 @@
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label1.Location = new System.Drawing.Point(38, 28);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(163, 42);
+            this.label1.Size = new System.Drawing.Size(142, 42);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Teacher";
+            this.label1.Text = "ADMIN";
             // 
             // guna2Panel1
             // 
@@ -171,6 +174,7 @@
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
+            this.panelMenu.Controls.Add(this.iconButton1);
             this.panelMenu.Controls.Add(this.btnLogout);
             this.panelMenu.Controls.Add(this.btnCourse);
             this.panelMenu.Controls.Add(this.btnMenu);
@@ -181,6 +185,27 @@
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(200, 595);
             this.panelMenu.TabIndex = 4;
+            // 
+            // iconButton1
+            // 
+            this.iconButton1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton1.FlatAppearance.BorderSize = 0;
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.ForeColor = System.Drawing.Color.White;
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.FilePen;
+            this.iconButton1.IconColor = System.Drawing.Color.White;
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton1.Location = new System.Drawing.Point(0, 140);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.iconButton1.Size = new System.Drawing.Size(200, 70);
+            this.iconButton1.TabIndex = 14;
+            this.iconButton1.Text = "ATTENDANCE";
+            this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButton1.UseVisualStyleBackColor = true;
+            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click_1);
             // 
             // btnLogout
             // 
@@ -257,23 +282,32 @@
             this.guna2DragControl1.TargetControl = this;
             this.guna2DragControl1.UseTransparentDrag = true;
             // 
+            // panelContainer
+            // 
+            this.panelContainer.Controls.Add(this.panel_tieude);
+            this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContainer.Location = new System.Drawing.Point(200, 100);
+            this.panelContainer.Name = "panelContainer";
+            this.panelContainer.Size = new System.Drawing.Size(734, 595);
+            this.panelContainer.TabIndex = 7;
+            // 
             // panel_tieude
             // 
             this.panel_tieude.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(107)))), ((int)(((byte)(209)))));
             this.panel_tieude.Controls.Add(this.tieude2);
             this.panel_tieude.Controls.Add(this.tieude);
             this.panel_tieude.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel_tieude.Location = new System.Drawing.Point(200, 100);
+            this.panel_tieude.Location = new System.Drawing.Point(0, 0);
             this.panel_tieude.Name = "panel_tieude";
             this.panel_tieude.Size = new System.Drawing.Size(734, 64);
-            this.panel_tieude.TabIndex = 6;
+            this.panel_tieude.TabIndex = 7;
             // 
             // tieude2
             // 
             this.tieude2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.tieude2.AutoSize = true;
             this.tieude2.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tieude2.Location = new System.Drawing.Point(581, 22);
+            this.tieude2.Location = new System.Drawing.Point(507, 22);
             this.tieude2.Name = "tieude2";
             this.tieude2.Size = new System.Drawing.Size(131, 21);
             this.tieude2.TabIndex = 1;
@@ -289,27 +323,19 @@
             this.tieude.TabIndex = 0;
             this.tieude.Text = "Dashboard";
             // 
-            // panelContainer
-            // 
-            this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContainer.Location = new System.Drawing.Point(200, 164);
-            this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(734, 531);
-            this.panelContainer.TabIndex = 7;
-            // 
             // Main_Teacher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(934, 695);
             this.Controls.Add(this.panelContainer);
-            this.Controls.Add(this.panel_tieude);
             this.Controls.Add(this.panelMenu);
             this.Controls.Add(this.panelTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Main_Teacher";
             this.Text = "Main_Teacher";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Main_Teacher_FormClosed);
             this.Load += new System.EventHandler(this.Main_Teacher_Load_1);
             this.panelTop.ResumeLayout(false);
             this.guna2Panel4.ResumeLayout(false);
@@ -320,6 +346,7 @@
             this.guna2Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.panelMenu.ResumeLayout(false);
+            this.panelContainer.ResumeLayout(false);
             this.panel_tieude.ResumeLayout(false);
             this.panel_tieude.PerformLayout();
             this.ResumeLayout(false);
@@ -338,14 +365,15 @@
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2CirclePictureBox avatar;
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
-        private Guna.UI2.WinForms.Guna2Panel panel_tieude;
-        private System.Windows.Forms.Label tieude2;
-        private System.Windows.Forms.Label tieude;
-        private Guna.UI2.WinForms.Guna2Panel panelContainer;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox2;
         private FontAwesome.Sharp.IconButton btnLogout;
+        private FontAwesome.Sharp.IconButton iconButton1;
+        private Guna.UI2.WinForms.Guna2Panel panelContainer;
+        private Guna.UI2.WinForms.Guna2Panel panel_tieude;
+        private System.Windows.Forms.Label tieude2;
+        private System.Windows.Forms.Label tieude;
     }
 }

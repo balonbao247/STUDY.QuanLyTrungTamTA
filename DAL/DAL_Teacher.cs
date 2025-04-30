@@ -233,6 +233,27 @@ namespace DAL
 
             return teacherSalaries;
         }
+        public bool CheckExistIdentityNumber(string identityNumber)
+        {
+            string query = "SELECT COUNT(*) FROM Teachers WHERE IdentityNumber = @IdentityNumber";
+
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+        new SqlParameter("@IdentityNumber", identityNumber)
+            };
+
+            // Execute the query to get the result as a DataTable
+            DataTable dt = DAL_DataProvider.Instance.ExecuteQuery(query, parameters);
+
+            // Extract the count from the first row and first column
+            if (dt.Rows.Count > 0)
+            {
+                int count = Convert.ToInt32(dt.Rows[0][0]);  // Access the first column of the first row
+                return count > 0;  // Return true if count is greater than 0, meaning the IdentityNumber exists
+            }
+
+            return false;
+        }
 
 
 

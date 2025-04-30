@@ -1,4 +1,6 @@
 ﻿using FontAwesome.Sharp;
+using GUI.ADD_Form;
+using GUI.FORM;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -94,9 +96,16 @@ namespace GUI
             tieude.Text = childForm.Text;
             tieude2.Text = childForm.Text;
         }
+
+
+       
+
+       
+        
         private void btnCourse_Click(object sender, EventArgs e)
         {
-           
+            ActivateButton(sender, RGBColors.color5);
+            OpenChildForm(new GUI.TeacherACC.frmCourse());
         }
 
         private void btnMenu_Click(object sender, EventArgs e)
@@ -179,8 +188,8 @@ namespace GUI
             {
                 this.Hide();  // Ẩn form hiện tại
                 Login loginForm = new   Login();
-                loginForm.ShowDialog(); // Hiển thị lại form đăng nhập
-                this.Close();  // Đóng form hiện tại
+                loginForm.Show(); // Hiển thị lại form đăng nhập
+
             }
         }
 
@@ -190,10 +199,35 @@ namespace GUI
             OpenChildForm(new frmRoom());
         }
 
-        private void iconButton2_Click(object sender, EventArgs e)
+
+        private void guna2ContextMenuStrip1_Opening(object sender, CancelEventArgs e)
         {
-            ActivateButton(sender, RGBColors.color2);
-            OpenChildForm(new frmPayment());
+
+        }
+
+        private void avatar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ChangePass changePass = new ChangePass();
+            BlurBackground blurBackground = new BlurBackground();
+            
+            blurBackground.Show();
+            changePass.ShowDialog();
+        }
+
+        private void Main_Teacher_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void iconButton1_Click_1(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color4);
+            OpenChildForm(new GUI.TeacherACC.frmAttendance());
         }
     }
 }

@@ -188,7 +188,7 @@ namespace GUI
         {
             LoadAllPayments();
             txtPaymentSearch.Clear();
-            cboPaymentStatus.Items.Clear();
+            cboPaymentStatus.SelectedIndex = 0;
         }
 
         
@@ -365,7 +365,7 @@ namespace GUI
                     p.PaymentID,
                     p.StudentID,
                     p.CourseID,
-                    p.TotalAmount,
+                    p.TotalAmount.ToString("N0")+" VNĐ",
                     p.PaymentDate,
                     p.PaymentStatus,
                     p.PaymentMethod,

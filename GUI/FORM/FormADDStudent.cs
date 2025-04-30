@@ -63,22 +63,23 @@ namespace GUI.ADD_Form
             string address = txtAddress.Text.Trim();
             string gender = cboGender.SelectedItem?.ToString() ?? "";
 
+
             // Kiểm tra CCCD
             if (string.IsNullOrWhiteSpace(identityCard))
             {
                 errorProvider1.SetError(txtCCCD, "Vui lòng nhập CCCD");
                 isValid = false;
             }
-            else if (identityCard.Length != 12)
+            else if (identityCard.Length != 12 || !identityCard.All(char.IsDigit))
             {
                 errorProvider1.SetError(txtCCCD, "CCCD phải đúng 12 số");
                 isValid = false;
             }
-            //else if (BUS_RelatedToEmployee.Instance.CheckExistStudentID("HV" + identityCard))
-            //{
-            //    errorProvider1.SetError(txtCCCD, "CCCD đã tồn tại");
-            //    isValid = false;
-            //}
+            else if (BUS_Student.Instance.CheckExistIdentityNumber(identityCard))
+            {
+                errorProvider1.SetError(txtCCCD, "CCCD đã tồn tại");
+                isValid = false;
+            }
 
             // Kiểm tra Họ tên
             if (string.IsNullOrWhiteSpace(fullName))
@@ -93,7 +94,7 @@ namespace GUI.ADD_Form
                 errorProvider1.SetError(cboGender, "Vui lòng chọn giới tính");
                 isValid = false;
             }
-
+           
             // Kiểm tra địa chỉ
             if (string.IsNullOrWhiteSpace(address))
             {

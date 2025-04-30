@@ -37,7 +37,11 @@ namespace DAL
         public List<DTO_Course> GetAllCourses()
         {
             string query = "SELECT * FROM Courses";
-            DataTable dt = DAL_DataProvider.Instance.ExecuteQuery(query);
+
+
+            SqlParameter[] parameters = new SqlParameter[] { };
+
+            DataTable dt = DAL_DataProvider.Instance.ExecuteQuery(query, parameters);
 
             List<DTO_Course> courses = new List<DTO_Course>();
             foreach (DataRow row in dt.Rows)
@@ -46,12 +50,15 @@ namespace DAL
             }
             return courses;
         }
-
-        // Lấy tất cả Course còn hoạt động
-        public List<DTO_Course> GetActiveCourses()
+        //Lấy tất cả active course
+        public List<DTO_Course> GetAllActiveCourses()
         {
-            string query = "SELECT * FROM Courses WHERE IsActive = 1";
-            DataTable dt = DAL_DataProvider.Instance.ExecuteQuery(query);
+            string query = "SELECT * FROM Courses  WHERE IsActive = 1";
+
+            
+            SqlParameter[] parameters = new SqlParameter[] { };
+
+            DataTable dt = DAL_DataProvider.Instance.ExecuteQuery(query, parameters);
 
             List<DTO_Course> courses = new List<DTO_Course>();
             foreach (DataRow row in dt.Rows)
@@ -60,6 +67,29 @@ namespace DAL
             }
             return courses;
         }
+
+
+        public List<DTO_Course> GetActiveCoursesByTeacher(string teacherID)
+        {
+            string query = "SELECT * FROM Courses WHERE IsActive = 1 AND TeacherID = @TeacherID";
+
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+        new SqlParameter("@TeacherID", teacherID)
+            };
+
+            DataTable dt = DAL_DataProvider.Instance.ExecuteQuery(query, parameters);
+
+            List<DTO_Course> courses = new List<DTO_Course>();
+            foreach (DataRow row in dt.Rows)
+            {
+                courses.Add(new DTO_Course(row));
+            }
+            return courses;
+        }
+
+      
+
 
         // Lấy Course theo ID
         public DTO_Course GetCourseByID(string courseID)

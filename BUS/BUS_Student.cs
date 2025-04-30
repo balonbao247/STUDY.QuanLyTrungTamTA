@@ -65,6 +65,16 @@ namespace BUS
         {
             return DAL_Student.Instance.GetTotalStudents();
         }
+        public Boolean CheckExistIdentityNumber(string identityNumber)
+        {
+            return DAL_Teacher.Instance.CheckExistIdentityNumber(identityNumber);
+        }
+
+        //Lấy thông tin học viên theo ID
+        public DTO_Student GetStudentByID(string studentID)
+        {
+            return DAL_Student.Instance.GetStudentByID(studentID);
+        }
 
     }
 

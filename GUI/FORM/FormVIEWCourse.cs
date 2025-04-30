@@ -51,9 +51,9 @@ namespace GUI.FORM
                     cmbTimeSlot.SelectedValue = firstSchedule.TimeSlotID;
 
                     // Phân tích nhóm ngày học đã lưu
-                    if (firstSchedule.DayOfWeek == 1 || firstSchedule.DayOfWeek == 3 ||firstSchedule.DayOfWeek == 5)
+                    if (firstSchedule.DayOfWeek == 1 )
                         comboBoxDays.SelectedIndex = 0; // "T2 - T4 - T6"
-                    else if (firstSchedule.DayOfWeek == 2 || firstSchedule.DayOfWeek == 4 ||firstSchedule.DayOfWeek == 6)
+                    else if (firstSchedule.DayOfWeek == 2 )
                         comboBoxDays.SelectedIndex = 1; // "T3 - T5 - T7"
                     else if (firstSchedule.DayOfWeek == 6)
                         comboBoxDays.SelectedIndex = 2; // "T7 - CN"

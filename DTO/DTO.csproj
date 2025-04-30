@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO_Account.cs" />
     <Compile Include="DTO_CourseStudent.cs" />
     <Compile Include="DTO_Course.cs" />
     <Compile Include="DTO_CourseSchedule.cs" />
@@ -48,6 +49,7 @@
     <Compile Include="DTO_Person.cs" />
     <Compile Include="DTO_Room.cs" />
     <Compile Include="DTO_Student.cs" />
+    <Compile Include="DTO_StudentAttendance.cs" />
     <Compile Include="DTO_Subject.cs" />
     <Compile Include="DTO_Teacher.cs" />
     <Compile Include="DTO_TimeSlot.cs" />

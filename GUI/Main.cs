@@ -1,4 +1,6 @@
 ﻿using FontAwesome.Sharp;
+using GUI.ADD_Form;
+using GUI.FORM;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -199,8 +201,8 @@ namespace GUI
             {
                 this.Hide();  // Ẩn form hiện tại
                 Login loginForm = new   Login();
-                loginForm.ShowDialog(); // Hiển thị lại form đăng nhập
-                this.Close();  // Đóng form hiện tại
+                loginForm.Show(); // Hiển thị lại form đăng nhập
+     
             }
         }
 
@@ -214,6 +216,100 @@ namespace GUI
         {
             ActivateButton(sender, RGBColors.color2);
             OpenChildForm(new frmPayment());
+        }
+
+        private void guna2ContextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void avatar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ChangePass changePass = new ChangePass();
+            BlurBackground blurBackground = new BlurBackground();
+            
+            blurBackground.Show();
+            changePass.ShowDialog();
+        }
+
+        private void Main_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void panelTop_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2Panel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2ControlBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2ControlBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panelMenu_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel_tieude_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tieude2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tieude_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelContainer_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2PictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

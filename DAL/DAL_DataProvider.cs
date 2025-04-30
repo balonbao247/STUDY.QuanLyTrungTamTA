@@ -96,6 +96,28 @@ namespace DAL
 
             return data;
         }
+        public int ExecuteStoredProcedure(string procedureName, SqlParameter[] parameters = null)
+        {
+            int data = 0;
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand cmd = new SqlCommand(procedureName, connection);
+                cmd.CommandType = CommandType.StoredProcedure; // ⚠️ QUAN TRỌNG
+
+                if (parameters != null)
+                {
+                    cmd.Parameters.AddRange(parameters);
+                }
+
+                data = cmd.ExecuteNonQuery();
+                connection.Close();
+            }
+
+            return data;
+        }
+
         public static SqlConnection GetConnection()
         {
             return new SqlConnection(connectionString);

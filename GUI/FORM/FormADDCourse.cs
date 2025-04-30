@@ -1,5 +1,6 @@
 ﻿using BUS;
 using BUS.BUS;
+
 using DTO;
 using GUI.ADD_Form;
 using System;
@@ -244,6 +245,11 @@ namespace GUI.FORM
                 MessageBox.Show("Ngày kết thúc phải sau ngày bắt đầu.");
                 return;
             }
+            if (price<=0)
+            {
+                MessageBox.Show("Học phí phải lớn hơn 0 .");
+                return;
+            }
 
             // Tạo đối tượng khóa học
             DTO_Course newCourse = new DTO_Course
@@ -363,8 +369,7 @@ namespace GUI.FORM
                     return;
                 }
             }
-
-            MessageBox.Show("Khóa học và lịch học đã được lưu thành công!");
+           
 
             // Lưu danh sách học viên tham gia khóa học
             foreach (DataGridViewRow row in dgvHocVienTam.Rows)
@@ -386,6 +391,11 @@ namespace GUI.FORM
                     }
                 }
             }
+     
+
+            BUS_StudentAttendance.Instance.InsertAttendanceForCourse(courseID, numberOfMeetings);
+
+            MessageBox.Show("Khóa học và lịch học đã được lưu thành công!");
 
             foreach (Form form in Application.OpenForms)
             {

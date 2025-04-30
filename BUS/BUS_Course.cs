@@ -24,7 +24,7 @@ namespace BUS
         // Lấy tất cả khóa học còn hoạt động
         public List<DTO_Course> GetActiveCourses()
         {
-            return DAL_Course.Instance.GetActiveCourses();
+            return DAL_Course.Instance.GetAllActiveCourses();
         }
 
         // Lấy khóa học theo ID
@@ -71,6 +71,11 @@ namespace BUS
         public Dictionary<string, int> GetCourseCountBySubject()
         {
             return DAL_Course.Instance.GetCourseCountBySubject();
+        }
+        // Lấy tất cả khóa học theo TeacherID
+        public List<DTO_Course> GetCoursesByTeacherID(string teacherID)
+        {
+            return DAL_Course.Instance.GetActiveCoursesByTeacher(teacherID); // Gọi đến DAL để lấy dữ liệu
         }
     }
 }

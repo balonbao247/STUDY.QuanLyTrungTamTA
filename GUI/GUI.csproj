@@ -70,6 +70,12 @@
       <DependentUpon>Main_Teacher.cs</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ChangePass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangePass.Designer.cs">
+      <DependentUpon>ChangePass.cs</DependentUpon>
+    </Compile>
     <Compile Include="FORM\BlurBackground.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +129,12 @@
     </Compile>
     <Compile Include="FORM\FormVIEWCourse.Designer.cs">
       <DependentUpon>FormVIEWCourse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ForgetPass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ForgetPass.Designer.cs">
+      <DependentUpon>ForgetPass.cs</DependentUpon>
     </Compile>
     <Compile Include="Main_Teacher.cs">
       <SubType>Form</SubType>
@@ -190,12 +202,28 @@
     <Compile Include="Main_Child\Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="ResetPass.cs">
+    <Compile Include="Session.cs" />
+    <Compile Include="TeacherACC\frmAttendance.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ResetPass.Designer.cs">
-      <DependentUpon>ResetPass.cs</DependentUpon>
+    <Compile Include="TeacherACC\frmAttendance.Designer.cs">
+      <DependentUpon>frmAttendance.cs</DependentUpon>
     </Compile>
+    <Compile Include="TeacherACC\frmCourse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TeacherACC\frmCourse.Designer.cs">
+      <DependentUpon>frmCourse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherACC\frmCourse_Card.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TeacherACC\frmCourse_Card.Designer.cs">
+      <DependentUpon>frmCourse_Card.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ChangePass.resx">
+      <DependentUpon>ChangePass.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FORM\BlurBackground.resx">
       <DependentUpon>BlurBackground.cs</DependentUpon>
     </EmbeddedResource>
@@ -222,6 +250,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FORM\FormVIEWCourse.resx">
       <DependentUpon>FormVIEWCourse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ForgetPass.resx">
+      <DependentUpon>ForgetPass.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main_Teacher.resx">
       <DependentUpon>Main_Teacher.cs</DependentUpon>
@@ -266,8 +297,14 @@
     <EmbeddedResource Include="Main_Child\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ResetPass.resx">
-      <DependentUpon>ResetPass.cs</DependentUpon>
+    <EmbeddedResource Include="TeacherACC\frmAttendance.resx">
+      <DependentUpon>frmAttendance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TeacherACC\frmCourse.resx">
+      <DependentUpon>frmCourse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TeacherACC\frmCourse_Card.resx">
+      <DependentUpon>frmCourse_Card.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -360,10 +397,7 @@
   <ItemGroup>
     <None Include="Resources\ChatGPT Image 15_52_39 30 thg 3, 2025 %281%29.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="StudentACC\" />
-    <Folder Include="TeacherACC\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\622400_pen_pencil_edit_write_writing_icon.png" />
   </ItemGroup>

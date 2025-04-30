@@ -74,6 +74,10 @@ namespace BUS
         {
             return DAL_Teacher.Instance.GetSalaryTable();
         }
+        public Boolean CheckExistIdentityNumber(string identityNumber)
+        {
+            return DAL_Teacher.Instance.CheckExistIdentityNumber(identityNumber);
+        }
 
     }
 }

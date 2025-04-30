@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BUS_Account.cs" />
     <Compile Include="BUS_Course.cs" />
     <Compile Include="BUS_CourseSchedule.cs" />
     <Compile Include="BUS_CourseStudent.cs" />
@@ -48,6 +49,7 @@
     <Compile Include="BUS_Payment.cs" />
     <Compile Include="BUS_Room.cs" />
     <Compile Include="BUS_Student.cs" />
+    <Compile Include="BUS_StudentAttendance.cs" />
     <Compile Include="BUS_Subject.cs" />
     <Compile Include="BUS_Teacher.cs" />
     <Compile Include="BUS_TimeSlot.cs" />

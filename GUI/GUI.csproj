@@ -136,6 +136,18 @@
     <Compile Include="ForgetPass.Designer.cs">
       <DependentUpon>ForgetPass.cs</DependentUpon>
     </Compile>
+    <Compile Include="Main_Child\frmPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main_Child\frmPayment.Designer.cs">
+      <DependentUpon>frmPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main_Child\frmRoom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main_Child\frmRoom.Designer.cs">
+      <DependentUpon>frmRoom.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main_Teacher.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -163,18 +175,6 @@
     </Compile>
     <Compile Include="Main_Child\frmCourse_Card.Designer.cs">
       <DependentUpon>frmCourse_Card.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Main_Child\frmRoom.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Main_Child\frmRoom.Designer.cs">
-      <DependentUpon>frmRoom.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Main_Child\frmPayment.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Main_Child\frmPayment.Designer.cs">
-      <DependentUpon>frmPayment.cs</DependentUpon>
     </Compile>
     <Compile Include="Main_Child\frmTeacher.cs">
       <SubType>Form</SubType>
@@ -254,6 +254,12 @@
     <EmbeddedResource Include="ForgetPass.resx">
       <DependentUpon>ForgetPass.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Main_Child\frmPayment.resx">
+      <DependentUpon>frmPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main_Child\frmRoom.resx">
+      <DependentUpon>frmRoom.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main_Teacher.resx">
       <DependentUpon>Main_Teacher.cs</DependentUpon>
     </EmbeddedResource>
@@ -268,12 +274,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Main_Child\frmCourse_Card.resx">
       <DependentUpon>frmCourse_Card.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Main_Child\frmRoom.resx">
-      <DependentUpon>frmRoom.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Main_Child\frmPayment.resx">
-      <DependentUpon>frmPayment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main_Child\frmTeacher.resx">
       <DependentUpon>frmTeacher.cs</DependentUpon>

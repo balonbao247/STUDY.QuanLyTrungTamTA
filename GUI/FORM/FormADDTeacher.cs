@@ -76,9 +76,14 @@ namespace GUI.ADD_Form
                 int salary;
                 if (!int.TryParse(txtSalary.Text.Trim(), out salary))
                 {
-                    MessageBox.Show("Please enter a valid number for salary.");
-                    errorProvider1.SetError(txtSalary, "Vui lòng nhập lương");
-                    salary = 0; // Default value
+                    // Không phải số nguyên
+                    errorProvider1.SetError(txtSalary, "Lương phải là số nguyên");
+                    isValid = false;
+                }
+                else if (salary < 0)
+                {
+                    // Số nguyên nhưng âm
+                    errorProvider1.SetError(txtSalary, "Lương không được âm");
                     isValid = false;
                 }
 
@@ -99,38 +104,47 @@ namespace GUI.ADD_Form
                     isValid = false;
                 }
 
+                //Kiểm tra Họ tên
                 if (string.IsNullOrWhiteSpace(fullName))
                 {
                     errorProvider1.SetError(txtFullName, "Vui lòng nhập họ tên");
                     isValid = false;
                 }
+                else if (!Regex.IsMatch(fullName, @"^[a-zA-ZÀ-Ỷà-ỷ\s]+$"))
+                {
+                    errorProvider1.SetError(txtFullName, "Họ tên chỉ được chứa chữ cái và khoảng trắng");
+                    isValid = false;
+                }
+                //Kiểm tra chuyên môn
                 if (string.IsNullOrWhiteSpace(specialty))
                 {
                     errorProvider1.SetError(txtSpecialty,"Vui lòng nhập chuyên môn");
                     isValid = false;
                 }
-
+                //kiểm tra giới tính
                 if (string.IsNullOrWhiteSpace(gender))
                 {
                     errorProvider1.SetError(cboGender, "Vui lòng chọn giới tính");
                     isValid = false;
                 }
-
+                //kiểm tra địa chỉ
                 if (string.IsNullOrWhiteSpace(address))
                 {
                     errorProvider1.SetError(txtAddress, "Vui lòng nhập địa chỉ");
                     isValid = false;
                 }
-
+                //kiểm tra số điện thoại
                 if (phone.Length != 10 || !phone.All(char.IsDigit))
                 {
                     errorProvider1.SetError(txtPhone, "Số điện thoại phải gồm 10 chữ số");
                     isValid = false;
                 }
 
-                if (!email.ToLower().EndsWith("@gmail.com"))
+                // Kiểm tra email
+                string emailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+                if (!Regex.IsMatch(email.ToLower(), emailPattern))
                 {
-                    errorProvider1.SetError(txtEmail, "Email phải đúng định dạng @gmail.com");
+                    errorProvider1.SetError(txtEmail, "Email không hợp lệ");
                     isValid = false;
                 }
 
@@ -188,6 +202,7 @@ namespace GUI.ADD_Form
                 MessageBox.Show($"Có lỗi xảy ra: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        // Hàm tạo mật khẩu từ CCCD 6 số cuối
         public static string GeneratePasswordFromCCCD(string cccd)
         {
             if (string.IsNullOrEmpty(cccd) || cccd.Length < 6)
@@ -205,21 +220,14 @@ namespace GUI.ADD_Form
                 return BitConverter.ToString(hashBytes).Replace("-", "").ToLower(); // Chuyển kết quả thành chuỗi hex
             }
         }
+        //Load form
         private void FormADDTeacher_Load(object sender, EventArgs e)
         {
             txtTeacherID.Text = BUS_Teacher.Instance.GetNextTeacherID();
             txtTeacherID.ReadOnly = true;
         }
 
-        private void lblFullName_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void txtTeacherID_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
     }
 }

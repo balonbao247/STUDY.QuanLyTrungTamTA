@@ -20,8 +20,8 @@
             this.cboTimeSlot = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.btnADD = new Guna.UI2.WinForms.Guna2Button();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,6 +59,7 @@
             this.dtpNgay.Size = new System.Drawing.Size(200, 36);
             this.dtpNgay.TabIndex = 16;
             this.dtpNgay.Value = new System.DateTime(2025, 4, 24, 20, 36, 23, 96);
+            this.dtpNgay.ValueChanged += new System.EventHandler(this.dtpNgay_ValueChanged_1);
             // 
             // cboTimeSlot
             // 
@@ -81,6 +82,7 @@
             this.cboTimeSlot.Name = "cboTimeSlot";
             this.cboTimeSlot.Size = new System.Drawing.Size(180, 36);
             this.cboTimeSlot.TabIndex = 15;
+            this.cboTimeSlot.SelectedIndexChanged += new System.EventHandler(this.cboTimeSlot_SelectedIndexChanged_1);
             // 
             // guna2Button1
             // 
@@ -123,17 +125,6 @@
             this.btnADD.Text = "Thêm";
             this.btnADD.Click += new System.EventHandler(this.btnADD_Click);
             // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.AutoSize = true;
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 62);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1129, 457);
-            this.flowLayoutPanel1.TabIndex = 14;
-            // 
             // txtSearch
             // 
             this.txtSearch.AutoRoundedCorners = true;
@@ -154,6 +145,17 @@
             this.txtSearch.Size = new System.Drawing.Size(279, 40);
             this.txtSearch.TabIndex = 4;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged_1);
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.AutoSize = true;
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 62);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1129, 457);
+            this.flowLayoutPanel1.TabIndex = 14;
             // 
             // frmRoom
             // 

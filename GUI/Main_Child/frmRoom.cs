@@ -111,7 +111,7 @@ namespace GUI
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            LoadAvailableRooms();
+            
         }
 
         private void btnADD_Click(object sender, EventArgs e)
@@ -169,6 +169,16 @@ namespace GUI
                     room.Visible = roomName.Contains(keyword);
                 }
             }
+        }
+
+        private void cboTimeSlot_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            LoadAvailableRooms();
+        }
+
+        private void dtpNgay_ValueChanged_1(object sender, EventArgs e)
+        {
+            LoadAvailableRooms();
         }
     }
 

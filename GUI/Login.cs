@@ -16,13 +16,13 @@ using DAL;
 using DTO;
 namespace GUI
 {
-    public partial class Login: Form
+    public partial class Login : Form
     {
         public Login()
         {
             InitializeComponent();
         }
-
+        //Load form
         private void Login_Load(object sender, EventArgs e)
         {
             guna2ShadowForm1.SetShadowForm(this);
@@ -54,19 +54,7 @@ namespace GUI
                 f.ShowDialog();
             }
         }
-        public string HashPassword(string password)
-        {
-            using (SHA256 sha256 = SHA256.Create())
-            {
-                byte[] data = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
-                StringBuilder sb = new StringBuilder();
-                foreach (byte b in data)
-                {
-                    sb.Append(b.ToString("x2"));
-                }
-                return sb.ToString();
-            }
-        }
+
 
         private void guna2Button1_Click_1(object sender, EventArgs e)
         {
@@ -76,15 +64,20 @@ namespace GUI
                 string username = txtUsername.Text;
                 string password = txtPassword.Text;  // Mật khẩu đã được mã hóa nếu cần
 
-             
+
 
 
                 // Kiểm tra tài khoản từ cơ sở dữ liệu
-                DTO_Account account = BUS_Account.Instance.Login(username,password);
+                DTO_Account account = BUS_Account.Instance.Login(username, password);
+                if (account == null)
+                {
+                    MessageBox.Show("Sai mật khẩu hoặc tài khoản không tồn tại");
+                    return;
+                }
 
                 if (account.Role == "Teacher")
                 {
-                    
+
                     Session.CurrentUsername = username;
 
                     // Mở Main_Teacher
@@ -92,8 +85,8 @@ namespace GUI
                     Main_Teacher mainTeacher = new Main_Teacher();
                     mainTeacher.Show();
 
-                    
-                   
+
+
                 }
                 else if (account.Role == "Admin")
                 {
@@ -103,9 +96,9 @@ namespace GUI
                     this.Hide();
                     Main mainAdmin = new Main();
                     mainAdmin.Show();
-                    
+
                 }
-                
+
             }
             catch (Exception ex)
             {
@@ -113,17 +106,17 @@ namespace GUI
                 MessageBox.Show("Đăng nhập thất bại: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        //Close form
         private void guna2Button1_Click_2(object sender, EventArgs e)
         {
             Close();
         }
-
+        //Dừng hẳn application
         private void Login_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
         }
-
+        //CheckBox show password
         private void guna2CheckBox1_CheckedChanged(object sender, EventArgs e)
         {
             txtPassword.UseSystemPasswordChar = !PassCheckB.Checked;
@@ -138,13 +131,14 @@ namespace GUI
         {
 
         }
-
+        //Mở form quên mật khẩu
         private void labelQuenMK_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             this.Hide();
             ForgetPass forgetPass = new ForgetPass();
             forgetPass.Show();
-            
+
         }
     }
+
 }

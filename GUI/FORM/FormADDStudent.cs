@@ -70,6 +70,7 @@ namespace GUI.ADD_Form
                 errorProvider1.SetError(txtCCCD, "Vui lòng nhập CCCD");
                 isValid = false;
             }
+
             else if (identityCard.Length != 12 || !identityCard.All(char.IsDigit))
             {
                 errorProvider1.SetError(txtCCCD, "CCCD phải đúng 12 số");
@@ -86,8 +87,13 @@ namespace GUI.ADD_Form
             {
                 errorProvider1.SetError(txtFullName, "Vui lòng nhập họ tên");
                 isValid = false;
-
             }
+            else if (!Regex.IsMatch(fullName, @"^[a-zA-ZÀ-Ỷà-ỷ\s]+$"))
+            {
+                errorProvider1.SetError(txtFullName, "Họ tên chỉ được chứa chữ cái và khoảng trắng");
+                isValid = false;
+            }
+            //kiểm tra giới tính
 
             if (string.IsNullOrWhiteSpace(gender))
             {
@@ -110,9 +116,10 @@ namespace GUI.ADD_Form
             }
 
             // Kiểm tra email
-            if (!email.ToLower().EndsWith("@gmail.com"))
+            string emailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+            if (!Regex.IsMatch(email.ToLower(), emailPattern))
             {
-                errorProvider1.SetError(txtEmail, "Email phải đúng định dạng @gmail.com");
+                errorProvider1.SetError(txtEmail, "Email không hợp lệ");
                 isValid = false;
             }
 

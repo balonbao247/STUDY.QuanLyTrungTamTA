@@ -18,7 +18,35 @@ namespace DAL
             }
             private set { instance = value; }
         }
+        //
+        // Đăng nhập và kiểm tra tài khoản
+        public DTO_Account Login(string username, string password)
+        {
+            string query = "SELECT * FROM Accounts WHERE Username = @username AND Password = @password";
+            SqlParameter[] parameters = {
+            new SqlParameter("@username", username),
+            new SqlParameter("@password", password)
+        };
 
+            try
+            {
+                DataTable dt = DAL_DataProvider.Instance.ExecuteQuery(query, parameters);
+                if (dt.Rows.Count > 0)
+                {
+                    // Chuyển DataRow thành DTO_Account tùy theo class của bạn
+                    return new DTO_Account(dt.Rows[0]);
+                }
+                else
+                {
+                    return null; // Không đúng username/password
+                }
+            }
+            catch (Exception ex)
+            {
+                // Có thể log lỗi ở đây nếu cần
+                throw new Exception("Lỗi truy vấn Login: " + ex.Message);
+            }
+        }
         // Thêm tài khoản mới
         public bool InsertAccount(DTO_Account account)
         {
@@ -116,7 +144,7 @@ namespace DAL
             return accounts;
         }
 
-        
+
 
         // Lấy tổng số tài khoản đang hoạt động
         public int GetTotalActiveAccounts()

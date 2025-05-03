@@ -35,13 +35,14 @@
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.cboPaymentStatus = new Guna.UI2.WinForms.Guna2ComboBox();
             this.btnPrint = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnSave = new Guna.UI2.WinForms.Guna2Button();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.txtPaymentSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.dgvPayment = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.PaymentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StudentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CourseID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,8 +50,6 @@
             this.PaymentDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PaymentStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmbPaymentMethod = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Select = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
@@ -75,7 +74,7 @@
             this.guna2Panel3.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel3.Controls.Add(this.cboPaymentStatus);
             this.guna2Panel3.Controls.Add(this.btnPrint);
-            this.guna2Panel3.Controls.Add(this.guna2Button1);
+            this.guna2Panel3.Controls.Add(this.btnSave);
             this.guna2Panel3.Controls.Add(this.iconButton2);
             this.guna2Panel3.Controls.Add(this.txtPaymentSearch);
             this.guna2Panel3.Dock = System.Windows.Forms.DockStyle.Top;
@@ -130,24 +129,24 @@
             this.btnPrint.Text = "IN";
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
-            // guna2Button1
+            // btnSave
             // 
-            this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button1.BorderRadius = 10;
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.MediumSeaGreen;
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.guna2Button1.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button1.HoverState.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(636, 8);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(109, 40);
-            this.guna2Button1.TabIndex = 5;
-            this.guna2Button1.Text = "SAVE";
-            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
+            this.btnSave.BackColor = System.Drawing.Color.Transparent;
+            this.btnSave.BorderRadius = 10;
+            this.btnSave.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnSave.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnSave.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnSave.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnSave.FillColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnSave.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnSave.ForeColor = System.Drawing.Color.Black;
+            this.btnSave.HoverState.ForeColor = System.Drawing.Color.White;
+            this.btnSave.Location = new System.Drawing.Point(636, 8);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(109, 40);
+            this.btnSave.TabIndex = 5;
+            this.btnSave.Text = "SAVE";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // iconButton2
             // 
@@ -222,7 +221,6 @@
             this.txtSearch.SelectedText = "";
             this.txtSearch.Size = new System.Drawing.Size(279, 40);
             this.txtSearch.TabIndex = 4;
-            this.txtSearch.TextChanged += new System.EventHandler(this.guna2TextBox2_TextChanged);
             // 
             // guna2Panel2
             // 
@@ -262,8 +260,7 @@
             this.TotalAmount,
             this.PaymentDate,
             this.PaymentStatus,
-            this.cmbPaymentMethod,
-            this.Select});
+            this.cmbPaymentMethod});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -304,9 +301,16 @@
             this.dgvPayment.ThemeStyle.RowsStyle.Height = 45;
             this.dgvPayment.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvPayment.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.dgvPayment.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPayment_CellContentClick);
             this.dgvPayment.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvPayment_CellPainting);
             this.dgvPayment.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPayment_CellValueChanged);
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.HeaderText = "Edit";
+            this.dataGridViewImageColumn1.Image = global::GUI.Properties.Resources._622400_pen_pencil_edit_write_writing_icon;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn1.Width = 112;
             // 
             // PaymentID
             // 
@@ -349,30 +353,12 @@
             this.cmbPaymentMethod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbPaymentMethod.HeaderText = "Payment Method";
             this.cmbPaymentMethod.Items.AddRange(new object[] {
-            "Null",
+            "Chưa",
             "Direct Payment",
             "Bank Transfer"});
             this.cmbPaymentMethod.Name = "cmbPaymentMethod";
-            this.cmbPaymentMethod.ReadOnly = true;
             this.cmbPaymentMethod.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.cmbPaymentMethod.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // Select
-            // 
-            this.Select.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Select.FalseValue = "False";
-            this.Select.HeaderText = "Select";
-            this.Select.Name = "Select";
-            this.Select.TrueValue = "True";
-            this.Select.Width = 80;
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.HeaderText = "Edit";
-            this.dataGridViewImageColumn1.Image = global::GUI.Properties.Resources._622400_pen_pencil_edit_write_writing_icon;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewImageColumn1.Width = 112;
             // 
             // frmPayment
             // 
@@ -405,8 +391,9 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
         private FontAwesome.Sharp.IconButton iconButton2;
         private Guna.UI2.WinForms.Guna2TextBox txtPaymentSearch;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button btnSave;
         private Guna.UI2.WinForms.Guna2Button btnPrint;
+        private Guna.UI2.WinForms.Guna2ComboBox cboPaymentStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn PaymentID;
         private System.Windows.Forms.DataGridViewTextBoxColumn StudentID;
         private System.Windows.Forms.DataGridViewTextBoxColumn CourseID;
@@ -414,7 +401,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PaymentDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn PaymentStatus;
         private System.Windows.Forms.DataGridViewComboBoxColumn cmbPaymentMethod;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Select;
-        private Guna.UI2.WinForms.Guna2ComboBox cboPaymentStatus;
     }
 }

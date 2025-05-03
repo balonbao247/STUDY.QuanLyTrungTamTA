@@ -69,9 +69,10 @@ namespace BUS
         }
 
         // Kiểm tra trùng lịch giảng viên/phòng trong cùng ca học và ngày
-        public bool IsScheduleConflict(string teacherID, string roomID, string timeSlotID, int dayOfWeek)
+        public bool IsScheduleConflict(string teacherID, string roomID, string timeSlotID, int dayOfWeek, DateTime startDate, DateTime endDate)
         {
-            return DAL_CourseSchedule.Instance.IsScheduleConflict(teacherID, roomID, timeSlotID, dayOfWeek);
+            return DAL_CourseSchedule.Instance.IsScheduleConflict(teacherID, roomID, timeSlotID, dayOfWeek, startDate, endDate);
         }
+
     }
 }

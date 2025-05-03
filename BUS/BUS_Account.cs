@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Data;
 using DAL;
 using DTO;
 
@@ -110,7 +112,7 @@ namespace BUS
             }
         }
 
-       
+
 
         // Lấy tất cả tài khoản đang hoạt động
         public List<DTO_Account> GetAllActiveAccounts()
@@ -142,29 +144,12 @@ namespace BUS
             }
         }
 
-        // Đăng nhập và kiểm tra tài khoản
         public DTO_Account Login(string username, string password)
         {
-            try
-            {
-                string hashedPassword = HashPassword(password);
-
-                // Gọi phương thức DAL để kiểm tra tài khoản
-                DTO_Account account = DAL_Account.Instance.GetAccountByUsernameAndPassword(username, hashedPassword);
-                if (account != null)
-                {
-                    return account; // Nếu tài khoản hợp lệ, trả về đối tượng account
-                }
-                else
-                {
-                    throw new Exception("Tài khoản hoặc mật khẩu không đúng.");
-                }
-            }
-            catch (Exception ex)
-            {
-                // Xử lý lỗi và thông báo
-                throw new Exception("Lỗi khi đăng nhập: " + ex.Message);
-            }
+            // 1. Hash mật khẩu
+            string hashedPassword = HashPassword(password);
+            // 2. Gọi xuống DAL để kiểm tra
+            return DAL_Account.Instance.Login(username, hashedPassword);
         }
 
         // Hàm lấy email từ username

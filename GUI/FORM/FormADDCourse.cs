@@ -15,7 +15,7 @@ using System.Windows.Forms;
 
 namespace GUI.FORM
 {
-    public partial class FormADDCourse: Form
+    public partial class FormADDCourse : Form
     {
         public FormADDCourse()
         {
@@ -57,7 +57,7 @@ namespace GUI.FORM
             // Load Subjects 
             List<DTO_Subject> allSubjects = BUS_Subject.Instance.GetAllSubjects();
             cmbSubject.DataSource = allSubjects;
-            cmbSubject.DisplayMember = "SubjectName"; 
+            cmbSubject.DisplayMember = "SubjectName";
             cmbSubject.ValueMember = "SubjectID";
 
         }
@@ -96,12 +96,12 @@ namespace GUI.FORM
                     var selectedRoom = cmbRoom.SelectedItem as DTO_Room;
                     if (selectedRoom != null)
                     {
-                        int roomCapacity = selectedRoom.Capacity; 
+                        int roomCapacity = selectedRoom.Capacity;
                         // Nếu số lượng học viên đã đạt hoặc vượt sức chứa phòng, không cho phép thêm học viên mới
                         if (studentCount >= roomCapacity)
                         {
                             MessageBox.Show($"Số lượng học viên đã đạt giới hạn của phòng ({roomCapacity} học viên).");
-                            return; 
+                            return;
                         }
                     }
                     int index = dgvHocVienTam.Rows.Add();
@@ -114,7 +114,7 @@ namespace GUI.FORM
                 lstSuggestions.Visible = false;
             }
         }
-       
+
         //Thanh search tìm học viên để thên vào gridview tạm
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
@@ -144,7 +144,7 @@ namespace GUI.FORM
             return false;
         }
 
-        
+
 
         private void txtSearch_Click(object sender, EventArgs e)
         {
@@ -178,7 +178,7 @@ namespace GUI.FORM
                 }
             }
         }
-        
+
         private void FormADDCourse_Click(object sender, EventArgs e)
         {
             // Ẩn danh sách khi click bên ngoài
@@ -272,7 +272,7 @@ namespace GUI.FORM
             {
                 case "T2 - T4 - T6":
                     selectedDays.AddRange(new[] { 1, 3, 5 });
-           
+
                     break;
 
                 case "T3 - T5 - T7":
@@ -300,7 +300,8 @@ namespace GUI.FORM
                 string timeSlotID = cmbTimeSlot.SelectedValue.ToString();
                 string roomID = cmbRoom.SelectedValue.ToString();
 
-                bool isConflict = BUS_CourseSchedule.Instance.IsScheduleConflict(teacherID, roomID, timeSlotID, dayOfWeek);
+                // Kiểm tra xung đột lịch học của giảng viên
+                bool isConflict = BUS_CourseSchedule.Instance.IsScheduleConflict(teacherID, roomID, timeSlotID, dayOfWeek, startDate, endDate);
 
                 if (isConflict)
                 {
@@ -331,9 +332,9 @@ namespace GUI.FORM
                             MessageBox.Show($"Học viên {studentID} đã có lịch học trùng vào ngày {GetDayName(dayOfWeek)}.");
                             return; // Dừng lại nếu có xung đột lịch học của học viên
                         }
-                       
 
-                        
+
+
                     }
                 }
             }
@@ -369,7 +370,7 @@ namespace GUI.FORM
                     return;
                 }
             }
-           
+
 
             // Lưu danh sách học viên tham gia khóa học
             foreach (DataGridViewRow row in dgvHocVienTam.Rows)
@@ -391,7 +392,7 @@ namespace GUI.FORM
                     }
                 }
             }
-     
+
 
             BUS_StudentAttendance.Instance.InsertAttendanceForCourse(courseID, numberOfMeetings);
 
@@ -494,6 +495,7 @@ namespace GUI.FORM
                 default: return new List<int>();
             }
         }
+        //Tự đông nhập ngay kết thúc theo số buổi học
         private void dtpStartDate_ValueChanged(object sender, EventArgs e)
         {
             UpdateEndDate();
@@ -503,6 +505,7 @@ namespace GUI.FORM
         //Nút cancel
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            //Tắt blur background
             foreach (Form form in Application.OpenForms)
             {
                 if (form is BlurBackground)
@@ -519,26 +522,38 @@ namespace GUI.FORM
 
         }
 
+        //Lấy thông tin phòng học
+        DTO_Room previousRoom = null;
         private void cmbRoom_SelectedIndexChanged(object sender, EventArgs e)
         {
             var selectedRoom = cmbRoom.SelectedItem as DTO_Room;
             if (selectedRoom != null)
             {
-                int roomCapacity = selectedRoom.Capacity; // Lấy sức chứa phòng
-
-                // Kiểm tra nếu số lượng học viên trong dgvHocVienTam vượt quá sức chứa phòng mới
+                int roomCapacity = selectedRoom.Capacity;
                 int studentCount = dgvHocVienTam.Rows.Count;
 
                 if (studentCount > roomCapacity)
                 {
-                    MessageBox.Show($"Số lượng học viên đã vượt quá sức chứa của phòng ({roomCapacity} học viên).", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(
+                        $"Số lượng học viên đã vượt quá sức chứa của phòng ({roomCapacity} học viên).",
+                        "Lỗi",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning
+                    );
 
+                    // Khôi phục lại phòng trước đó
+                    cmbRoom.SelectedItem = previousRoom;
+                    return;
                 }
+
+                // Nếu hợp lệ, cập nhật previousRoom
+                previousRoom = selectedRoom;
             }
+
             UpdateEndDate();
 
         }
-       
+
 
         private void guna2Panel2_Paint(object sender, PaintEventArgs e)
         {
@@ -569,7 +584,7 @@ namespace GUI.FORM
         {
 
         }
-
+        //Thay đổi ngày học sẽ update lại ngày kết thúc
         private void comboBoxDays_SelectedIndexChanged(object sender, EventArgs e)
         {
             UpdateEndDate();

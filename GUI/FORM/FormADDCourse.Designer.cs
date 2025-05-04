@@ -128,7 +128,7 @@
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.Size = new System.Drawing.Size(760, 551);
             this.guna2Panel2.TabIndex = 1;
-            this.guna2Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel2_Paint);
+
             // 
             // tableLayoutPanel1
             // 
@@ -180,7 +180,7 @@
             this.label1.Size = new System.Drawing.Size(83, 21);
             this.label1.TabIndex = 3;
             this.label1.Text = "Course ID";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+    
             // 
             // txtCourseId
             // 
@@ -196,7 +196,7 @@
             this.txtCourseId.SelectedText = "";
             this.txtCourseId.Size = new System.Drawing.Size(280, 40);
             this.txtCourseId.TabIndex = 4;
-            this.txtCourseId.TextChanged += new System.EventHandler(this.guna2TextBox1_TextChanged);
+            
             // 
             // flowLayoutPanel2
             // 
@@ -362,7 +362,7 @@
             this.label6.Size = new System.Drawing.Size(168, 21);
             this.label6.TabIndex = 3;
             this.label6.Text = "Number of meetings";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
+
             // 
             // numTotalSessions
             // 
@@ -407,7 +407,7 @@
             this.label8.Size = new System.Drawing.Size(109, 21);
             this.label8.TabIndex = 3;
             this.label8.Text = "DAY of Week";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
+         
             // 
             // comboBoxDays
             // 
@@ -486,7 +486,7 @@
             this.lblTeacherID.Size = new System.Drawing.Size(138, 21);
             this.lblTeacherID.TabIndex = 3;
             this.lblTeacherID.Text = "Date course start";
-            this.lblTeacherID.Click += new System.EventHandler(this.lblTeacherID_Click);
+        
             // 
             // dtpStartDate
             // 
@@ -522,7 +522,7 @@
             this.label17.Size = new System.Drawing.Size(120, 21);
             this.label17.TabIndex = 3;
             this.label17.Text = "Price                  ";
-            this.label17.Click += new System.EventHandler(this.label17_Click);
+         
             // 
             // txtPrice
             // 
@@ -536,7 +536,7 @@
             this.txtPrice.SelectedText = "";
             this.txtPrice.Size = new System.Drawing.Size(283, 40);
             this.txtPrice.TabIndex = 4;
-            this.txtPrice.TextChanged += new System.EventHandler(this.guna2TextBox6_TextChanged);
+          
             // 
             // flowLayoutPanel11
             // 

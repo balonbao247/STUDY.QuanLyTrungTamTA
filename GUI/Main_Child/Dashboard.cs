@@ -20,76 +20,8 @@ namespace GUI.Resources
             InitializeComponent();
         }
 
-        private void guna2PictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2CirclePictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label15_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2Panel4_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void guna2Panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void guna2Separator1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2Panel5_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void guna2Panel7_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void guna2Panel1_Paint_1(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void tableLayoutPanel4_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
+        
+        //Load dashboard
         private void Dashboard_Load(object sender, EventArgs e)
         {
        
@@ -97,11 +29,12 @@ namespace GUI.Resources
             decimal expense = BUS_Teacher.Instance.GetTotalExpense();
             int StudentCount = BUS_Student.Instance.GetTotalStudent();
             int TeacherCount = BUS_Teacher.Instance.GetTotalTeachers();
-
-
+            int courseCount = BUS_Course.Instance.CountCourse();
+            
+            //Gán giá trị vào label
             lblStudent.Text = StudentCount.ToString();
             lblTeacher.Text = TeacherCount.ToString();
-
+            lblCourse.Text = courseCount.ToString();
             lblIncome.Text = income.ToString("N0") + " VNĐ";
 
 
@@ -159,10 +92,6 @@ namespace GUI.Resources
             chart1.Titles.Add(title);
         }
 
-        private void guna2CirclePictureBox1_Click_1(object sender, EventArgs e)
-        {
-           
 
-        }
     }
 }

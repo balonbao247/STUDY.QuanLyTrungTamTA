@@ -52,7 +52,7 @@ namespace BUS
         {
             return DAL_StudentAttendance.Instance.GetDistinctAttendanceDatesByCourse(courseId);
         }
-
+        // Lấy danh sách điểm danh theo khóa học và ngày
         public DataTable GetAttendanceByCourseAndDate(string courseId, DateTime date)
         {
             return DAL_StudentAttendance.Instance.GetAttendanceByCourseAndDate(courseId, date);

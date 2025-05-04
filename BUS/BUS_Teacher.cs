@@ -53,10 +53,12 @@ namespace BUS
         {
             return DAL_Teacher.Instance.GetNextTeacherID();
         }
+        // Lấy thông tin giáo viên theo ID
         public string GetTeacherNameByID(string teacherID)
         {
             return DAL_Teacher.Instance.GetTeacherNameByID(teacherID);
         }
+        // Lấy thông tin giáo viên theo ID
         public decimal GetTotalExpense()
         {
             return DAL_Teacher.Instance.GetTotalExpense();
@@ -66,14 +68,17 @@ namespace BUS
         {
             return DAL_Teacher.Instance.GetTotalTeachers();
         }
+        // Lấy thông tin giáo viên theo ID
         public List<(DTO_Teacher Teacher, int TotalMeetings)> GetTeacherSalaries()
         {
             return DAL_Teacher.Instance.GetTeacherSalaries();
         }
+        // Lấy thông tin giáo viên theo ID
         public DataTable GetSalaryTable()
         {
             return DAL_Teacher.Instance.GetSalaryTable();
         }
+        // Lấy thông tin giáo viên theo ID
         public Boolean CheckExistIdentityNumber(string identityNumber)
         {
             return DAL_Teacher.Instance.CheckExistIdentityNumber(identityNumber);

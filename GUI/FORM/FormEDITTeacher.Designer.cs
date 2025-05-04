@@ -83,7 +83,7 @@
             this.lblCCCD.Size = new System.Drawing.Size(112, 20);
             this.lblCCCD.TabIndex = 3;
             this.lblCCCD.Text = "Identity Card";
-            this.lblCCCD.Click += new System.EventHandler(this.lblCCCD_Click);
+           
             // 
             // lblFullName
             // 
@@ -94,7 +94,7 @@
             this.lblFullName.Size = new System.Drawing.Size(89, 20);
             this.lblFullName.TabIndex = 5;
             this.lblFullName.Text = "Full Name";
-            this.lblFullName.Click += new System.EventHandler(this.lblFullName_Click);
+
             // 
             // lblPhone
             // 
@@ -125,7 +125,7 @@
             this.lblDOB.Size = new System.Drawing.Size(112, 20);
             this.lblDOB.TabIndex = 11;
             this.lblDOB.Text = "Date of Birth";
-            this.lblDOB.Click += new System.EventHandler(this.lblDOB_Click);
+
             // 
             // lblAddress
             // 
@@ -206,7 +206,7 @@
             this.dtpDOB.Size = new System.Drawing.Size(280, 36);
             this.dtpDOB.TabIndex = 12;
             this.dtpDOB.Value = new System.DateTime(2025, 4, 8, 20, 12, 42, 466);
-            this.dtpDOB.ValueChanged += new System.EventHandler(this.dtpDOB_ValueChanged);
+       
             // 
             // txtPhone
             // 
@@ -335,7 +335,7 @@
             this.label1.Size = new System.Drawing.Size(82, 20);
             this.label1.TabIndex = 5;
             this.label1.Text = "Specialty";
-            this.label1.Click += new System.EventHandler(this.lblFullName_Click);
+    
             // 
             // label2
             // 
@@ -345,8 +345,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(59, 20);
             this.label2.TabIndex = 5;
-            this.label2.Text = "Salary";
-            this.label2.Click += new System.EventHandler(this.lblFullName_Click);
+
             // 
             // txtSalary
             // 
@@ -404,7 +403,6 @@
             this.Name = "FormEDITTeacher";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Teacher";
-            this.Load += new System.EventHandler(this.FormEDITTeacher_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();

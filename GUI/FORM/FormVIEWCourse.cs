@@ -20,12 +20,14 @@ namespace GUI.FORM
         {
             InitializeComponent();
         }
+        // Đặt chế độ hiển thị cho các trường không cần thiết
         private string editingCourseID = null;
         public FormVIEWCourse(string courseID) : this()
         {
             editingCourseID = courseID;
             LoadCourseInfo(courseID); // hàm riêng để load dữ liệu lên form
         }
+        // Đặt chế độ hiển thị cho các trường không cần thiết
         private void LoadCourseInfo(string courseID)
         {
             BUS_Course bus = new BUS_Course();
@@ -33,7 +35,7 @@ namespace GUI.FORM
           
             List<DTO_CourseSchedule> courseSchedules = BUS_CourseSchedule.Instance.GetAllCourseSchedulesByCourseID(courseID);
             if (course != null)
-            {
+                // Đổ dữ liệu lên form
                 txtCourseId.Text = course.CourseID;
                 cmbSubject.SelectedValue = course.SubjectID;
                 cmbTeacherName.SelectedValue = course.TeacherID;
@@ -45,6 +47,7 @@ namespace GUI.FORM
                 numTotalSessions.SelectedItem = course.NumberOfMeetings.ToString();
                 cmbRoom.SelectedValue =courseSchedules.First().RoomID;
                 txtPrice.Text = course.Price.ToString();
+                // Đổ dữ liệu lên combobox ca học
                 if (courseSchedules.Count > 0)
                 {
                     var firstSchedule = courseSchedules.First(); // Lấy lịch học đầu tiên
@@ -59,23 +62,23 @@ namespace GUI.FORM
                         comboBoxDays.SelectedIndex = 2; // "T7 - CN"
                 }
 
-
+                //
                 List<DTO_Student> students = BUS_CourseStudent.Instance.GetStudentsByCourseID(courseID);
 
                 // Xoá dữ liệu cũ trước khi thêm mới
                 dgvHocVienTam.Rows.Clear();
 
-              
+                // Thêm dữ liệu vào DataGridView
                 foreach (var student in students)
                 {
                     dgvHocVienTam.Rows.Add(student.StudentID, student.FullName);
                 }
                 // ... set các giá trị khác nữa
-            }
+            
         }
-
-           public event EventHandler OnCourseSaved;
-
+        
+        public event EventHandler OnCourseSaved;
+        // Lưu khóa học
         private void btnSave_Click(object sender, EventArgs e)
         {
             OnCourseSaved?.Invoke(this, EventArgs.Empty);
@@ -90,7 +93,7 @@ namespace GUI.FORM
             this.Close();
 
         }
-
+        // Nút cancel
         private void btnCancel_Click(object sender, EventArgs e)
         {
             foreach (Form form in Application.OpenForms)
@@ -103,7 +106,7 @@ namespace GUI.FORM
             }
             this.Close();
         }
-
+       
         private List<DTO_Student> allHocVien = new List<DTO_Student>();
         private List<DTO_Teacher> allgiaovien = new List<DTO_Teacher>();
         private List<DTO_TimeSlot> allTimeSlot = new List<DTO_TimeSlot>();
@@ -144,6 +147,7 @@ namespace GUI.FORM
             LoadCourseInfo(editingCourseID);
         }
 
+        //Thanh search
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             string keyword = txtSearch.Text.Trim().ToLower();

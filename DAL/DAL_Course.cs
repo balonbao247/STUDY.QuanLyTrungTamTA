@@ -15,6 +15,7 @@ namespace DAL
             get { if (instance == null) instance = new DAL_Course(); return instance; }
             private set { instance = value; }
         }
+        // Lấy danh sách khóa học theo ID môn học
         public string GetNextCourseID()
         {
             string query = "SELECT TOP 1 CourseID FROM Courses ORDER BY CourseID DESC";
@@ -68,6 +69,7 @@ namespace DAL
             return courses;
         }
 
+        // Lấy danh sách khóa học theo ID môn học
 
         public List<DTO_Course> GetActiveCoursesByTeacher(string teacherID)
         {
@@ -231,6 +233,20 @@ namespace DAL
             return data;
         }
 
+
+        // Đếm chỉ các khóa học đang hoạt động (IsActive = 1)
+        public int GetActiveCourseCount()
+        {
+            string query = "SELECT COUNT(*) FROM Courses WHERE IsActive = 1";
+            DataTable dt = DAL_DataProvider.Instance.ExecuteQuery(query);
+
+            if (dt.Rows.Count > 0)
+            {
+                return Convert.ToInt32(dt.Rows[0][0]);
+            }
+
+            return 0;
+        }
 
 
     }

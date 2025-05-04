@@ -45,7 +45,6 @@
     <Compile Include="BUS_Course.cs" />
     <Compile Include="BUS_CourseSchedule.cs" />
     <Compile Include="BUS_CourseStudent.cs" />
-    <Compile Include="BUS_Login.cs" />
     <Compile Include="BUS_Payment.cs" />
     <Compile Include="BUS_Room.cs" />
     <Compile Include="BUS_Student.cs" />

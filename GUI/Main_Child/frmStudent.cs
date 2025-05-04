@@ -36,7 +36,7 @@ namespace GUI
 
             // Cập nhật lại DataGridView
             dgvStudent.Rows.Clear();
-
+            // Thêm các dòng vào DataGridView
             foreach (DTO_Student item in filtered)
             {
                 object[] rowValues = new object[]
@@ -50,17 +50,15 @@ namespace GUI
                 item.Address,
                 item.IdentityNumber
                 };
-
+                // Thêm dòng vào DataGridView
                 dgvStudent.Rows.Add(rowValues);
             }
         }
-       
-        int rowIndex = 0;
-        int pageNumber = 1;
 
         //button ADD
         private void guna2Button2_Click(object sender, EventArgs e)
         {
+           
             FormADDStudent formADDStudent = new FormADDStudent();
             BlurBackground blurBackground = new BlurBackground();
             blurBackground.Show();
@@ -74,14 +72,9 @@ namespace GUI
             Student_Load(null, null);
 
         }
-       
-
-        private void guna2dgvStudent_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
 
 
+        // Load danh sách học viên
         private void Student_Load(object sender, EventArgs e)
         {
             dgvStudent.Rows.Clear();
@@ -110,7 +103,7 @@ namespace GUI
             }
         }
 
-
+        // Sự kiện khi nhấn vào ô trong DataGridView
         private void dgvStudent_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0) // Đảm bảo không nhấn vào header
@@ -119,15 +112,16 @@ namespace GUI
             }
         }
 
+        // Xóa học viên
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (dgvStudent.SelectedRows.Count > 0)
             {
                 DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa học viên này?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result == DialogResult.Yes)
-                {
+                {   // Xóa học viên
                     foreach (DataGridViewRow row in dgvStudent.SelectedRows)
-                    {
+                    {   // Lặp qua từng hàng được chọn
                         if (!row.IsNewRow)
                         {
                             string studentID = row.Cells[0].Value.ToString();
@@ -148,24 +142,41 @@ namespace GUI
             }
         }
 
+        // In danh sách học viên
         private void btnIn(object sender, EventArgs e)
         {
-            List<DTO_Student> students = BUS_Student.Instance.GetAllActiveStudents();
+            try
+            {
+                // Lấy danh sách học viên đang hoạt động
+                List<DTO_Student> students = BUS_Student.Instance.GetAllActiveStudents();
 
-            // Gọi hàm xuất PDF
-            string filePath = ExportDanhSachHocVien(students, DateTime.Now);
+                if (students == null || students.Count == 0)
+                {
+                    MessageBox.Show("Không có học viên để in.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
 
-            // Thông báo và mở file
-            MessageBox.Show("Xuất danh sách học viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // Xuất PDF và lấy đường dẫn
+                string filePath = ExportDanhSachHocVien(students, DateTime.Now);
 
-           
+                // Thông báo và mở file
+                MessageBox.Show($"Xuất danh sách học viên thành công:\n{filePath}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi in danh sách học viên:\n" + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
+        // Sự kiện khi nhấn nút "Tải lại" (Refresh)
         private void iconButton1_Click(object sender, EventArgs e)
         {
            Student_Load(sender, e);
         }
 
+        // Sự kiện khi form được tải
         private void frmStudent_Load(object sender, EventArgs e)
         {
             Student_Load(sender, e);
@@ -189,11 +200,12 @@ namespace GUI
             }
         }
 
+        // Chỉnh sửa thông tin học viên
         private void btnEdit_Click(object sender, EventArgs e)
         {
             DataGridViewRow row = dgvStudent.SelectedRows[0];
 
-            // ✅ Tạo DTO_Student từ dòng được chọn
+            // Tạo DTO_Student từ dòng được chọn
             DTO_Student selectedStudent = new DTO_Student
             {
                 StudentID = row.Cells[0].Value.ToString(),
@@ -219,15 +231,7 @@ namespace GUI
             Student_Load(null, null);
         }
 
-        private void guna2CustomGradientPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void iconSplitButton1_ButtonClick(object sender, EventArgs e)
-        {
-
-        }
+        // Xuất danh sách học viên ra file PDF
         public static string ExportDanhSachHocVien(List<DTO_Student> data, DateTime reportDate)
         {
             string fileName = $"DanhSachHocVien_{reportDate:yyyyMMdd_HHmmss}.pdf";
@@ -247,16 +251,16 @@ namespace GUI
             Font boldFont = new Font(baseFont, 10);
             Font headerFont = new Font(baseFont, 14);
             Font titleFont = new Font(baseFont, 16);
-
+            // Set up the title and header
             document.Add(new Paragraph("BRO ENGLISH", titleFont) { Alignment = Element.ALIGN_CENTER });
             document.Add(new Paragraph("Số 7 ABC, Thủ Đức, TP.HCM", normalFont) { Alignment = Element.ALIGN_CENTER });
             document.Add(new Paragraph("ĐT: 0123456789 - Email: broenglish@email.com", normalFont) { Alignment = Element.ALIGN_CENTER });
             document.Add(new Paragraph(" "));
-
+            // Add a line break
             document.Add(new Paragraph("DANH SÁCH HỌC VIÊN", headerFont) { Alignment = Element.ALIGN_CENTER });
             document.Add(new Paragraph($"Ngày xuất: {reportDate:dd/MM/yyyy}", normalFont) { Alignment = Element.ALIGN_CENTER });
             document.Add(new Paragraph(" "));
-
+            // Create a table with 6 columns
             PdfPTable table = new PdfPTable(6);
             table.WidthPercentage = 100;
             table.SetWidths(new float[] { 5, 20, 25, 25, 15, 10 });
@@ -271,14 +275,14 @@ namespace GUI
                 };
                 table.AddCell(cell);
             }
-
+            // Add header cells
             AddCell("STT", boldFont);
             AddCell("Mã Học Viên", boldFont);
             AddCell("Họ Tên", boldFont);
             AddCell("Email", boldFont);
             AddCell("SĐT", boldFont);
             AddCell("Giới Tính", boldFont);
-
+            // Add data cells
             for (int i = 0; i < data.Count; i++)
             {
                 var hv = data[i];
@@ -289,7 +293,7 @@ namespace GUI
                 table.AddCell(new PdfPCell(new Phrase(hv.PhoneNumber, normalFont)) { Padding = 5 });
                 table.AddCell(new PdfPCell(new Phrase(hv.Gender, normalFont)) { HorizontalAlignment = Element.ALIGN_CENTER, Padding = 5 });
             }
-
+            // Add a footer
             document.Add(table);
             document.Add(new Paragraph(" "));
             document.Add(new Paragraph($"TP.HCM, ngày {reportDate.Day} tháng {reportDate.Month} năm {reportDate.Year}", normalFont) { Alignment = Element.ALIGN_RIGHT, IndentationRight = 100 });
@@ -299,7 +303,5 @@ namespace GUI
         }
 
     
-
-
     }
 }

@@ -31,7 +31,7 @@ namespace BUS
         {
             return DAL_CourseStudent.Instance.GetStudentsByCourseID(courseID);
         }
-        //
+        
         public decimal GetTotalIncome()
         {
             return DAL_CourseStudent.Instance.GetTotalIncome();

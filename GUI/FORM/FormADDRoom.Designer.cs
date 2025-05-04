@@ -63,7 +63,7 @@
             this.txtRoomID.SelectedText = "";
             this.txtRoomID.Size = new System.Drawing.Size(258, 40);
             this.txtRoomID.TabIndex = 6;
-            this.txtRoomID.TextChanged += new System.EventHandler(this.txtRoomID_TextChanged);
+   
             // 
             // txtRoomName
             // 
@@ -87,7 +87,7 @@
             this.label1.Size = new System.Drawing.Size(149, 21);
             this.label1.TabIndex = 5;
             this.label1.Text = "Room Name           ";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+
             // 
             // txtCapacity
             // 
@@ -149,7 +149,7 @@
             this.lblTitle.Size = new System.Drawing.Size(212, 32);
             this.lblTitle.TabIndex = 23;
             this.lblTitle.Text = "ADD NEW ROOM";
-            this.lblTitle.Click += new System.EventHandler(this.lblTitle_Click);
+       
             // 
             // guna2Separator1
             // 

@@ -50,24 +50,27 @@ namespace BUS
         {
             return DAL_Course.Instance.DeleteCourse(courseID);
         }
-
+        // Lấy danh sách khóa học theo SubjectID
         public string GetSubjectNameByID(string subjectID)
         {
             return DAL_Course.Instance.GetSubjectNameByID(subjectID);
         }
+        // Lấy danh sách khóa học theo SubjectID
         public string GetDescriptionByID(string subjectID)
         {
             return DAL_Course.Instance.GetDescriptionByID(subjectID);
         }
-
+        //lấy ID khóa học tiếp theo
         public string GetNextCourseID()
         {
             return DAL_Course.Instance.GetNextCourseID();
         }
+        //Đếm học viên
         public int GetStudentCountByCourseID(string courseID)
         {
             return DAL_Course.Instance.GetStudentCountByCourseID(courseID);
         }
+        //
         public Dictionary<string, int> GetCourseCountBySubject()
         {
             return DAL_Course.Instance.GetCourseCountBySubject();
@@ -76,6 +79,11 @@ namespace BUS
         public List<DTO_Course> GetCoursesByTeacherID(string teacherID)
         {
             return DAL_Course.Instance.GetActiveCoursesByTeacher(teacherID); // Gọi đến DAL để lấy dữ liệu
+        }
+
+        public int CountCourse()
+        {
+            return DAL_Course.Instance.GetActiveCourseCount();
         }
     }
 }

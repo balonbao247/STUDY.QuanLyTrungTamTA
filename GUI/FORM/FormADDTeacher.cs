@@ -26,6 +26,7 @@ namespace GUI.ADD_Form
             txtTeacherID.ReadOnly = true;
         }
 
+        // Khi nhấn nút "Đóng" sẽ đóng form
         private void btnCancel_Click(object sender, EventArgs e)
         {
             foreach (Form form in Application.OpenForms)
@@ -39,22 +40,7 @@ namespace GUI.ADD_Form
             this.Close();
         }
 
-        private void lblCCCD_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblDOB_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void dtpDOB_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        // Khi nhấn nút "Lưu" sẽ lưu thông tin giáo viên
         private void btnSave_Click(object sender, EventArgs e)
         {
             try

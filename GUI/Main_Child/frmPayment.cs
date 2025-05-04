@@ -167,13 +167,7 @@ namespace GUI
                 // 3. Thông báo & mở file PDF vừa tạo
                 MessageBox.Show($"Xuất PDF thành công:\n{filePath}", "In thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // Mở file với trình đọc PDF mặc định
-                ProcessStartInfo psi = new ProcessStartInfo
-                {
-                    FileName = filePath,
-                    UseShellExecute = true
-                };
-                Process.Start(psi);
+            
             }
             catch (Exception ex)
             {
@@ -218,9 +212,9 @@ namespace GUI
             document.Add(new Paragraph(" "));
 
             // Tạo bảng với 7 cột: STT, PaymentID, StudentID, CourseID, PaymentDate, Status, Method
-            PdfPTable table = new PdfPTable(7) { WidthPercentage = 100 };
+            PdfPTable table = new PdfPTable(8) { WidthPercentage = 100 };
             // Tỉ lệ rộng các cột
-            table.SetWidths(new float[] { 5f, 15f, 15f, 15f, 15f,15f, 15f, 20f });
+            table.SetWidths(new float[] { 5f, 15f, 15f, 15f, 15f, 15f, 15f, 20f });
 
             // Hàm helper thêm ô header
             void AddHeaderCell(string text)
@@ -353,12 +347,13 @@ namespace GUI
             if (e.RowIndex < 0 || e.ColumnIndex < 0)
                 return;
 
+            // Kiểm tra xem cột nào đã thay đổi
             var changedColumn = dgvPayment.Columns[e.ColumnIndex].Name;
             if (changedColumn == "cmbPaymentMethod")
             {
                 DataGridViewRow row = dgvPayment.Rows[e.RowIndex];
                 var selectedValue = row.Cells["cmbPaymentMethod"].Value?.ToString();
-
+                // Nếu giá trị không phải là "Chưa" thì cập nhật ngày thanh toán
                 if (!string.IsNullOrEmpty(selectedValue) && selectedValue != "Chưa")
                 {
                     row.Cells["PaymentDate"].Value = DateTime.Now.ToString("yyyy-MM-dd");

@@ -12,6 +12,7 @@ namespace GUI.Main_Child
 {
     public partial class frmCourse_Card: UserControl
     {
+        // Thông tin khóa học
         public string CourseID { get; set; }
         public string CourseName => lblName.Text;
         public string CourseCode => lblSubject.Text;
@@ -23,17 +24,11 @@ namespace GUI.Main_Child
             InitializeComponent();
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
+        // Phương thức để thiết lập thông tin khóa học
         public void SetCourseInfo(string courseID, string teacherName, decimal price, string subject, string description,string SubjectID)
         {
+            // Gán giá trị cho các thuộc tính
             this.CourseID =  courseID;
             lblName.Text = $"Khóa: {courseID}";
             lblTeacher.Text = teacherName;
@@ -45,30 +40,20 @@ namespace GUI.Main_Child
            
         }
 
-        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+        // Phương thức để thiết lập thông tin khóa học từ DTO_Course
         public event EventHandler OnDeleteCourse;
         private void guna2Button2_Click(object sender, EventArgs e)
         {
             OnDeleteCourse?.Invoke(this, e);
         }
 
+        // Phương thức để thiết lập thông tin khóa học từ DTO_Course
         public event EventHandler<string> OnEditCourse;
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             OnEditCourse?.Invoke(this, CourseID);
         }
 
-        private void guna2PictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblTeacher_Click(object sender, EventArgs e)
-        {
-
-        }
+ 
     }
 }

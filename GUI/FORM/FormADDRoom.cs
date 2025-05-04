@@ -20,24 +20,12 @@ namespace GUI.FORM
             InitializeComponent();
         }
 
-        private void txtPrice_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblTitle_Click(object sender, EventArgs e)
-        {
-
-        }
+        //
         public event EventHandler OnCourseSaved;
+        //Nút save
         private void btnSave_Click(object sender, EventArgs e)
         {
-           
+            //Kiêm tra các trường thông tin
             if (string.IsNullOrEmpty(txtRoomID.Text) || string.IsNullOrEmpty(txtRoomName.Text) || string.IsNullOrEmpty(txtCapacity.Text))
             {
                 MessageBox.Show("Vui lòng điền đầy đủ thông tin phòng học.");
@@ -48,6 +36,7 @@ namespace GUI.FORM
                 MessageBox.Show("Sức chứa (Capacity) phải là một số nguyên dương!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            // Kiểm tra xem tên phòng đã tồn tại chưa
             string rawName = txtRoomName.Text.Trim();
             string roomName = rawName.StartsWith("Phòng") ? rawName : "Phòng " + rawName;
 
@@ -86,11 +75,12 @@ namespace GUI.FORM
 
         }
 
+        // Load form
         private void FormADDRoom_Load(object sender, EventArgs e)
         {
             txtRoomID.Text = BUS_Room.Instance.GenerateRoomID(); // Tạo ID phòng tự động
         }
-
+        // Nút cancel
         private void btnCancel_Click(object sender, EventArgs e)
         {
             foreach (Form form in Application.OpenForms)
@@ -105,9 +95,5 @@ namespace GUI.FORM
 
         }
 
-        private void txtRoomID_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

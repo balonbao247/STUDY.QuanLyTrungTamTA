@@ -26,12 +26,12 @@ namespace GUI
         {
             InitializeComponent();
         }
-
+        // Khi nhấn nút "Đóng" sẽ đóng form
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             Close();
         }
-
+        // Khi nhấn nút "Quên mật khẩu" sẽ mở form đăng nhập
         private void labelQuenMK_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             this.Hide();
@@ -39,6 +39,7 @@ namespace GUI
             newlog.Show();
         }
 
+        // Kiểm tra xem có nhập tên đăng nhập hay không
         private void btnSend_Click(object sender, EventArgs e)
         {
             string username = txtUsername.Text.Trim();
@@ -54,13 +55,14 @@ namespace GUI
                 MessageBox.Show("Username not found!");
                 return;
             }
-
+            // Gửi mã xác thực đến email
             Random random = new Random();
             verifyCode = random.Next(100000, 1000000).ToString();
 
             SendEmail(email, verifyCode);
             MessageBox.Show("Verification code has been sent to your email.");
         }
+        // Gửi email xác thực
         public bool SendEmail(string email, string verificationCode)
         {
             try
@@ -84,7 +86,7 @@ namespace GUI
                 return false;
             }
         }
-
+        // Kiểm tra mã xác thực
         private void btnSignIn_Click(object sender, EventArgs e)
         {
             string username = txtUsername.Text.Trim();
@@ -134,16 +136,13 @@ namespace GUI
             }
         }
 
-        private void txtNewPass_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        // Kiểm tra xem mật khẩu có hiển thị hay không
         private void PassCheckB_CheckedChanged(object sender, EventArgs e)
         {
             txtRePass.UseSystemPasswordChar = !PassCheckB.Checked;
         }
 
+        // Kiểm tra xem mật khẩu có hiển thị hay không
         private void ForgetPass_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();

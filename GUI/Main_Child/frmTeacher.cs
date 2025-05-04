@@ -22,7 +22,7 @@ namespace GUI
             InitializeComponent();
         }
        
-        //thanh search
+        //Thanh search
         private void guna2TextBox2_TextChanged(object sender, EventArgs e)
         {
             string keyword = txtSearch.Text.Trim().ToLower();
@@ -37,6 +37,7 @@ namespace GUI
             // Cập nhật lại DataGridView
             dgvTeacher.Rows.Clear();
 
+            // Duyệt qua danh sách đã lọc và thêm vào DataGridView
             foreach (DTO_Teacher item in filtered)
             {
                 object[] rowValues = new object[]
@@ -50,23 +51,12 @@ namespace GUI
                 item.Address,
                 item.IdentityNumber
                 };
-
+                // Thêm dòng vào DataGridView
                 dgvTeacher.Rows.Add(rowValues);
             }
         }
-      
-        int rowIndex = 0;
-        int pageNumber = 1;
 
-        
-        
-
-        private void guna2dgvTeacher_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-
+        // Sự kiện khi form được tải
         private void Teacher_Load(object sender, EventArgs e)
         {
             dgvTeacher.Rows.Clear();
@@ -98,7 +88,7 @@ namespace GUI
             }
         }
 
-
+        // Sự kiện khi nhấn vào ô trong DataGridView
         private void dgvTeacher_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0) // Đảm bảo không nhấn vào header
@@ -106,16 +96,16 @@ namespace GUI
                 dgvTeacher.Rows[e.RowIndex].Selected = true;
             }
         }
-
+        // Xóa giáo viên
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (dgvTeacher.SelectedRows.Count > 0)
             {
                 DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa học viên này?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result == DialogResult.Yes)
-                {
+                {   // Xóa giáo viên
                     foreach (DataGridViewRow row in dgvTeacher.SelectedRows)
-                    {
+                    {   // Lặp qua các hàng được chọn
                         if (!row.IsNewRow)
                         {
                             string TeacherID = row.Cells[0].Value.ToString();
@@ -136,19 +126,17 @@ namespace GUI
             }
         }
 
-        
 
+        // Tải lại danh sách giáo viên
         private void iconButton1_Click(object sender, EventArgs e)
         {
            Teacher_Load(sender, e);
         }
-
+        // Tải lại danh sách giáo viên
         private void frmTeacher_Load(object sender, EventArgs e)
         {
             Teacher_Load(sender, e);
         }
-
-
 
         // Chỉnh sửa thông tin học viên
         private void dgvTeacher_SelectionChanged(object sender, EventArgs e)
@@ -165,12 +153,12 @@ namespace GUI
                 btnDelete.Enabled = false; // Tắt nút Xóa nếu không có học viên nào được chọn
             }
         }
-
+        // Chỉnh sửa thông tin giáo viên
         private void btnEdit_Click(object sender, EventArgs e)
         {
             DataGridViewRow row = dgvTeacher.SelectedRows[0];
 
-            // ✅ Tạo DTO_Teacher từ dòng được chọn
+            // Tạo DTO_Teacher từ dòng được chọn
             DTO_Teacher selectedTeacher = new DTO_Teacher
             {
                 TeacherID = row.Cells[0].Value.ToString(),
@@ -184,7 +172,7 @@ namespace GUI
                 Specialty = row.Cells[8].Value.ToString(),
                 Salary = int.Parse(row.Cells[9].Value.ToString())
             };
-
+            // Tạo FormEDITTeacher và truyền DTO_Teacher vào
             FormEDITTeacher formEDITTeacher = new FormEDITTeacher(selectedTeacher);
             BlurBackground blurBackground = new BlurBackground();
             blurBackground.Show();
@@ -198,8 +186,8 @@ namespace GUI
             Teacher_Load(null, null);
         }
 
-        
 
+        // Thêm giáo viên mới
         private void btnADD_Click(object sender, EventArgs e)
         {
             FormADDTeacher formADDTeacher = new FormADDTeacher();
@@ -215,17 +203,32 @@ namespace GUI
             Teacher_Load(null, null);
 
         }
-
+        // In danh sách giáo viên
         private void btnPrint_Click(object sender, EventArgs e)
-        { 
-            List<DTO_Teacher> teachers = BUS_Teacher.Instance.GetAllActiveTeachers();
+        {
+            try
+            {
+                //  Lấy danh sách giáo viên đang hoạt động
+                List<DTO_Teacher> teachers = BUS_Teacher.Instance.GetAllActiveTeachers();
 
-            // Gọi hàm xuất PDF
-            string filePath = ExportDanhSachGiaoVien(teachers, DateTime.Now);
+                if (teachers == null || teachers.Count == 0)
+                {
+                    MessageBox.Show("Không có giáo viên để in.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
 
-            // Thông báo và mở file
-            MessageBox.Show("Xuất danh sách giáo viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //  Xuất PDF và lấy đường dẫn
+                string filePath = ExportDanhSachGiaoVien(teachers, DateTime.Now);
+
+                //  Thông báo và mở file
+                MessageBox.Show($"Xuất danh sách giáo viên thành công:\n{filePath}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi in danh sách giáo viên:\n" + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+        // Xuất danh sách giáo viên ra file PDF
         public static string ExportDanhSachGiaoVien(List<DTO_Teacher> data, DateTime reportDate)
         {
             string fileName = $"DanhSachGiaoVien_{reportDate:yyyyMMdd_HHmmss}.pdf";

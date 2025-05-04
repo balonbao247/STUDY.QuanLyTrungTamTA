@@ -88,7 +88,7 @@ namespace DAL
 
             return dataProvider.ExecuteQuery(query, parameters);
         }
-
+        // Lấy danh sách điểm danh theo khóa học và ngày
         public DataTable GetAttendanceByCourseAndDate(string courseId, DateTime attendanceDate)
         {
             string query = "SELECT sa.AttendanceID, sa.StudentID, s.FullName, sa.AttendanceDate, sa.Status " +

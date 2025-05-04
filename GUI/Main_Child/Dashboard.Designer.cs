@@ -43,7 +43,7 @@
             this.guna2PictureBox3 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.label19 = new System.Windows.Forms.Label();
+            this.lblCourse = new System.Windows.Forms.Label();
             this.guna2Separator5 = new Guna.UI2.WinForms.Guna2Separator();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
@@ -199,7 +199,6 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(377, 373);
             this.tableLayoutPanel4.TabIndex = 2;
-            this.tableLayoutPanel4.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel4_Paint);
             // 
             // guna2Panel5
             // 
@@ -208,7 +207,7 @@
             this.guna2Panel5.Controls.Add(this.guna2PictureBox3);
             this.guna2Panel5.Controls.Add(this.chart1);
             this.guna2Panel5.Controls.Add(this.guna2PictureBox2);
-            this.guna2Panel5.Controls.Add(this.label19);
+            this.guna2Panel5.Controls.Add(this.lblCourse);
             this.guna2Panel5.Controls.Add(this.guna2Separator5);
             this.guna2Panel5.Controls.Add(this.label20);
             this.guna2Panel5.Controls.Add(this.label21);
@@ -261,17 +260,17 @@
             this.guna2PictureBox2.TabIndex = 3;
             this.guna2PictureBox2.TabStop = false;
             // 
-            // label19
+            // lblCourse
             // 
-            this.label19.AutoSize = true;
-            this.label19.BackColor = System.Drawing.Color.Transparent;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.White;
-            this.label19.Location = new System.Drawing.Point(23, 122);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(69, 73);
-            this.label19.TabIndex = 2;
-            this.label19.Text = "0";
+            this.lblCourse.AutoSize = true;
+            this.lblCourse.BackColor = System.Drawing.Color.Transparent;
+            this.lblCourse.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCourse.ForeColor = System.Drawing.Color.White;
+            this.lblCourse.Location = new System.Drawing.Point(23, 122);
+            this.lblCourse.Name = "lblCourse";
+            this.lblCourse.Size = new System.Drawing.Size(69, 73);
+            this.lblCourse.TabIndex = 2;
+            this.lblCourse.Text = "0";
             // 
             // guna2Separator5
             // 
@@ -459,7 +458,6 @@
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(310, 367);
             this.guna2Panel1.TabIndex = 3;
-            this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint_1);
             // 
             // guna2Separator1
             // 
@@ -471,7 +469,6 @@
             this.guna2Separator1.Size = new System.Drawing.Size(247, 10);
             this.guna2Separator1.TabIndex = 2;
             this.guna2Separator1.UseTransparentBackground = true;
-            this.guna2Separator1.Click += new System.EventHandler(this.guna2Separator1_Click);
             // 
             // lblStudent
             // 
@@ -499,7 +496,7 @@
             this.guna2CirclePictureBox1.TabIndex = 2;
             this.guna2CirclePictureBox1.TabStop = false;
             this.guna2CirclePictureBox1.UseTransparentBackground = true;
-            this.guna2CirclePictureBox1.Click += new System.EventHandler(this.guna2CirclePictureBox1_Click_1);
+            
             // 
             // label6
             // 
@@ -645,7 +642,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
-        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label lblCourse;
         private Guna.UI2.WinForms.Guna2Separator guna2Separator5;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;

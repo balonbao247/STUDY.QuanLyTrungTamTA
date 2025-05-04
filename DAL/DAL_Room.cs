@@ -160,7 +160,7 @@ namespace DAL
 
             return availableRooms;
         }
-
+        // Hàm kiểm tra xem phòng có trống hay không
         public bool CheckRoomAvailability(string roomID, string timeSlotID, DateTime selectedDate)
         {
             string query = @"

@@ -120,7 +120,6 @@
             this.txtNewPass.SelectedText = "";
             this.txtNewPass.Size = new System.Drawing.Size(357, 63);
             this.txtNewPass.TabIndex = 8;
-            this.txtNewPass.TextChanged += new System.EventHandler(this.txtNewPass_TextChanged);
             // 
             // label3
             // 

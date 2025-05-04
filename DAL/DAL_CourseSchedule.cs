@@ -121,7 +121,7 @@ namespace DAL
             int result = DAL_DataProvider.Instance.ExecuteNonQuery(query, parameters);
             return result > 0;
         }
-
+        // Kiểm tra xung đột lịch học
         public bool IsScheduleConflict(string teacherID, string roomID, string timeSlotID, int dayOfWeek, DateTime startDate, DateTime endDate)
         {
             string query = @"

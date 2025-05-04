@@ -84,7 +84,7 @@
             this.lblCCCD.Size = new System.Drawing.Size(112, 20);
             this.lblCCCD.TabIndex = 3;
             this.lblCCCD.Text = "Identity Card";
-            this.lblCCCD.Click += new System.EventHandler(this.lblCCCD_Click);
+
             // 
             // lblFullName
             // 
@@ -125,7 +125,7 @@
             this.lblDOB.Size = new System.Drawing.Size(112, 20);
             this.lblDOB.TabIndex = 11;
             this.lblDOB.Text = "Date of Birth";
-            this.lblDOB.Click += new System.EventHandler(this.lblDOB_Click);
+
             // 
             // lblAddress
             // 

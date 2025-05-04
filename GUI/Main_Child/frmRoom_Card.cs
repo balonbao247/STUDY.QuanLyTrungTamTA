@@ -44,6 +44,7 @@ namespace GUI.Main_Child
                 lblRoomStatus.BackColor = Color.OrangeRed;  // Đổi màu chữ thành đỏ nếu phòng không có sẵn
             }
         }
+        // Phương thức để thiết lập thông tin phòng từ DTO_Room
         public event EventHandler<string> OnEditCourse;
         private void guna2Button1_Click(object sender, EventArgs e)
         {

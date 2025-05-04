@@ -192,14 +192,15 @@ namespace DAL
             else
                 return null;
         }
+        // Lấy thông tin tài khoản theo tên đăng nhập
         public bool ChangePasswordInDatabase(string username, string newHashedPassword)
         {
             string query = "UPDATE Accounts SET Password = @NewPassword WHERE Username = @Username";
 
             SqlParameter[] parameters = new SqlParameter[]
             {
-        new SqlParameter("@Username", username),
-        new SqlParameter("@NewPassword", newHashedPassword)
+                new SqlParameter("@Username", username),
+                new SqlParameter("@NewPassword", newHashedPassword)
             };
 
             int result = DAL_DataProvider.Instance.ExecuteNonQuery(query, parameters);

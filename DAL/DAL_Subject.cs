@@ -93,6 +93,7 @@ namespace DAL
             int result = DAL_DataProvider.Instance.ExecuteNonQuery(query, parameters);
             return result > 0;
         }
+        //  Hàm kiểm tra xem mã môn học đã tồn tại chưa
         public bool CheckExistIdentityNumber(string identityNumber)
         {
             string query = "SELECT COUNT(*) FROM Students WHERE IdentityNumber = @IdentityNumber";

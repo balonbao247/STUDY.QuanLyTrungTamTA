@@ -18,6 +18,7 @@ namespace DAL
             get { if (instance == null) instance = new DAL_Teacher(); return instance; }
             private set { instance = value; }
         }
+        // Lấy TeacherID tiếp theo
         public string GetNextTeacherID()
         {
             string query = "SELECT TOP 1 TeacherID FROM Teachers ORDER BY TeacherID DESC";
@@ -58,6 +59,7 @@ namespace DAL
             int result = DAL_DataProvider.Instance.ExecuteNonQuery(query, parameters);
             return result > 0;
         }
+        //update
         public bool UpdateTeacher(DTO_Teacher teacher)
         {
             string query = @"UPDATE Teachers SET 
@@ -233,6 +235,7 @@ namespace DAL
 
             return teacherSalaries;
         }
+        // Kiểm tra xem mã giáo viên đã tồn tại chưa
         public bool CheckExistIdentityNumber(string identityNumber)
         {
             string query = "SELECT COUNT(*) FROM Teachers WHERE IdentityNumber = @IdentityNumber";

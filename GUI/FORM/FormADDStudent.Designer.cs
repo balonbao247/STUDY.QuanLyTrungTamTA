@@ -77,7 +77,7 @@
             this.lblCCCD.Size = new System.Drawing.Size(112, 20);
             this.lblCCCD.TabIndex = 3;
             this.lblCCCD.Text = "Identity Card";
-            this.lblCCCD.Click += new System.EventHandler(this.lblCCCD_Click);
+   
             // 
             // lblFullName
             // 
@@ -118,8 +118,7 @@
             this.lblDOB.Size = new System.Drawing.Size(112, 20);
             this.lblDOB.TabIndex = 11;
             this.lblDOB.Text = "Date of Birth";
-            this.lblDOB.Click += new System.EventHandler(this.lblDOB_Click);
-            // 
+                // 
             // lblAddress
             // 
             this.lblAddress.AutoSize = true;
@@ -199,7 +198,7 @@
             this.dtpDOB.Size = new System.Drawing.Size(280, 36);
             this.dtpDOB.TabIndex = 12;
             this.dtpDOB.Value = new System.DateTime(2025, 4, 8, 20, 12, 42, 466);
-            this.dtpDOB.ValueChanged += new System.EventHandler(this.dtpDOB_ValueChanged);
+         
             // 
             // txtPhone
             // 

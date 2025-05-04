@@ -67,7 +67,7 @@
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(380, 250);
             this.guna2Panel1.TabIndex = 0;
-            this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
+          
             // 
             // guna2Button2
             // 
@@ -164,7 +164,7 @@
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.guna2PictureBox1.TabIndex = 0;
             this.guna2PictureBox1.TabStop = false;
-            this.guna2PictureBox1.Click += new System.EventHandler(this.guna2PictureBox1_Click);
+        
             // 
             // tableLayoutPanel1
             // 
@@ -206,7 +206,7 @@
             this.lblTeacher.Size = new System.Drawing.Size(59, 13);
             this.lblTeacher.TabIndex = 9;
             this.lblTeacher.Text = "lblTeacher";
-            this.lblTeacher.Click += new System.EventHandler(this.lblTeacher_Click);
+
             // 
             // label4
             // 
@@ -237,7 +237,7 @@
             this.label2.Size = new System.Drawing.Size(74, 21);
             this.label2.TabIndex = 3;
             this.label2.Text = "Teacher: ";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+
             // 
             // lblSubject
             // 

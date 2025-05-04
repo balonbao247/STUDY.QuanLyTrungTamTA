@@ -62,26 +62,9 @@ namespace GUI.FORM
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void guna2TextBox6_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2TextBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2TextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+      
+        //Thanh search tìm học viên để thêm vào gridview tạm
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lstSuggestions.SelectedIndex != -1)
@@ -134,6 +117,7 @@ namespace GUI.FORM
 
             lstSuggestions.Visible = ketQua.Count > 0;
         }
+        //Kiểm tra học viên đã tồn tại trong danh sách tạm chưa
         private bool DaTonTaiTrongGrid(string maHV)
         {
             foreach (DataGridViewRow row in dgvHocVienTam.Rows)
@@ -145,7 +129,7 @@ namespace GUI.FORM
         }
 
 
-
+        //Tìm kiếm học viên trong danh sách
         private void txtSearch_Click(object sender, EventArgs e)
         {
             string keyword = txtSearch.Text.Trim().ToLower();
@@ -163,7 +147,7 @@ namespace GUI.FORM
 
             lstSuggestions.Visible = ketQua.Count > 0;
         }
-
+        //Xóa học viên trong danh sách tạm
         private void dgvHocVienTam_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             // Kiểm tra nếu người dùng click vào cột cuối (cột chỉ định để xóa)
@@ -178,13 +162,13 @@ namespace GUI.FORM
                 }
             }
         }
-
+        //Ẩn danh sách khi click bên ngoài
         private void FormADDCourse_Click(object sender, EventArgs e)
         {
             // Ẩn danh sách khi click bên ngoài
             lstSuggestions.Visible = false;
         }
-
+        //Thay đổi tên giảng viên sẽ tự động nhập TeacherID
         private void cmbTeacherName_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Lấy TeacherID của giảng viên đã chọn
@@ -393,7 +377,7 @@ namespace GUI.FORM
                 }
             }
 
-
+            // Lưu thông tin lịch học cho khóa học
             BUS_StudentAttendance.Instance.InsertAttendanceForCourse(courseID, numberOfMeetings);
 
             MessageBox.Show("Khóa học và lịch học đã được lưu thành công!");
@@ -409,7 +393,7 @@ namespace GUI.FORM
             this.Close();
             OnCourseSaved?.Invoke(this, EventArgs.Empty);
         }
-
+        //Lấy tên ngày trong tuần
         private string GetDayName(int dayOfWeek)
         {
             switch (dayOfWeek)
@@ -424,6 +408,7 @@ namespace GUI.FORM
                 default: return "";
             }
         }
+        //Tự động nhập ngày kết thúc theo số buổi học
         private void UpdateEndDate()
         {
             try
@@ -461,6 +446,7 @@ namespace GUI.FORM
                 // Có thể log lỗi hoặc báo người dùng
             }
         }
+        //Tính ngày kết thúc dựa trên ngày bắt đầu, số buổi học và lịch học
         public DateTime CalculateEndDate(DateTime startDate, List<int> selectedDays, int totalSessions)
         {
             HashSet<DayOfWeek> selectedDayOfWeeks = new HashSet<DayOfWeek>(
@@ -485,6 +471,7 @@ namespace GUI.FORM
 
             return currentDate;
         }
+        //Lấy danh sách các ngày học từ ComboBox
         private List<int> GetDaysFromCombo(string comboText)
         {
             switch (comboText)
@@ -517,15 +504,12 @@ namespace GUI.FORM
             this.Close();
         }
 
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
+  
 
         //Lấy thông tin phòng học
         DTO_Room previousRoom = null;
         private void cmbRoom_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        {   //Kiểm tra xem phòng đã được chọn chưa
             var selectedRoom = cmbRoom.SelectedItem as DTO_Room;
             if (selectedRoom != null)
             {
@@ -554,36 +538,6 @@ namespace GUI.FORM
 
         }
 
-
-        private void guna2Panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label17_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblTeacherID_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void flowLayoutPanel11_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
         //Thay đổi ngày học sẽ update lại ngày kết thúc
         private void comboBoxDays_SelectedIndexChanged(object sender, EventArgs e)
         {

@@ -20,6 +20,7 @@ namespace GUI.ADD_Form
         public FormEDITTeacher(DTO_Teacher Teacher)
         {
             InitializeComponent();
+            // Lấy thông tin
             this.Teacher=Teacher;
             txtTeacherID.Text = Teacher.TeacherID;  // <-- Load ID vào đây
             txtFullName.Text = Teacher.FullName;
@@ -34,6 +35,7 @@ namespace GUI.ADD_Form
             txtTeacherID.ReadOnly = true;
         }
 
+        // Khi nhấn nút "Đóng" sẽ đóng form
         private void btnCancel_Click(object sender, EventArgs e)
         {
             foreach (Form form in Application.OpenForms)
@@ -47,22 +49,7 @@ namespace GUI.ADD_Form
             this.Close();
         }
 
-        private void lblCCCD_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblDOB_Click(object sender, EventArgs e)
-        {
-
-        }
-       
-
-        private void dtpDOB_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        // Khi nhấn nút "Lưu" sẽ lưu thông tin giáo viên
         private void btnSave_Click(object sender, EventArgs e)
         {
             // Reset tất cả lỗi trước đó
@@ -101,7 +88,7 @@ namespace GUI.ADD_Form
                 isValid = false;
 
             }
-
+            // Kiểm tra giới tính
             if (string.IsNullOrWhiteSpace(gender))
             {
                 errorProvider1.SetError(cboGender, "Vui lòng chọn giới tính");
@@ -153,6 +140,7 @@ namespace GUI.ADD_Form
 
                 }
             }
+            // Cập nhật thông tin giáo viên
             bool success = BUS_Teacher.Instance.UpdateTeacher(updateTeacher);
             if (success)
             {
@@ -166,14 +154,6 @@ namespace GUI.ADD_Form
             }
         }
 
-        private void lblFullName_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FormEDITTeacher_Load(object sender, EventArgs e)
-        {
-
-        }
+   
     }
 }

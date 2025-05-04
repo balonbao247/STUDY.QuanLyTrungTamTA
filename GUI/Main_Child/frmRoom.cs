@@ -23,10 +23,11 @@ namespace GUI
             
 
         }
+        // Phương thức này sẽ được gọi khi form được load
         private void LoadAvailableRooms()
         {
             try
-            {
+            {   
                 string selectedTimeSlot = cboTimeSlot.SelectedItem.ToString(); // Lấy ca học đã chọn
                 DateTime selectedDate = dtpNgay.Value; // Lấy ngày đã chọn
 
@@ -44,18 +45,18 @@ namespace GUI
                     string courseID = "Chưa có";
                     int studentCount = 0;
                     if (isAvailable)
-                    {
+                    {   // Nếu phòng có sẵn, không cần lấy thông tin lớp học
                         roomStatus="Phòng có sẵn.";
 
 
                     }
                     else
-                    {
+                    {   // Nếu phòng không có sẵn, lấy thông tin lớp học
                         roomStatus = "Phòng không có sẵn.";
                         courseID = BUS_Room.Instance.GetCourseIDFromScheduleInfo(cboTimeSlot.SelectedValue.ToString(), (int)dtpNgay.Value.DayOfWeek, room.RoomID);
                         studentCount = BUS_Course.Instance.GetStudentCountByCourseID(courseID);
                     }
-
+                    // Tạo một control mới cho phòng
                     frmRoom_Card roomCard = new frmRoom_Card();
                     roomCard.Margin = new Padding(10, 10, 10, 10);
                     roomCard.Width = 230;
@@ -80,6 +81,7 @@ namespace GUI
                             MessageBox.Show("Phòng này chưa có lớp học nào!");
                         }
                     };
+                    //  Thiết lập thông tin cho control phòng
                     roomCard.SetRoomInfo(room.RoomID.ToString(), room.RoomName, roomStatus, studentCount, room.Capacity, courseID);
                     flowLayoutPanel1.Controls.Add(roomCard);
                 }
@@ -90,16 +92,7 @@ namespace GUI
             }
         }
 
-
-
-
-
-
-
-
-
-
-
+        // Khi nhấn nút "Đóng" sẽ đóng form
         private void frmRoom_Load(object sender, EventArgs e)
         {
             cboTimeSlot.DataSource = BUS_TimeSlot.Instance.GetAllTimeSlots();
@@ -108,12 +101,7 @@ namespace GUI
             dtpNgay.Value = DateTime.Today;
             LoadAvailableRooms();
         }
-
-        private void guna2Button1_Click(object sender, EventArgs e)
-        {
-            
-        }
-
+        // Khi nhấn nút "Thêm" sẽ mở form thêm phòng
         private void btnADD_Click(object sender, EventArgs e)
         {
             FormADDRoom formADDRoom = new FormADDRoom();
@@ -129,31 +117,7 @@ namespace GUI
 
         }
 
-        private void flowLayoutPanelRooms_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void dtpNgay_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cboTimeSlot_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void txtSearch_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        // Khi nhấn nút "Đóng" sẽ đóng form
         private void txtSearch_TextChanged_1(object sender, EventArgs e)
         {
             string keyword = txtSearch.Text.Trim().ToLower();
@@ -171,16 +135,18 @@ namespace GUI
             }
         }
 
+        // Khi nhấn nút "Đóng" sẽ đóng form
         private void cboTimeSlot_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             LoadAvailableRooms();
         }
 
+        // Khi nhấn nút "Đóng" sẽ đóng form
         private void dtpNgay_ValueChanged_1(object sender, EventArgs e)
         {
             LoadAvailableRooms();
         }
     }
 
- 
+
 }

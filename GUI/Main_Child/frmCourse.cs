@@ -22,35 +22,7 @@ namespace GUI.Main_Child
             InitializeComponent();
         }
 
-        private void iconButton1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2TextBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2Button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnIn(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnEdit_Click(object sender, EventArgs e)
-        {
-
-        }
+        // Phương thức này sẽ được gọi khi form được load
         private void DeleteCourse(string courseID)
         {
             // Xóa khóa học khi nút xóa được nhấn
@@ -78,18 +50,22 @@ namespace GUI.Main_Child
 
         }
 
+        // Khi nhấn nút "Đóng" sẽ đóng form
         private void frmCourse_Load(object sender, EventArgs e)
         {
            LoadCourse();
         }
+        //Hàm load khóa học
         private void LoadCourse()
         {
+            // Tải danh sách khóa học từ cơ sở dữ liệu và hiển thị lên giao diện
             flowLayoutPanel1.Controls.Clear();
+            // Tạo đối tượng BUS_Course và BUS_Teacher
             BUS_Course busCourse = new BUS_Course();
             BUS_Teacher busTeacher = new BUS_Teacher();
             List<DTO_Course> activeList = busCourse.GetActiveCourses();
             foreach (var item in activeList)
-            {
+            {   // Lặp qua danh sách khóa học
                 try
                 {
                     string subjectName = busCourse.GetSubjectNameByID(item.SubjectID); // Add this method in BUS_Course
@@ -99,6 +75,7 @@ namespace GUI.Main_Child
 
                     string teacherName = busTeacher.GetTeacherNameByID(item.TeacherID); // Add this method in BUS_Course
 
+                    // Tạo một control mới cho khóa học
                     frmCourse_Card card = new frmCourse_Card();
                     card.SetCourseInfo(item.CourseID.ToString(), teacherName, item.Price, subjectName, courseDescription, item.SubjectID);
                     card.OnDeleteCourse += (s, args) =>
@@ -111,11 +88,11 @@ namespace GUI.Main_Child
                         }
 
                     };
-
+                    // Thiết lập các thuộc tính cho card
                     card.Margin = new Padding(10);
                     card.Width = 400;
                     card.Height = 250;
-
+                    // Thêm card vào FlowLayoutPanel
                     flowLayoutPanel1.Controls.Add(card);
                     card.OnEditCourse += (s, courseID) =>
                     {
@@ -126,7 +103,7 @@ namespace GUI.Main_Child
                         {
                             LoadCourse(); // Refresh lại danh sách khi lưu xong
                         };
-
+                        
                         blur.Show();
                         formEdit.ShowDialog();
                     };
@@ -137,9 +114,10 @@ namespace GUI.Main_Child
                 }
             }
         }
-
+        // Khi nhấn nút "Thêm" sẽ mở form thêm khóa học
         private void btnADD_Click(object sender, EventArgs e)
         {
+            // Mở form thêm khóa học
             FormADDCourse formADDCourse = new FormADDCourse();
             BlurBackground blurBackground = new BlurBackground();
             formADDCourse.OnCourseSaved += (s, args) =>
@@ -151,18 +129,11 @@ namespace GUI.Main_Child
             formADDCourse.ShowDialog();
         }
 
-        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
-        {
 
-        }
-
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
+        // Khi nhấn nút "Tìm kiếm" sẽ tìm kiếm khóa học theo từ khóa
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
+            // Lấy từ khóa tìm kiếm từ TextBox
             string keyword = txtSearch.Text.Trim().ToLower();
 
             foreach (Control ctrl in flowLayoutPanel1.Controls)

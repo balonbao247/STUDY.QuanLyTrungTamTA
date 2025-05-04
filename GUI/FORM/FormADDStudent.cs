@@ -34,21 +34,6 @@ namespace GUI.ADD_Form
             this.Close();
         }
 
-        private void lblCCCD_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblDOB_Click(object sender, EventArgs e)
-        {
-
-        }
-       
-
-        private void dtpDOB_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -162,15 +147,12 @@ namespace GUI.ADD_Form
             }
         }
 
+        // Khi nhấn nút "Đóng" sẽ đóng form
         private void FormADDStudent_Load(object sender, EventArgs e)
         {
             txtStudentID.Text = BUS_Student.Instance.GetNextStudentID();
             txtStudentID.ReadOnly = true; 
         }
 
-        private void lblTitle_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

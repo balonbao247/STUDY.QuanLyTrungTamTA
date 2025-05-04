@@ -27,6 +27,7 @@ namespace GUI
             panelMenu.Controls.Add(leftBorderBtn);
             this.DoubleBuffered = true;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+            avatar.ContextMenuStrip = contextMenuAvatar;
         }
        
 
@@ -92,36 +93,39 @@ namespace GUI
             tieude.Text = childForm.Text;
             tieude2.Text = childForm.Text;
         }
-
+        //load main
         private void Main_Load(object sender, EventArgs e)
         {
             ActivateButton(btnDashboard, RGBColors.color1);
             OpenChildForm(new GUI.Resources.Dashboard());
 
         }
+        //mở dashboard
         private void btnDashboard_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
             OpenChildForm(new GUI.Resources.Dashboard());
         }
-
+        //mở teacher
         private void btnTeacher_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color2);
             OpenChildForm(new GUI.frmTeacher());
 
         }
+        // mở student
         private void btnStudent_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color3);
             OpenChildForm(new frmStudent());
         }
+        // mở khóa
         private void btnCourse_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color5);
             OpenChildForm(new GUI.Main_Child.frmCourse());
         }
-
+        //chạy timer cho cái menu
         private void btnMenu_Click(object sender, EventArgs e)
         {
             timer1.Start();
@@ -184,7 +188,7 @@ namespace GUI
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
-
+        //load form
         private void Main_Load_1(object sender, EventArgs e)
         {
             this.FormBorderStyle = FormBorderStyle.None;
@@ -194,7 +198,7 @@ namespace GUI
             int screenWidth = this.Width;
             int screenHeight = this.Height;
         }
-
+        //logout
         private void btnLogout_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Bạn có chắc muốn đăng xuất?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -207,13 +211,13 @@ namespace GUI
      
             }
         }
-
+        //mở room
         private void iconButton1_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color4);
             OpenChildForm(new frmRoom());
         }
-
+        // mở payment
         private void iconButton2_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color2);
@@ -224,12 +228,12 @@ namespace GUI
         {
 
         }
-
+        //bật menu strip
         private void avatar_Click(object sender, EventArgs e)
         {
-
+            contextMenuAvatar.Show(avatar, new Point(0, avatar.Height));
         }
-
+        // đổi mk
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             ChangePass changePass = new ChangePass();
@@ -239,80 +243,35 @@ namespace GUI
             blurBackground.Show();
             changePass.ShowDialog();
         }
+        //Đóng form
 
         private void Main_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
         }
-
-        private void panelTop_Paint(object sender, PaintEventArgs e)
+        //logout thừ menu strip
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            DialogResult result = MessageBox.Show("Bạn có chắc muốn đăng xuất?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                this.Hide();  // Ẩn form hiện tại
+                Login loginForm = new Login();
+                loginForm.Show(); // Hiển thị lại form đăng nhập
+
+            }
 
         }
-
-        private void guna2Panel4_Paint(object sender, PaintEventArgs e)
+        //ĐỔi mật khẩu
+        private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            ChangePass changePass = new ChangePass();
+            BlurBackground blurBackground = new BlurBackground();
 
-        }
 
-        private void guna2ControlBox2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2Panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void guna2ControlBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2Panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panelMenu_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel_tieude_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void tieude2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tieude_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panelContainer_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void guna2PictureBox1_Click(object sender, EventArgs e)
-        {
-
+            blurBackground.Show();
+            changePass.ShowDialog();
         }
     }
 }

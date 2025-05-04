@@ -21,6 +21,7 @@ namespace GUI
         public Login()
         {
             InitializeComponent();
+            this.AcceptButton = btnSignIn;
         }
         //Load form
         private void Login_Load(object sender, EventArgs e)

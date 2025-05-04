@@ -51,6 +51,9 @@
             this.panel_tieude = new Guna.UI2.WinForms.Guna2Panel();
             this.tieude2 = new System.Windows.Forms.Label();
             this.tieude = new System.Windows.Forms.Label();
+            this.contextMenuAvatar = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
+            this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelTop.SuspendLayout();
             this.guna2Panel4.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
@@ -61,6 +64,7 @@
             this.panelMenu.SuspendLayout();
             this.panelContainer.SuspendLayout();
             this.panel_tieude.SuspendLayout();
+            this.contextMenuAvatar.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelTop
@@ -128,7 +132,7 @@
             this.avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.avatar.TabIndex = 2;
             this.avatar.TabStop = false;
-
+            this.avatar.Click += new System.EventHandler(this.avatar_Click);
             // 
             // guna2Panel3
             // 
@@ -322,6 +326,37 @@
             this.tieude.TabIndex = 0;
             this.tieude.Text = "Dashboard";
             // 
+            // contextMenuAvatar
+            // 
+            this.contextMenuAvatar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.changePasswordToolStripMenuItem,
+            this.logoutToolStripMenuItem});
+            this.contextMenuAvatar.Name = "contextMenuAvatar";
+            this.contextMenuAvatar.RenderStyle.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.contextMenuAvatar.RenderStyle.BorderColor = System.Drawing.Color.Gainsboro;
+            this.contextMenuAvatar.RenderStyle.ColorTable = null;
+            this.contextMenuAvatar.RenderStyle.RoundedEdges = true;
+            this.contextMenuAvatar.RenderStyle.SelectionArrowColor = System.Drawing.Color.White;
+            this.contextMenuAvatar.RenderStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.contextMenuAvatar.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.contextMenuAvatar.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
+            this.contextMenuAvatar.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.contextMenuAvatar.Size = new System.Drawing.Size(181, 70);
+            // 
+            // changePasswordToolStripMenuItem
+            // 
+            this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
+            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.changePasswordToolStripMenuItem.Text = "Change Password";
+            this.changePasswordToolStripMenuItem.Click += new System.EventHandler(this.changePasswordToolStripMenuItem_Click);
+            // 
+            // logoutToolStripMenuItem
+            // 
+            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.logoutToolStripMenuItem.Text = "Logout";
+            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
+            // 
             // Main_Teacher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -348,6 +383,7 @@
             this.panelContainer.ResumeLayout(false);
             this.panel_tieude.ResumeLayout(false);
             this.panel_tieude.PerformLayout();
+            this.contextMenuAvatar.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -374,5 +410,8 @@
         private Guna.UI2.WinForms.Guna2Panel panel_tieude;
         private System.Windows.Forms.Label tieude2;
         private System.Windows.Forms.Label tieude;
+        private Guna.UI2.WinForms.Guna2ContextMenuStrip contextMenuAvatar;
+        private System.Windows.Forms.ToolStripMenuItem changePasswordToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
     }
 }

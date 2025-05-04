@@ -13,8 +13,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 namespace GUI
 {
-    
-    public partial class Main_Teacher: Form
+
+    public partial class Main_Teacher : Form
     {
         private IconButton currentBtn;
         private Panel leftBorderBtn;
@@ -27,6 +27,7 @@ namespace GUI
             panelMenu.Controls.Add(leftBorderBtn);
             this.DoubleBuffered = true;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+            avatar.ContextMenuStrip = contextMenuAvatar;
         }
         //load form
         private void Main_Teacher_Load(object sender, EventArgs e)
@@ -51,7 +52,7 @@ namespace GUI
             public static Color color5 = Color.FromArgb(249, 88, 155);
             public static Color color6 = Color.FromArgb(24, 161, 251);
         }
-        //Methods
+        //bật hiệu ứng
         private void ActivateButton(object senderBtn, Color color)
         {
             if (senderBtn != null)
@@ -70,9 +71,10 @@ namespace GUI
                 leftBorderBtn.Location = new Point(0, currentBtn.Location.Y);
                 leftBorderBtn.Visible = true;
                 leftBorderBtn.BringToFront();
-            
+
             }
         }
+        //tắt hiệu ứng nút
         private void DisableButton()
         {
             if (currentBtn != null)
@@ -85,6 +87,7 @@ namespace GUI
                 currentBtn.ImageAlign = ContentAlignment.MiddleLeft;
             }
         }
+        //hàm mở form con
         private void OpenChildForm(Form childForm)
         {
             //open only form
@@ -97,7 +100,7 @@ namespace GUI
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;
-            panelContainer  .Controls.Add(childForm);
+            panelContainer.Controls.Add(childForm);
             panelContainer.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
@@ -106,9 +109,9 @@ namespace GUI
         }
 
 
-       
 
-       
+
+
         //xem khóa
         private void btnCourse_Click(object sender, EventArgs e)
         {
@@ -166,9 +169,9 @@ namespace GUI
                     timer1.Stop();
                 }
             }
-        
 
-    }
+
+        }
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
@@ -198,7 +201,7 @@ namespace GUI
             if (result == DialogResult.Yes)
             {
                 this.Hide();  // Ẩn form hiện tại
-                Login loginForm = new   Login();
+                Login loginForm = new Login();
                 loginForm.Show(); // Hiển thị lại form đăng nhập
 
             }
@@ -209,7 +212,7 @@ namespace GUI
         {
             ChangePass changePass = new ChangePass();
             BlurBackground blurBackground = new BlurBackground();
-            
+
             blurBackground.Show();
             changePass.ShowDialog();
         }
@@ -219,5 +222,32 @@ namespace GUI
             Application.Exit();
         }
 
+        private void avatar_Click(object sender, EventArgs e)
+        {
+            contextMenuAvatar.Show(avatar, new Point(0, avatar.Height));
+        }
+        //change pass
+        private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ChangePass changePass = new ChangePass();
+            BlurBackground blurBackground = new BlurBackground();
+
+
+            blurBackground.Show();
+            changePass.ShowDialog();
+        }
+        //logout
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có chắc muốn đăng xuất?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                this.Hide();  // Ẩn form hiện tại
+                Login loginForm = new Login();
+                loginForm.Show(); // Hiển thị lại form đăng nhập
+
+            }
+        }
     }
 }

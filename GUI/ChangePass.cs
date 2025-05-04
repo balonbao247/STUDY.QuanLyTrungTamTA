@@ -21,6 +21,7 @@ namespace GUI
         public ChangePass()
         {
             InitializeComponent();
+            this.AcceptButton=btnChangePass;
         }
 
         private void guna2TextBox1_TextChanged(object sender, EventArgs e)

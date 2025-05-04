@@ -33,11 +33,15 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
+            this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.btnDelete = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnPrint = new Guna.UI2.WinForms.Guna2Button();
             this.btnADD = new Guna.UI2.WinForms.Guna2Button();
             this.btnEdit = new Guna.UI2.WinForms.Guna2Button();
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.dgvTeacher = new Guna.UI2.WinForms.Guna2DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,10 +54,6 @@
             this.IC_Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
-            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
@@ -91,6 +91,23 @@
             this.guna2Panel3.TabIndex = 9;
             this.guna2Panel3.UseTransparentBackground = true;
             // 
+            // iconButton2
+            // 
+            this.iconButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.iconButton2.BackColor = System.Drawing.Color.Transparent;
+            this.iconButton2.FlatAppearance.BorderSize = 0;
+            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton2.ForeColor = System.Drawing.Color.Transparent;
+            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.Redo;
+            this.iconButton2.IconColor = System.Drawing.Color.Black;
+            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton2.Location = new System.Drawing.Point(1070, 8);
+            this.iconButton2.Margin = new System.Windows.Forms.Padding(20);
+            this.iconButton2.Name = "iconButton2";
+            this.iconButton2.Size = new System.Drawing.Size(63, 44);
+            this.iconButton2.TabIndex = 7;
+            this.iconButton2.UseVisualStyleBackColor = false;
+            // 
             // btnDelete
             // 
             this.btnDelete.BackColor = System.Drawing.Color.Transparent;
@@ -112,6 +129,26 @@
             this.btnDelete.Text = "Xóa";
             this.btnDelete.UseTransparentBackground = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // guna2TextBox1
+            // 
+            this.guna2TextBox1.AutoRoundedCorners = true;
+            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.guna2TextBox1.DefaultText = "";
+            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2TextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2TextBox1.IconLeft = global::GUI.Properties.Resources._370082_find_search_zoom_magnifier_view_icon;
+            this.guna2TextBox1.Location = new System.Drawing.Point(12, 12);
+            this.guna2TextBox1.Name = "guna2TextBox1";
+            this.guna2TextBox1.PlaceholderText = "Tìm kiếm giáo viên";
+            this.guna2TextBox1.SelectedText = "";
+            this.guna2TextBox1.Size = new System.Drawing.Size(279, 40);
+            this.guna2TextBox1.TabIndex = 4;
             // 
             // btnPrint
             // 
@@ -185,6 +222,43 @@
             this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(452, 48);
             this.guna2CustomGradientPanel1.TabIndex = 8;
             // 
+            // iconButton1
+            // 
+            this.iconButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.iconButton1.FlatAppearance.BorderSize = 0;
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Redo;
+            this.iconButton1.IconColor = System.Drawing.Color.Black;
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.Location = new System.Drawing.Point(1070, 9);
+            this.iconButton1.Margin = new System.Windows.Forms.Padding(20);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Size = new System.Drawing.Size(63, 44);
+            this.iconButton1.TabIndex = 7;
+            this.iconButton1.UseVisualStyleBackColor = true;
+            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.AutoRoundedCorners = true;
+            this.txtSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSearch.DefaultText = "";
+            this.txtSearch.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSearch.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSearch.IconLeft = global::GUI.Properties.Resources._370082_find_search_zoom_magnifier_view_icon;
+            this.txtSearch.Location = new System.Drawing.Point(12, 12);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.PlaceholderText = "Tìm kiếm học viên";
+            this.txtSearch.SelectedText = "";
+            this.txtSearch.Size = new System.Drawing.Size(279, 40);
+            this.txtSearch.TabIndex = 4;
+            this.txtSearch.TextChanged += new System.EventHandler(this.guna2TextBox2_TextChanged);
+            // 
             // guna2Panel2
             // 
             this.guna2Panel2.BackColor = System.Drawing.Color.Transparent;
@@ -231,8 +305,8 @@
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvTeacher.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvTeacher.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
@@ -328,80 +402,6 @@
             this.Column3.HeaderText = "Salary";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
-            // 
-            // iconButton2
-            // 
-            this.iconButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.iconButton2.BackColor = System.Drawing.Color.Transparent;
-            this.iconButton2.FlatAppearance.BorderSize = 0;
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.ForeColor = System.Drawing.Color.Transparent;
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.Redo;
-            this.iconButton2.IconColor = System.Drawing.Color.Black;
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.Location = new System.Drawing.Point(1070, 8);
-            this.iconButton2.Margin = new System.Windows.Forms.Padding(20);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(63, 44);
-            this.iconButton2.TabIndex = 7;
-            this.iconButton2.UseVisualStyleBackColor = false;
-            // 
-            // guna2TextBox1
-            // 
-            this.guna2TextBox1.AutoRoundedCorners = true;
-            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox1.DefaultText = "";
-            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.IconLeft = global::GUI.Properties.Resources._370082_find_search_zoom_magnifier_view_icon;
-            this.guna2TextBox1.Location = new System.Drawing.Point(12, 12);
-            this.guna2TextBox1.Name = "guna2TextBox1";
-            this.guna2TextBox1.PlaceholderText = "Tìm kiếm giáo viên";
-            this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.Size = new System.Drawing.Size(279, 40);
-            this.guna2TextBox1.TabIndex = 4;
-            // 
-            // iconButton1
-            // 
-            this.iconButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.iconButton1.FlatAppearance.BorderSize = 0;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Redo;
-            this.iconButton1.IconColor = System.Drawing.Color.Black;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.Location = new System.Drawing.Point(1070, 9);
-            this.iconButton1.Margin = new System.Windows.Forms.Padding(20);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(63, 44);
-            this.iconButton1.TabIndex = 7;
-            this.iconButton1.UseVisualStyleBackColor = true;
-            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.AutoRoundedCorners = true;
-            this.txtSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtSearch.DefaultText = "";
-            this.txtSearch.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtSearch.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtSearch.IconLeft = global::GUI.Properties.Resources._370082_find_search_zoom_magnifier_view_icon;
-            this.txtSearch.Location = new System.Drawing.Point(12, 12);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.PlaceholderText = "Tìm kiếm học viên";
-            this.txtSearch.SelectedText = "";
-            this.txtSearch.Size = new System.Drawing.Size(279, 40);
-            this.txtSearch.TabIndex = 4;
-            this.txtSearch.TextChanged += new System.EventHandler(this.guna2TextBox2_TextChanged);
             // 
             // dataGridViewImageColumn1
             // 

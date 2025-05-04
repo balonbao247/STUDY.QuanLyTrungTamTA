@@ -56,6 +56,9 @@
             this.tieude2 = new System.Windows.Forms.Label();
             this.tieude = new System.Windows.Forms.Label();
             this.panelContainer = new Guna.UI2.WinForms.Guna2Panel();
+            this.contextMenuAvatar = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
+            this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelTop.SuspendLayout();
             this.guna2Panel4.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
@@ -65,6 +68,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.panelMenu.SuspendLayout();
             this.panel_tieude.SuspendLayout();
+            this.contextMenuAvatar.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelTop
@@ -81,7 +85,6 @@
             this.panelTop.Name = "panelTop";
             this.panelTop.Size = new System.Drawing.Size(934, 100);
             this.panelTop.TabIndex = 1;
-            this.panelTop.Paint += new System.Windows.Forms.PaintEventHandler(this.panelTop_Paint);
             // 
             // guna2Panel4
             // 
@@ -91,7 +94,6 @@
             this.guna2Panel4.Name = "guna2Panel4";
             this.guna2Panel4.Size = new System.Drawing.Size(49, 100);
             this.guna2Panel4.TabIndex = 4;
-            this.guna2Panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel4_Paint);
             // 
             // guna2ControlBox2
             // 
@@ -103,7 +105,6 @@
             this.guna2ControlBox2.Name = "guna2ControlBox2";
             this.guna2ControlBox2.Size = new System.Drawing.Size(49, 29);
             this.guna2ControlBox2.TabIndex = 0;
-            this.guna2ControlBox2.Click += new System.EventHandler(this.guna2ControlBox2_Click);
             // 
             // guna2Panel2
             // 
@@ -113,7 +114,6 @@
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.Size = new System.Drawing.Size(49, 100);
             this.guna2Panel2.TabIndex = 3;
-            this.guna2Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel2_Paint);
             // 
             // guna2ControlBox1
             // 
@@ -124,7 +124,6 @@
             this.guna2ControlBox1.Name = "guna2ControlBox1";
             this.guna2ControlBox1.Size = new System.Drawing.Size(49, 29);
             this.guna2ControlBox1.TabIndex = 0;
-            this.guna2ControlBox1.Click += new System.EventHandler(this.guna2ControlBox1_Click);
             // 
             // avatar
             // 
@@ -148,7 +147,6 @@
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.Size = new System.Drawing.Size(200, 100);
             this.guna2Panel3.TabIndex = 1;
-            this.guna2Panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel3_Paint);
             // 
             // label1
             // 
@@ -160,7 +158,6 @@
             this.label1.Size = new System.Drawing.Size(142, 42);
             this.label1.TabIndex = 0;
             this.label1.Text = "ADMIN";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // guna2Panel1
             // 
@@ -170,7 +167,6 @@
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(200, 100);
             this.guna2Panel1.TabIndex = 0;
-            this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
             // 
             // guna2PictureBox1
             // 
@@ -182,7 +178,6 @@
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.guna2PictureBox1.TabIndex = 1;
             this.guna2PictureBox1.TabStop = false;
-            this.guna2PictureBox1.Click += new System.EventHandler(this.guna2PictureBox1_Click);
             // 
             // panelMenu
             // 
@@ -203,7 +198,6 @@
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(200, 595);
             this.panelMenu.TabIndex = 4;
-            this.panelMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMenu_Paint);
             // 
             // linkLabel1
             // 
@@ -410,7 +404,6 @@
             this.panel_tieude.Name = "panel_tieude";
             this.panel_tieude.Size = new System.Drawing.Size(734, 64);
             this.panel_tieude.TabIndex = 6;
-            this.panel_tieude.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_tieude_Paint);
             // 
             // tieude2
             // 
@@ -422,7 +415,6 @@
             this.tieude2.Size = new System.Drawing.Size(131, 21);
             this.tieude2.TabIndex = 1;
             this.tieude2.Text = "Home/Dashboard";
-            this.tieude2.Click += new System.EventHandler(this.tieude2_Click);
             // 
             // tieude
             // 
@@ -433,7 +425,6 @@
             this.tieude.Size = new System.Drawing.Size(138, 32);
             this.tieude.TabIndex = 0;
             this.tieude.Text = "Dashboard";
-            this.tieude.Click += new System.EventHandler(this.tieude_Click);
             // 
             // panelContainer
             // 
@@ -442,7 +433,37 @@
             this.panelContainer.Name = "panelContainer";
             this.panelContainer.Size = new System.Drawing.Size(734, 531);
             this.panelContainer.TabIndex = 7;
-            this.panelContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContainer_Paint);
+            // 
+            // contextMenuAvatar
+            // 
+            this.contextMenuAvatar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.changePasswordToolStripMenuItem,
+            this.logoutToolStripMenuItem});
+            this.contextMenuAvatar.Name = "contextMenuAvatar";
+            this.contextMenuAvatar.RenderStyle.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.contextMenuAvatar.RenderStyle.BorderColor = System.Drawing.Color.Gainsboro;
+            this.contextMenuAvatar.RenderStyle.ColorTable = null;
+            this.contextMenuAvatar.RenderStyle.RoundedEdges = true;
+            this.contextMenuAvatar.RenderStyle.SelectionArrowColor = System.Drawing.Color.White;
+            this.contextMenuAvatar.RenderStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.contextMenuAvatar.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.contextMenuAvatar.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
+            this.contextMenuAvatar.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.contextMenuAvatar.Size = new System.Drawing.Size(181, 70);
+            // 
+            // changePasswordToolStripMenuItem
+            // 
+            this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
+            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.changePasswordToolStripMenuItem.Text = "Change password";
+            this.changePasswordToolStripMenuItem.Click += new System.EventHandler(this.changePasswordToolStripMenuItem_Click);
+            // 
+            // logoutToolStripMenuItem
+            // 
+            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.logoutToolStripMenuItem.Text = "Logout";
+            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -471,6 +492,7 @@
             this.panelMenu.PerformLayout();
             this.panel_tieude.ResumeLayout(false);
             this.panel_tieude.PerformLayout();
+            this.contextMenuAvatar.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -502,5 +524,8 @@
         private FontAwesome.Sharp.IconButton iconButton1;
         private FontAwesome.Sharp.IconButton iconButton2;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private Guna.UI2.WinForms.Guna2ContextMenuStrip contextMenuAvatar;
+        private System.Windows.Forms.ToolStripMenuItem changePasswordToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
     }
 }

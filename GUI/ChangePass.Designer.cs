@@ -79,7 +79,7 @@
             this.PassCheckB.Location = new System.Drawing.Point(36, 445);
             this.PassCheckB.Name = "PassCheckB";
             this.PassCheckB.Size = new System.Drawing.Size(95, 17);
-            this.PassCheckB.TabIndex = 19;
+            this.PassCheckB.TabIndex = 3;
             this.PassCheckB.Text = "Hiện mật khẩu";
             this.PassCheckB.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.PassCheckB.UncheckedState.BorderRadius = 0;
@@ -107,7 +107,7 @@
             this.txtOldPass.PlaceholderText = "Old Password";
             this.txtOldPass.SelectedText = "";
             this.txtOldPass.Size = new System.Drawing.Size(357, 63);
-            this.txtOldPass.TabIndex = 8;
+            this.txtOldPass.TabIndex = 0;
             // 
             // guna2ContextMenuStrip1
             // 
@@ -254,7 +254,7 @@
             this.txtRePass.PlaceholderText = "Confirmed Password";
             this.txtRePass.SelectedText = "";
             this.txtRePass.Size = new System.Drawing.Size(357, 63);
-            this.txtRePass.TabIndex = 7;
+            this.txtRePass.TabIndex = 2;
             this.txtRePass.UseSystemPasswordChar = true;
             // 
             // btnCancel
@@ -268,7 +268,7 @@
             this.btnCancel.Location = new System.Drawing.Point(27, 466);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(159, 53);
-            this.btnCancel.TabIndex = 20;
+            this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
@@ -292,7 +292,7 @@
             this.txtNewPass.PlaceholderText = "Old Password";
             this.txtNewPass.SelectedText = "";
             this.txtNewPass.Size = new System.Drawing.Size(357, 63);
-            this.txtNewPass.TabIndex = 8;
+            this.txtNewPass.TabIndex = 1;
             this.txtNewPass.TextChanged += new System.EventHandler(this.guna2TextBox1_TextChanged);
             // 
             // ChangePass

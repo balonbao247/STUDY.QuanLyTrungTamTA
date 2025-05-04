@@ -458,7 +458,7 @@
             this.Text = "Main";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Main_FormClosed);
-            this.Load += new System.EventHandler(this.Main_Load_1);
+            this.Load += new System.EventHandler(this.Main_Load);
             this.panelTop.ResumeLayout(false);
             this.guna2Panel4.ResumeLayout(false);
             this.guna2Panel2.ResumeLayout(false);

@@ -28,10 +28,18 @@ namespace GUI
             this.DoubleBuffered = true;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
         }
+        //load form
         private void Main_Teacher_Load(object sender, EventArgs e)
         {
-            
+            ActivateButton(sender, RGBColors.color5);
+            OpenChildForm(new GUI.TeacherACC.frmCourse());
 
+        }
+        //mở attendance
+        private void iconButton1_Click_1(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color4);
+            OpenChildForm(new GUI.TeacherACC.frmAttendance());
         }
 
         private struct RGBColors
@@ -101,18 +109,19 @@ namespace GUI
        
 
        
-        
+        //xem khóa
         private void btnCourse_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color5);
             OpenChildForm(new GUI.TeacherACC.frmCourse());
         }
-
+        //menu
         private void btnMenu_Click(object sender, EventArgs e)
         {
             timer1.Start();
         }
         bool isCollapsed;
+        //timer
         private void timer1_Tick(object sender, EventArgs e)
         {
             if (isCollapsed)
@@ -175,11 +184,13 @@ namespace GUI
         {
             this.FormBorderStyle = FormBorderStyle.None;
             this.Bounds = Screen.PrimaryScreen.Bounds; // Full screen
-
+            // mở form lun
+            ActivateButton(btnCourse, RGBColors.color5);
+            OpenChildForm(new GUI.TeacherACC.frmCourse());
             int screenWidth = this.Width;
             int screenHeight = this.Height;
         }
-
+        //logout
         private void btnLogout_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Bạn có chắc muốn đăng xuất?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -193,23 +204,7 @@ namespace GUI
             }
         }
 
-        private void iconButton1_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender, RGBColors.color4);
-            OpenChildForm(new frmRoom());
-        }
-
-
-        private void guna2ContextMenuStrip1_Opening(object sender, CancelEventArgs e)
-        {
-
-        }
-
-        private void avatar_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        //Quên mật khẩu
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             ChangePass changePass = new ChangePass();
@@ -218,16 +213,11 @@ namespace GUI
             blurBackground.Show();
             changePass.ShowDialog();
         }
-
+        //close form
         private void Main_Teacher_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
         }
 
-        private void iconButton1_Click_1(object sender, EventArgs e)
-        {
-            ActivateButton(sender, RGBColors.color4);
-            OpenChildForm(new GUI.TeacherACC.frmAttendance());
-        }
     }
 }

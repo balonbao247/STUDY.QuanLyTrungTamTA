@@ -23,28 +23,43 @@ namespace GUI.TeacherACC
 
         private void frmAttendance_Load(object sender, EventArgs e)
         {
-            List<DTO_Course> courses = BUS_Course.Instance.GetCoursesByTeacherID(Session.CurrentUsername);
-
-            cboCourse.DataSource = courses;
-            cboCourse.DisplayMember = "CourseID";   // Thuộc tính tên khóa học
-            cboCourse.ValueMember = "CourseID";
-
-            string courseId = cboCourse.SelectedValue.ToString();
-            DataTable uniqueDates = BUS_StudentAttendance.Instance.GetDistinctAttendanceDatesByCourse(courseId);
-
-            // Chuyển đổi DataTable để hiển thị ngày dưới định dạng 'dd/MM/yyyy'
-            DataTable displayDates = uniqueDates.Copy();
-            displayDates.Columns.Add("FormattedDate", typeof(string));
-
-            foreach (DataRow row in displayDates.Rows)
+            try
             {
-                row["FormattedDate"] = ((DateTime)row["AttendanceDate"]).ToString("dd/MM/yyyy");
-            }
+                List<DTO_Course> courses = BUS_Course.Instance.GetCoursesByTeacherID(Session.CurrentUsername);
 
-            // Gán lại DataSource cho ComboBox
-            cboDate.DataSource = displayDates;
-            cboDate.DisplayMember = "FormattedDate";  // Hiển thị cột mới chứa định dạng ngày
-            cboDate.ValueMember = "AttendanceDate";
+                if (courses == null || courses.Count == 0)
+                {
+                    MessageBox.Show("Giáo viên hiện không có khóa học nào.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    cboCourse.DataSource = null;
+                    cboDate.DataSource = null;
+                    return;
+                }
+
+                cboCourse.DataSource = courses;
+                cboCourse.DisplayMember = "CourseID";   // Hoặc bạn có thể dùng "CourseName" nếu muốn hiển thị tên
+                cboCourse.ValueMember = "CourseID";
+
+                string courseId = cboCourse.SelectedValue.ToString();
+                DataTable uniqueDates = BUS_StudentAttendance.Instance.GetDistinctAttendanceDatesByCourse(courseId);
+
+                // Chuyển đổi DataTable để hiển thị ngày dưới định dạng 'dd/MM/yyyy'
+                DataTable displayDates = uniqueDates.Copy();
+                displayDates.Columns.Add("FormattedDate", typeof(string));
+
+                foreach (DataRow row in displayDates.Rows)
+                {
+                    row["FormattedDate"] = ((DateTime)row["AttendanceDate"]).ToString("dd/MM/yyyy");
+                }
+
+                // Gán lại DataSource cho ComboBox
+                cboDate.DataSource = displayDates;
+                cboDate.DisplayMember = "FormattedDate";
+                cboDate.ValueMember = "AttendanceDate";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi khi tải dữ liệu: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
 
         }

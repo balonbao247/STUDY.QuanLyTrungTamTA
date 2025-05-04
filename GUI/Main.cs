@@ -28,11 +28,7 @@ namespace GUI
             this.DoubleBuffered = true;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
         }
-        private void Main_Load(object sender, EventArgs e)
-        {
-            
-
-        }
+       
 
         private struct RGBColors
         {
@@ -97,7 +93,12 @@ namespace GUI
             tieude2.Text = childForm.Text;
         }
 
+        private void Main_Load(object sender, EventArgs e)
+        {
+            ActivateButton(btnDashboard, RGBColors.color1);
+            OpenChildForm(new GUI.Resources.Dashboard());
 
+        }
         private void btnDashboard_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
@@ -189,6 +190,7 @@ namespace GUI
             this.FormBorderStyle = FormBorderStyle.None;
             this.Bounds = Screen.PrimaryScreen.Bounds; // Full screen
 
+            
             int screenWidth = this.Width;
             int screenHeight = this.Height;
         }
@@ -232,6 +234,7 @@ namespace GUI
         {
             ChangePass changePass = new ChangePass();
             BlurBackground blurBackground = new BlurBackground();
+
             
             blurBackground.Show();
             changePass.ShowDialog();

@@ -119,17 +119,16 @@
             // 
             // avatar
             // 
-            this.avatar.Dock = System.Windows.Forms.DockStyle.Left;
             this.avatar.Image = global::GUI.Properties.Resources.profile_3135768;
             this.avatar.ImageRotate = 0F;
-            this.avatar.Location = new System.Drawing.Point(400, 0);
+            this.avatar.Location = new System.Drawing.Point(511, -3);
             this.avatar.Name = "avatar";
             this.avatar.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.avatar.Size = new System.Drawing.Size(64, 100);
             this.avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.avatar.TabIndex = 2;
             this.avatar.TabStop = false;
-            this.avatar.Click += new System.EventHandler(this.avatar_Click);
+
             // 
             // guna2Panel3
             // 
@@ -137,7 +136,7 @@
             this.guna2Panel3.Dock = System.Windows.Forms.DockStyle.Left;
             this.guna2Panel3.Location = new System.Drawing.Point(200, 0);
             this.guna2Panel3.Name = "guna2Panel3";
-            this.guna2Panel3.Size = new System.Drawing.Size(200, 100);
+            this.guna2Panel3.Size = new System.Drawing.Size(267, 100);
             this.guna2Panel3.TabIndex = 1;
             // 
             // label1
@@ -147,9 +146,9 @@
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label1.Location = new System.Drawing.Point(38, 28);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(142, 42);
+            this.label1.Size = new System.Drawing.Size(204, 42);
             this.label1.TabIndex = 0;
-            this.label1.Text = "ADMIN";
+            this.label1.Text = "TEACHER";
             // 
             // guna2Panel1
             // 
